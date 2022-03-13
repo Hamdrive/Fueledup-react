@@ -1,3 +1,14 @@
-## E-Commerce Backend
+<div align="center">
+  
+# FueledUp (boosted with React)
 
-This folder contains the Mock Backend created for E-Commerce App. It contains different API end-points and database configuration for building E-Commerce; so that you can focus on building Frontend.
+### FueledUp is an e-commerce platform for all things Formula1. <br /> Now supercharged with React under the hood
+
+Guaranteed to find the best deals on your team's apparel and other merchandise!
+
+![Forks](https://img.shields.io/github/forks/Hamdrive/FueledUp-React)
+![Stars](https://img.shields.io/github/stars/Hamdrive/FueledUp-React)
+
+</div>
+
+---
