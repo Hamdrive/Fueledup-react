@@ -1,0 +1,240 @@
+
+/* Basic layout styles of all pages */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+/* Style icon for CTA on homepage */
+.rotate-icon {
+  transform: rotate(20deg);
+}
+
+/* Grid styles */
+.grid-cols-auto {
+  grid-template-columns: repeat(auto-fit, 18rem);
+  grid-auto-flow: row;
+}
+
+.grid-cols-2-1 {
+  grid-template-columns: 2fr 1fr;
+}
+
+.gap-3 {
+  gap: 3rem;
+}
+
+.gap-4 {
+  gap: 10rem;
+}
+
+/* Flexbox styles */
+.align-center {
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-basis-25 {
+  flex-basis: 25%;
+}
+
+/* Positioning styles */
+.pos-rel {
+  position: relative;
+}
+
+/* Margin styles */
+.mt-1 {
+  margin-top: var(--size-9);
+}
+
+.mt-2 {
+  margin-top: var(--size-13);
+}
+
+.mt-3 {
+  margin-top: var(--size-17);
+}
+
+.mt-5 {
+  margin-top: var(--size-22);
+}
+
+.mx-2 {
+  margin: 0 var(--size-13);
+}
+
+.mr-sm {
+  margin-right: var(--size-5);
+}
+
+.mr-1 {
+  margin-right: var(--size-9);
+}
+
+.mr-2 {
+  margin-right: var(--size-13);
+}
+
+.mr-3 {
+  margin-right: var(--size-15);
+}
+
+.mb-1 {
+  margin-bottom: var(--size-9);
+}
+
+.mb-sm {
+  margin-bottom: var(--size-5);
+}
+
+/* Padding styles */
+.pl-2 {
+  padding-left: var(--size-13);
+}
+
+.pr-4 {
+  padding-right: var(--size-21);
+}
+
+/* Overflow styles */
+.ovy-scroll {
+  overflow-y: scroll;
+}
+
+/* Button styles */
+.btn-md {
+  padding: var(--size-5) var(--size-9);
+}
+
+.btn:hover {
+  transform: none;
+}
+
+.btn-cta {
+  background-color: var(--badge-yellow);
+  padding: var(--size-7) var(--size-9);
+}
+
+.btn-cta:hover {
+  background-color: rgba(245, 158, 11, 0.7);
+}
+
+.btn-login {
+  background-color: var(--badge-yellow);
+  padding: var(--size-5) var(--size-9);
+}
+
+.btn-wish {
+  padding: var(--size-7) var(--size-9);
+  outline: 2px solid var(--primary-dark-color);
+  color: var(--primary-dark-color);
+}
+
+.btn-wish:hover {
+  background-color: var(--primary-extra-light-color);
+}
+
+/* Border styles */
+.border-r-2 {
+  border-right: 2px solid var(--secondary-color);
+}
+
+.form-border {
+  border: 2px solid var(--primary-dark-color);
+  border-radius: var(--radius-extra-large);
+}
+
+/* Badge on icon styles */
+.badge-count {
+  min-width: var(--size-11);
+  height: var(--size-11);
+}
+
+/* Width styles */
+.w-60 {
+  width: 60%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.max-width-1000 {
+  max-width: 1000px;
+}
+
+/* General styles */
+.txt-capitalize {
+  text-transform: capitalize;
+}
+
+.txt-wrap {
+  white-space: normal;
+}
+
+.strike-color {
+  color: var(--btn-error-color);
+}
+
+.blur {
+  filter: opacity(40%);
+  height: auto;
+}
+
+/* Card icon button styles */
+.remove-card-btn,
+.wish-heart-btn {
+  transform: translate(-50%, 50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Page title for Cart and Wishlist*/
+.page-title {
+  display: flex;
+  justify-content: center;
+}
+
+.page-content {
+  padding-top: var(--size-9);
+  padding-bottom: var(--size-9);
+}
+
+/* Cursor pointer */
+.pointer {
+  cursor: pointer;
+}
+
+/* Input visibility toggle */
+.input-toggle i {
+  right: 0;
+  top: 50%;
+  transform: translate(-25%, -50%);
+  color: var(--primary-dark-color);
+  padding: var(--size-5);
+  border-radius: 50%;
+}
+
+.input-toggle i:hover {
+  background-color: var(--primary-extra-light-color);
+}
+
+/* Alternate auth text Login/Signup */
+.alt-auth-txt {
+  color: var(--primary-dark-color);
+}
+
+@media screen and (max-width: 480px) {
+  .btn-product {
+    width: 90%;
+  }
+}
+
+
+
