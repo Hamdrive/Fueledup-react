@@ -1,3 +1,6 @@
+:root {
+  --color-out-of-stock: hsla(0, 0%, 50%, 0.7);
+}
 
 /* Basic layout styles of all pages */
 .wrapper {
@@ -5,7 +8,6 @@
   flex-direction: column;
   min-height: 100vh;
 }
-
 
 /* Style icon for CTA on homepage */
 .rotate-icon {
@@ -30,6 +32,14 @@
   gap: 10rem;
 }
 
+.grid-20-80 {
+  grid-template-columns: 20% 1fr;
+}
+
+.grid-20-80 {
+  grid-template-columns: 20% 1fr;
+}
+
 /* Flexbox styles */
 .align-center {
   align-items: center;
@@ -39,8 +49,8 @@
   flex-wrap: wrap;
 }
 
-.flex-basis-25 {
-  flex-basis: 25%;
+.flex-basis-20 {
+  flex-basis: 20%;
 }
 
 /* Positioning styles */
@@ -94,6 +104,9 @@
 }
 
 /* Padding styles */
+.py-3 {
+  padding: var(--size-17) 0;
+}
 .pl-2 {
   padding-left: var(--size-13);
 }
@@ -187,6 +200,37 @@
   height: auto;
 }
 
+/* Align product page to right  */
+.align-content-right {
+  margin-left: 18rem;
+  width: calc(100% - 18rem);
+}
+
+/* Filter styles */
+.filter-pos-size {
+  position: fixed;
+  width: 18rem;
+  height: 100vh;
+}
+
+.filter-section {
+  height: 70vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.rating {
+  background-color: var(--primary-extra-light-color);
+  padding: var(--size-3) var(--size-5);
+  border-radius: var(--radius-large);
+}
+
+.checkbox,
+.radiobutton {
+  width: fit-content;
+  transform: scale(1.2);
+}
+
 /* Card icon button styles */
 .remove-card-btn,
 .wish-heart-btn {
@@ -236,5 +280,53 @@
   }
 }
 
+/* Media queries to handle filter responnsiveness on large screens */
+@media screen and (min-width: 769px) {
+  footer .grid-cols-2 {
+    grid-template-columns: 0;
+  }
+}
 
+/* Media queries to handle filter responnsiveness upto large screens */
+@media screen and (max-width: 768px) {
+  .align-content-right {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .mob-hide {
+    display: none;
+  }
 
+  .filters {
+    width: 100%;
+  }
+
+  .mob-header {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin: var(--size-11) 0;
+  }
+
+  .mob-aside {
+    position: relative;
+    min-height: 0;
+    height: fit-content;
+    padding-left: 0;
+    margin-top: 0;
+  }
+
+  /* .my-3 {
+    margin: 0;
+  } */
+}
+
+/* Media queries to handle upto large screens */
+@media screen and (max-width: 650px) {
+  .grid-cols-auto {
+    grid-template-columns: 0;
+  }
+  .grid-col-1 {
+    grid-template-columns: minmax(min-content, auto);
+  }
+}
