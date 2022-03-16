@@ -1,0 +1,24 @@
+/* Footer styling */
+.footer {
+  background-color: var(--secondary-color);
+  color: var(--secondary-light-color);
+  font-size: var(--size-10);
+}
+
+.footer-info {
+  width: 100%;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+@media screen and (max-width: 350px) {
+  .footer .px-lg {
+    padding: 0 var(--size-7);
+  }
+
+  .footer {
+    font-size: inherit;
+  }
+}
