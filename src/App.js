@@ -1,12 +1,7 @@
 import {Routes, Route} from "react-router-dom"
-import Cart from "./pages/cart/Cart.jsx"
-import Wishlist from "./pages/wishlist/Wishlist.jsx"
-import Signup from "./pages/signup/Signup.jsx"
-import Login from "./pages/login/Login.jsx"
-import Products from "./pages/products/Products.jsx";
-import Home from "./pages/home/Home";
+import {Home, Products, Cart, Wishlist, Login, Signup} from "./pages/index.jsx"
 
-function App() {
+export default function App() {
   return (
       <Routes>
         <Route path="/" element={<Home />}/>
@@ -18,5 +13,3 @@ function App() {
       </Routes>
   );
 }
-
-export default App;
