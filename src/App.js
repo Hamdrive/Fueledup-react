@@ -1,5 +1,5 @@
 import {Routes, Route} from "react-router-dom"
-import {Home, Products, Cart, Wishlist, Login, Signup} from "./pages/index.jsx"
+import {Home, Products, Cart, Wishlist, Login, Signup} from "./pages"
 
 export default function App() {
   return (
