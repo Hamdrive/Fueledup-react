@@ -3,11 +3,11 @@ import "../styles/footer.css"
 
 export function Footer() {
   return (
-    <div class="py-md footer footer-doc">
-      <footer class="max-width-1200 grid grid-cols-2 gap-2 grid-ver-center mx-auto px-lg">
-        <div class="footer-info">
-          <div class="footer-social py-sm">Quick&nbsp;Links</div>
-          <ul class="footer-social-icons grid grid-col-1 gap-1 py-sm">
+    <div className="py-md footer footer-doc">
+      <footer className="max-width-1200 grid grid-cols-2 gap-2 grid-ver-center mx-auto px-lg">
+        <div className="footer-info">
+          <div className="footer-social py-sm">Quick&nbsp;Links</div>
+          <ul className="footer-social-icons grid grid-col-1 gap-1 py-sm">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -22,35 +22,35 @@ export function Footer() {
             </li>
           </ul>
         </div>
-        <div class="footer-brief">
-          <div class="footer-social py-sm">Socials</div>
-          <ul class="footer-social-icons dis-flex gap-2 py-sm">
+        <div className="footer-brief">
+          <div className="footer-social py-sm">Socials</div>
+          <ul className="footer-social-icons dis-flex gap-2 py-sm">
             <li>
               <a href="https://github.com/Hamdrive">
-                <i class="fab fa-github"></i>
+                <i className="fab fa-github"></i>
               </a>
             </li>
             <li>
               <a href="https://twitter.com/itsHamhere">
-                <i class="fab fa-twitter-square"></i>
+                <i className="fab fa-twitter-square"></i>
               </a>
             </li>
             <li>
               <a href="https://www.linkedin.com/in/hamza-husein/">
-                <i class="fab fa-linkedin"></i>
+                <i className="fab fa-linkedin"></i>
               </a>
             </li>
             <li>
               <a href="https://peerlist.io/hamza">
-                <i class="fas fa-parking"></i>
+                <i className="fas fa-parking"></i>
               </a>
             </li>
           </ul>
-          <div class="py-sm">
+          <div className="py-sm">
             Designed with 💚 by
             <strong> Hamza Husein </strong>
           </div>
-          <div class="py-sm">© FueledUp, 2022. All rights reserved.</div>
+          <div className="py-sm">© FueledUp, 2022. All rights reserved.</div>
         </div>
       </footer>
     </div>
