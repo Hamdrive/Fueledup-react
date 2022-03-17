@@ -15,7 +15,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647539121/Products%20Images/Clothes/clothes-MAMG.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "25",
-    productRating: "3.9",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -28,7 +28,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647539145/Products%20Images/Clothes/clothes-RBR.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "10",
-    productRating: "4.7",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -41,7 +41,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647539225/Products%20Images/Clothes/clothes-AT.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "15",
-    productRating: "3.2",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -54,7 +54,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647539203/Products%20Images/Clothes/clothes-AMR.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "5",
-    productRating: "4.1",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -67,7 +67,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647539178/Products%20Images/Clothes/clothes-SF.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "2",
-    productRating: "4.3",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -80,7 +80,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647538501/Products%20Images/Masks/masks-FWR.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "20",
-    productRating: "4.3",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -93,7 +93,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647538469/Products%20Images/Masks/masks-AMR.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "10",
-    productRating: "4.9",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -106,7 +106,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647538429/Products%20Images/Masks/masks-MAMG.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "40",
-    productRating: "4.3",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -119,7 +119,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647538188/Products%20Images/Masks/masks-RBR.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "10",
-    productRating: "3.3",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -132,7 +132,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647538401/Products%20Images/Masks/masks-MCL.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "30",
-    productRating: "4.4",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -145,7 +145,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647538910/Products%20Images/Bags/bags-MCL.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "10",
-    productRating: "4.1",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -158,7 +158,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647538735/Products%20Images/Bags/bags-SF.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "5",
-    productRating: "3.7",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -171,7 +171,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647538758/Products%20Images/Bags/bag-AMR.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "20",
-    productRating: "4.4",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -184,7 +184,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647538631/Products%20Images/Bags/bags-BWTA.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "25",
-    productRating: "4.2",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -197,7 +197,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647538886/Products%20Images/Bags/bags-AT.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "15",
-    productRating: "4.6",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -210,7 +210,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647537785/Products%20Images/Models/model-SF.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "30",
-    productRating: "4.1",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -223,7 +223,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647537859/Products%20Images/Models/models-MAMG.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "25",
-    productRating: "3.2",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -236,7 +236,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647536336/Products%20Images/Models/models-BWTA.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "33",
-    productRating: "4.5",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -249,7 +249,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647536249/Products%20Images/Models/models-MCL.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "10",
-    productRating: "3.6",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -262,7 +262,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647537947/Products%20Images/Models/models-RBR.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "12",
-    productRating: "4.2",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -275,7 +275,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647539750/Products%20Images/Headwear/headwear-RBR.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "5",
-    productRating: "4.8",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -288,7 +288,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647539638/Products%20Images/Headwear/headwear-MCL.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "12",
-    productRating: "3.9",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -301,7 +301,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647539722/Products%20Images/Headwear/headwear-SF.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "8",
-    productRating: "4.1",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -314,7 +314,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647539693/Products%20Images/Headwear/headwear-AMR.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "17",
-    productRating: "4.2",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
@@ -327,7 +327,7 @@ export const products = [
     productImage: "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647539670/Products%20Images/Headwear/headwear-MAMG.webp",
     productDescription: "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "20",
-    productRating: "3.6",
+    productRating: ((Math.random() * 4)+1).toFixed(1),
     fastDelivery: false,
     inStock: true
   },
