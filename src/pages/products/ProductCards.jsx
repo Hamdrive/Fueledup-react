@@ -9,7 +9,6 @@ export default function ProductCards() {
   async function getProducts() {
     try {
       const res = await axios.get("/api/products");
-      console.log(res.data.products);
       setProducts(res.data.products);
     } catch (error) {
       console.log(error);
@@ -21,9 +20,11 @@ export default function ProductCards() {
   }, []);
   return (
     <section
-      className={`grid ${styles.grid__cols__auto} ${styles.grid__col__1} ${styles.grid__cols__2} gap-2 my-3 px-md`}>
+      className={`min-h-100 grid ${styles.grid__cols__auto} ${styles.grid__col__1} ${styles.grid__cols__2} gap-2 my-3 px-md`}>
       {products.map((product) => (
-        <div className={`pos-rel card ${styles.card} mx-auto`}>
+        <div
+          key={product._id}
+          className={`pos-rel card ${styles.card} mx-auto`}>
           {!product.inStock && (
             <div
               className={`brief-overlay ${styles.brief__overlay} pos-ab top-left-pos`}>
@@ -51,9 +52,11 @@ export default function ProductCards() {
             <div className="flex-row align-center mt-1">
               <div className="dis-flex flex-wrap align-center">
                 <p className="txt-md txt-semibold mr-sm">
-                  ₹
-                  {Number(product.price) *
-                    (1 - Number(product.productDiscount / 100))}
+                  ₹{" "}
+                  {parseInt(
+                    Number(product.price) *
+                      (1 - Number(product.productDiscount / 100))
+                  )}
                 </p>
                 <s className="strike-color txt-semibold">₹{product.price}</s>
               </div>
