@@ -51,13 +51,11 @@ export default function ProductCards() {
             <div className="flex-row align-center mt-1">
               <div className="dis-flex flex-wrap align-center">
                 <p className="txt-md txt-semibold mr-sm">
-                  ₹{" "}
+                  ₹
                   {Number(product.price) *
-                    (
-                      1 - Number(`0.${Number(product.productDiscount)}`)
-                    )}
+                    (1 - Number(product.productDiscount / 100))}
                 </p>
-                <s className="strike-color txt-semibold">₹ {product.price}</s>
+                <s className="strike-color txt-semibold">₹{product.price}</s>
               </div>
               <p className="flex-basis-20 txt-sm txt-bold ml-auto rating">
                 <i className="fas fa-sm fa-star"></i>
