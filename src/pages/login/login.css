@@ -1,0 +1,34 @@
+/* Login page styles */
+.login-page {
+    min-height: 80vh;
+    position: relative;
+  }
+  
+  .login-modal {
+    max-width: 32rem;
+    margin: auto;
+    position: relative;
+  }
+  
+  .login-title {
+    border-bottom: 2px solid var(--primary-dark-color);
+    padding: var(--size-5);
+  }
+  
+  /* Checkbox in login styles */
+  .input-checkbox {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .input-checkbox input[type="checkbox"] {
+    margin-left: var(--size-3);
+  }
+  
+  /* Media query for login page on medium mobiles and up */
+  @media screen and (max-width: 480px) {
+    .forgot {
+      margin: var(--size-5) 0;
+    }
+  }
+  

@@ -1,0 +1,42 @@
+/* Sign up page styles */
+.sign-up-page {
+    min-height: 80vh;
+    position: relative;
+  }
+  
+  .sign-up-modal {
+    max-width: 32rem;
+    margin: auto;
+    position: relative;
+  }
+  
+  .sign-up-title {
+    border-bottom: 2px solid var(--primary-dark-color);
+    padding: var(--size-5);
+  }
+  
+  .input-section,
+  .input-checkbox {
+    margin: 0;
+  }
+  
+  .form-input {
+    font-size: var(--size-9);
+  }
+  
+  .input-required::after {
+    font-size: var(--size-11);
+  }
+  
+  @media screen and (min-width: 481px) {
+    .grid-span-2 {
+      grid-column: span 2;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .input-section {
+      grid-column: span 2;
+    }
+  }
+  
