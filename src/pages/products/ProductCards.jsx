@@ -55,7 +55,7 @@ export default function ProductCards() {
                   {Number(product.price) *
                     (
                       1 - Number(`0.${Number(product.productDiscount)}`)
-                    ).toFixed(0)}
+                    )}
                 </p>
                 <s className="strike-color txt-semibold">₹ {product.price}</s>
               </div>
