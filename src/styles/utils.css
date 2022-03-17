@@ -293,7 +293,7 @@
     margin-left: 0;
     width: 100%;
   }
-  
+
   .mob-hide {
     display: none;
   }
@@ -316,9 +316,6 @@
     margin-top: 0;
   }
 
-  /* .my-3 {
-    margin: 0;
-  } */
 }
 
 /* Media queries to handle upto large screens */

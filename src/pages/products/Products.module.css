@@ -25,10 +25,6 @@
   color: var(--color-white);
 }
 
-/* .card-brief {
-  padding: 0 var(--size-5);
-} */
-
 .wish__heart__btn {
   width: var(--size-15);
   height: var(--size-15);
