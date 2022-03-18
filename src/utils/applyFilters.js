@@ -6,6 +6,11 @@ export function applyFilters(state, action) {
       (existingCategory) => existingCategory !== category
     );
   }
+  function updateBrands(state, brand) {
+    return state["brands"].filter(
+      (existingBrand) => existingBrand !== brand
+    );
+  }
 
   switch (action.type) {
     case "LOW":
@@ -26,6 +31,13 @@ export function applyFilters(state, action) {
         categories: state["categories"].includes(action.payload)
           ? updateCategories(state, action.payload)
           : state["categories"].concat(action.payload),
+      };
+    case "BRAND":
+      return {
+        ...state,
+        brands: state["brands"].includes(action.payload)
+          ? updateBrands(state, action.payload)
+          : state["brands"].concat(action.payload),
       };
     case "CLEAR":
       return { ...filterSpecification };
