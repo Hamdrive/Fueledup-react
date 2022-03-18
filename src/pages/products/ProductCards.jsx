@@ -2,6 +2,7 @@ import styles from "./Products.module.css";
 import Hat from "../../assets/card-img1.png";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useProducts } from "../../utils/product-context";
 
 export default function ProductCards() {
   const [products, setProducts] = useState([]);
@@ -18,10 +19,13 @@ export default function ProductCards() {
   useEffect(() => {
     getProducts();
   }, []);
+
+  const { finalProducts } = useProducts();
+  console.log(finalProducts)
   return (
     <section
       className={`min-h-100 grid ${styles.grid__cols__auto} ${styles.grid__col__1} ${styles.grid__cols__2} gap-2 my-3 px-md`}>
-      {products.map((product) => (
+      {finalProducts.map((product) => (
         <div
           key={product._id}
           className={`pos-rel card ${styles.card} mx-auto`}>
@@ -47,16 +51,12 @@ export default function ProductCards() {
           <div className="card-title flex-col flex-grow-1">
             <p className="txt-md txt-bold">{product.title}</p>
             <p className="txt-reg txt-semibold">
-              {product.author} - {product.categoryName}
+              {product.team} - {product.categoryName}
             </p>
             <div className="flex-row align-center mt-1">
               <div className="dis-flex flex-wrap align-center">
                 <p className="txt-md txt-semibold mr-sm">
-                  ₹{" "}
-                  {parseInt(
-                    Number(product.price) *
-                      (1 - Number(product.productDiscount / 100))
-                  )}
+                  ₹ {product.productDiscountPrice}
                 </p>
                 <s className="strike-color txt-semibold">₹{product.price}</s>
               </div>
