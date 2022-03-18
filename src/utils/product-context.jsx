@@ -6,7 +6,6 @@ import {
   useReducer,
   useEffect,
 } from "react";
-import { applyFilters } from "./applyFilters";
 import {
   fastDelivery,
   inStock,
@@ -15,9 +14,10 @@ import {
   userBrand,
   userCategory,
   userRating,
-} from "./filterFunctions";
-import { filterSpecification } from "./filterSpecification";
-import { getFinalProducts } from "./getFinalProducts";
+} from "./filters/filterFunctions";
+import { applyFilters } from "./filters/applyFilters";
+import { filterSpecification } from "./filters/filterSpecification";
+import { getFinalProducts } from "./filters/getFinalProducts";
 
 const ProductContext = createContext(filterSpecification);
 
