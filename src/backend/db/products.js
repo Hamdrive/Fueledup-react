@@ -29,7 +29,7 @@ export const products = [
   {
     _id: uuid(),
     title: "RBR Team T-Shirt",
-    team: "RedBall",
+    team: "Red-Ball",
     price: "2500",
     categoryName: "Clothes",
     productImage:
