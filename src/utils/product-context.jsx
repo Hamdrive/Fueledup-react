@@ -6,7 +6,9 @@ import {
   useEffect,
 } from "react";
 import { applyFilters } from "./applyFilters";
+import { fastDelivery, inStock, priceRange, sortByPrice, userCategory, userRating } from "./filterFunctions";
 import { filterSpecification } from "./filterSpecification";
+import { getFinalProducts } from "./getFinalProducts";
 
 const ProductContext = createContext(filterSpecification);
 
@@ -15,7 +17,8 @@ const useProducts = () => useContext(ProductContext);
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [state, dispatch] = useReducer(applyFilters, filterSpecification);
-  useMemo
+
+  const finalProducts = getFinalProducts(sortByPrice, inStock, fastDelivery, userRating, userCategory, priceRange)(state, [...products]);
 
   useEffect(() => {
     {
@@ -31,10 +34,10 @@ const ProductProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={{ state, dispatch }}>
+    <ProductContext.Provider value={{ finalProducts, state, dispatch }}>
       {children}
     </ProductContext.Provider>
   );
 };
 
-export { ProductContext, useProducts };
+export { ProductProvider, useProducts };
