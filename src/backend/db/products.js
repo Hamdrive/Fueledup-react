@@ -17,8 +17,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "25",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -35,8 +37,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "10",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -53,8 +57,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "15",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -71,8 +77,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "5",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -89,8 +97,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "2",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -107,8 +117,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "20",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -125,8 +137,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "10",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -143,8 +157,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "40",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -161,8 +177,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "10",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -179,8 +197,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "30",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -197,8 +217,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "10",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -215,8 +237,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "5",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -233,8 +257,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "20",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -251,8 +277,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "25",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -269,8 +297,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "15",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -286,10 +316,13 @@ export const products = [
       "https://res.cloudinary.com/fueledup-ecom/image/upload/v1647537785/Products%20Images/Models/model-SF.webp",
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    productDiscount: "12",
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
-      productRating: (Math.random() * 4 + 1).toFixed(1),
+    productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
     inStock: true,
   },
@@ -304,8 +337,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "25",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -322,8 +357,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "33",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -340,8 +377,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "10",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -358,8 +397,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "12",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -376,8 +417,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "5",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -394,8 +437,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "12",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -412,8 +457,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "8",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -430,8 +477,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "17",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
@@ -448,8 +497,10 @@ export const products = [
     productDescription:
       "This comfortable Replica Team McLaren hoodie is a perfect outer layer for any McLaren fan. This lightweight and breathable hoodie is engineered to perform at the highest level.",
     productDiscount: "20",
-        get productDiscountPrice() {
-      return Math.ceil((Number(this.price) * (1 - Number(this.productDiscount / 100)))).toString();
+    get productDiscountPrice() {
+      return Math.ceil(
+        Number(this.price) * (1 - Number(this.productDiscount / 100))
+      ).toString();
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
