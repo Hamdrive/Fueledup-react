@@ -3,6 +3,7 @@ export const filterSpecification = {
     inStock: false,
     fastDelivery: false,
     priceRange: 7500,
-    ratings: 1,
-    categories: []
+    ratings: 0,
+    categories: [],
+    brands: [],
 }
