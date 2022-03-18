@@ -67,8 +67,8 @@ export function Filters() {
                 type="checkbox"
                 className="checkbox mr-3"
                 name="category"
-                id="Clothing"
-                value="Clothing"
+                id="Clothes"
+                value="Clothes"
               />
               Clothes
             </label>
