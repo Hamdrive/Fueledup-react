@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-export function ApplyFilters(state, action) {
+export function applyFilters(state, action) {
     switch (action.type) {
         case value:
             

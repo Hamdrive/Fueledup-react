@@ -1,4 +1,4 @@
-export const FilterSpecification = {
+export const filterSpecification = {
     priceSort: "",
     inStock: false,
     fastDelivery: false,

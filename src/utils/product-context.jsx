@@ -5,16 +5,17 @@ import {
   useReducer,
   useEffect,
 } from "react";
-import { ApplyFilters } from "./ApplyFilters";
-import { FilterSpecification } from "./FilterSpecification";
+import { applyFilters } from "./applyFilters";
+import { filterSpecification } from "./filterSpecification";
 
-const ProductContext = createContext(FilterSpecification);
+const ProductContext = createContext(filterSpecification);
 
 const useProducts = () => useContext(ProductContext);
 
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const [state, dispatch] = useReducer(ApplyFilters ,FilterSpecification);
+  const [state, dispatch] = useReducer(applyFilters, filterSpecification);
+  useMemo
 
   useEffect(() => {
     {
