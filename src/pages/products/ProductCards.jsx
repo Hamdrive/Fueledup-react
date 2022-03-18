@@ -1,31 +1,16 @@
 import styles from "./Products.module.css";
-import Hat from "../../assets/card-img1.png";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { useProducts } from "../../utils/product-context";
 
 export default function ProductCards() {
-  const [products, setProducts] = useState([]);
-
-  async function getProducts() {
-    try {
-      const res = await axios.get("/api/products");
-      setProducts(res.data.products);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
   const { finalProducts } = useProducts();
-  console.log(finalProducts)
+
   return (
     <section
       className={`min-h-100 grid ${styles.grid__cols__auto} ${styles.grid__col__1} ${styles.grid__cols__2} gap-2 my-3 px-md`}>
-      {finalProducts.length === 0 && <div className="h1">No Products Available :(</div>}
+      {finalProducts.length === 0 && (
+        <div className="h1">No Products Available :(</div>
+      )}
       {finalProducts.map((product) => (
         <div
           key={product._id}
