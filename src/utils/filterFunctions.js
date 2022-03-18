@@ -1,8 +1,8 @@
 export function sortByPrice(state, data) {
   if (state.priceSort === "LOW")
-    return data.sort((a, b) => Number(a["price"]) - Number(b["price"]));
+    return data.sort((a, b) => Number(a["productDiscountPrice"]) - Number(b["productDiscountPrice"]));
   if (state.priceSort === "HIGH")
-    return data.sort((a, b) => Number(b["price"]) - Number(a["price"]));
+    return data.sort((a, b) => Number(b["productDiscountPrice"]) - Number(a["productDiscountPrice"]));
   return data;
 }
 
@@ -23,7 +23,8 @@ export function userRating(state, data) {
 
 export function priceRange(state, data) {
   return data.filter(
-    (product) => Number(product.price) >= Number(state.priceRange)
+    (product) =>
+      Number(product.productDiscountPrice) <= Number(state.priceRange)
   );
 }
 
@@ -32,5 +33,13 @@ export function userCategory(state, data) {
     ? data
     : data.filter((product) =>
         state["categories"].includes(product.categoryName)
+      );
+}
+
+export function userBrand(state, data) {
+  return state["brands"].length === 0
+    ? data
+    : data.filter((product) =>
+        state["brands"].includes(product.team)
       );
 }
