@@ -52,6 +52,7 @@ export function Filters() {
                 name="category"
                 id="Masks"
                 value="Masks"
+                checked={state["categories"].includes("Masks")}
               />
               Masks
             </label>
@@ -69,6 +70,7 @@ export function Filters() {
                 name="category"
                 id="Clothes"
                 value="Clothes"
+                checked={state["categories"].includes("Clothes")}
               />
               Clothes
             </label>
@@ -86,6 +88,7 @@ export function Filters() {
                 name="category"
                 id="Bags"
                 value="Bags"
+                checked={state["categories"].includes("Bags")}
               />
               Bags
             </label>
@@ -104,6 +107,7 @@ export function Filters() {
                 name="category"
                 id="Headwear"
                 value="Headwear"
+                checked={state["categories"].includes("Headwear")}
               />
               Headwear
             </label>
@@ -121,6 +125,7 @@ export function Filters() {
                 name="category"
                 id="Models"
                 value="Models"
+                checked={state["categories"].includes("Models")}
               />
               Models
             </label>
@@ -141,6 +146,7 @@ export function Filters() {
                 name="brand"
                 id="Alpeene"
                 value="Alpeene"
+                checked={state["brands"].includes("Alpeene")}
               />
               Alpeene
             </label>
@@ -158,6 +164,7 @@ export function Filters() {
                 name="brand"
                 id="Alpha-Ball"
                 value="Alpha-Ball"
+                checked={state["brands"].includes("Alpha-Ball")}
               />
               Alpha-Ball
             </label>
@@ -175,6 +182,7 @@ export function Filters() {
                 name="brand"
                 id="Anton Marten"
                 value="Anton Marten"
+                checked={state["brands"].includes("Anton Marten")}
               />
               Anton Marten
             </label>
@@ -190,10 +198,11 @@ export function Filters() {
                 type="checkbox"
                 className="checkbox mr-3"
                 name="brand"
-                id="Bclaren"
-                value="Bclaren"
+                id="BcLaren"
+                value="BcLaren"
+                checked={state["brands"].includes("BcLaren")}
               />
-              Bclaren
+              BcLaren
             </label>
           </article>
 
@@ -210,6 +219,7 @@ export function Filters() {
                 name="brand"
                 id="Merdeces"
                 value="Merdeces"
+                checked={state["brands"].includes("Merdeces")}
               />
               Merdeces
             </label>
@@ -227,6 +237,7 @@ export function Filters() {
                 name="brand"
                 id="Purrari"
                 value="Purrari"
+                checked={state["brands"].includes("Purrari")}
               />
               Purrari
             </label>
@@ -244,6 +255,7 @@ export function Filters() {
                 name="brand"
                 id="Red-Ball"
                 value="Red-Ball"
+                checked={state["brands"].includes("Red-Ball")}
               />
               Red-Ball
             </label>
@@ -261,6 +273,7 @@ export function Filters() {
                 name="brand"
                 id="Welleams"
                 value="Welleams"
+                checked={state["brands"].includes("Welleams")}
               />
               Welleams
             </label>
@@ -280,7 +293,7 @@ export function Filters() {
                 className="radiobutton mr-3"
                 name="review"
                 id="4"
-                checked={state.ratings === 4}
+                checked={state.ratings === "4"}
               />
               4 Stars & above
             </label>
@@ -297,7 +310,7 @@ export function Filters() {
                 className="radiobutton mr-3"
                 name="review"
                 id="3"
-                checked={state.ratings === 3}
+                checked={state.ratings === "3"}
               />
               3 Stars & above
             </label>
@@ -314,7 +327,7 @@ export function Filters() {
                 className="radiobutton mr-3"
                 name="review"
                 id="2"
-                checked={state.ratings === 2}
+                checked={state.ratings === "2"}
               />
               2 Stars & above
             </label>
@@ -331,7 +344,7 @@ export function Filters() {
                 className="radiobutton mr-3"
                 name="review"
                 id="1"
-                checked={state.ratings === 1}
+                checked={state.ratings === "1"}
               />
               1 Star & above
             </label>
