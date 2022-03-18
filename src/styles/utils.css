@@ -9,6 +9,10 @@
   min-height: 100vh;
 }
 
+.min-h-100{
+  min-height: 100vh;
+}
+
 /* Style icon for CTA on homepage */
 .rotate-icon {
   transform: rotate(20deg);
