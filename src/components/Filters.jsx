@@ -89,6 +89,98 @@ export function Filters() {
             </label>
           </article>
         </section>
+        {/* <section className="mt-2 px-md">
+          <h4 className="txt-black">Brands</h4>
+          <article className="mx-1 py-sm">
+            <input
+              type="checkbox"
+              className="checkbox mr-3"
+              name="category"
+              id="headwear"
+            />
+            <label htmlFor="headwear" className="txt-reg txt-semibold">
+              Alpeene
+            </label>
+          </article>
+          <article className="mx-1 py-sm">
+            <input
+              type="checkbox"
+              className="checkbox mr-3"
+              name="category"
+              id="masks"
+            />
+            <label htmlFor="masks" className="txt-reg txt-semibold">
+              Alpha-Ball
+            </label>
+          </article>
+          <article className="mx-1 py-sm">
+            <input
+              type="checkbox"
+              className="checkbox mr-3"
+              name="category"
+              id="clothing"
+            />
+            <label htmlFor="clothing" className="txt-reg txt-semibold">
+              Anton Marten
+            </label>
+          </article>
+          <article className="mx-1 py-sm">
+            <input
+              type="checkbox"
+              className="checkbox mr-3"
+              name="category"
+              id="bags"
+            />
+            <label htmlFor="bags" className="txt-reg txt-semibold">
+              Bclaren
+            </label>
+          </article>
+
+          <article className="mx-1 py-sm">
+            <input
+              type="checkbox"
+              className="checkbox mr-3"
+              name="category"
+              id="models"
+            />
+            <label htmlFor="models" className="txt-reg txt-semibold">
+              Merdeces
+            </label>
+          </article>
+          <article className="mx-1 py-sm">
+            <input
+              type="checkbox"
+              className="checkbox mr-3"
+              name="category"
+              id="models"
+            />
+            <label htmlFor="models" className="txt-reg txt-semibold">
+              Purrari
+            </label>
+          </article>
+          <article className="mx-1 py-sm">
+            <input
+              type="checkbox"
+              className="checkbox mr-3"
+              name="category"
+              id="models"
+            />
+            <label htmlFor="models" className="txt-reg txt-semibold">
+              Red-Ball
+            </label>
+          </article>
+          <article className="mx-1 py-sm">
+            <input
+              type="checkbox"
+              className="checkbox mr-3"
+              name="category"
+              id="models"
+            />
+            <label htmlFor="models" className="txt-reg txt-semibold">
+              Welleams
+            </label>
+          </article>
+        </section> */}
         <section className="mt-2 px-md">
           <h4 className="txt-black">Ratings</h4>
           <article className="mx-1 py-sm">
