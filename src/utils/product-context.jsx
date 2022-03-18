@@ -27,8 +27,6 @@ const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [state, dispatch] = useReducer(applyFilters, filterSpecification);
 
-  console.log(state)
-
   const finalProducts = getFinalProducts(
     sortByPrice,
     inStock,
