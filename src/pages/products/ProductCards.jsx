@@ -25,6 +25,7 @@ export default function ProductCards() {
   return (
     <section
       className={`min-h-100 grid ${styles.grid__cols__auto} ${styles.grid__col__1} ${styles.grid__cols__2} gap-2 my-3 px-md`}>
+      {finalProducts.length === 0 && <div className="h1">No Products Available :(</div>}
       {finalProducts.map((product) => (
         <div
           key={product._id}
