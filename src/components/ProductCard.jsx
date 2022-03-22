@@ -1,6 +1,9 @@
-import styles from "../pages/products/Products.module.css"
+import { useAuthProducts } from "../context/auth-products-context";
+import styles from "../pages/products/Products.module.css";
 
-export default function ProductCard({product}) {
+export default function ProductCard({ product }) {
+  const { state, dispatch } = useAuthProducts();
+
   return (
     <div key={product._id} className={`pos-rel card ${styles.card} mx-auto`}>
       {!product.inStock && (
@@ -17,7 +20,11 @@ export default function ProductCard({product}) {
       </div>
       <div
         className={`pos-ab ${styles.top__right__pos} flex-center ${styles.border__circle} ${styles.wish__heart__btn}`}>
-        <i className="far fa-heart"></i>
+        {state["wishlist"].some((item) => item.id === product._id) ? (
+          <i className={`fa fa-heart ${styles.fill} `}></i>
+        ) : (
+          <i className="far fa-heart "></i>
+        )}
       </div>
       <div className={`${styles.card__img}`}>
         <img src={product.productImage} alt="vertical card" />

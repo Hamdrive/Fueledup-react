@@ -43,6 +43,10 @@
   fill: var(--badge-red);
 }
 
+.fill {
+  color: var(--badge-red);
+}
+
 .border__circle {
   border-radius: 50%;
 }
