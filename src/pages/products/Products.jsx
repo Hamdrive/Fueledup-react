@@ -1,6 +1,6 @@
 import React from "react";
 import { Filters, Navbar, Footer } from "../../components/index";
-import ProductCards from "./ProductCards";
+import ProductItems from "./ProductItems";
 import "../../styles/utils.css";
 
 export function Products() {
@@ -12,7 +12,7 @@ export function Products() {
           <Filters />
         </div>
         <div className="align-content-right">
-          <ProductCards />
+          <ProductItems />
           <Footer />
         </div>
       </main>
