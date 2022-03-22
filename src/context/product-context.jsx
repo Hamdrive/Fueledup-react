@@ -26,6 +26,18 @@ const useProducts = () => useContext(ProductContext);
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [state, dispatch] = useReducer(applyFilters, filterSpecification);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await axios.get("/api/categories");
+        setCategories(res.data.categories);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
 
   const finalProducts = getFinalProducts(
     sortByPrice,
@@ -49,7 +61,7 @@ const ProductProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={{ finalProducts, state, dispatch }}>
+    <ProductContext.Provider value={{ categories, finalProducts, state, dispatch }}>
       {children}
     </ProductContext.Provider>
   );
