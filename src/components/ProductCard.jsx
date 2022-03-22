@@ -3,6 +3,7 @@ import styles from "../pages/products/Products.module.css";
 
 export default function ProductCard({ product }) {
   const { state, dispatch } = useAuthProducts();
+  console.log(state);
 
   return (
     <div key={product._id} className={`pos-rel card ${styles.card} mx-auto`}>
@@ -20,10 +21,18 @@ export default function ProductCard({ product }) {
       </div>
       <div
         className={`pos-ab ${styles.top__right__pos} flex-center ${styles.border__circle} ${styles.wish__heart__btn}`}>
-        {state["wishlist"].some((item) => item.id === product._id) ? (
-          <i className={`fa fa-heart ${styles.fill} `}></i>
+        {state["wishlist"].some((item) => item._id === product._id) ? (
+          <i
+            onClick={() =>
+              dispatch({ type: "REMOVE_FROM_WISHLIST", payload: product })
+            }
+            className={`fa fa-heart ${styles.fill} `}></i>
         ) : (
-          <i className="far fa-heart "></i>
+          <i
+            onClick={() =>
+              dispatch({ type: "ADD_TO_WISHLIST", payload: product })
+            }
+            className="far fa-heart "></i>
         )}
       </div>
       <div className={`${styles.card__img}`}>
@@ -49,10 +58,30 @@ export default function ProductCard({ product }) {
       </div>
       <hr />
       <div className="card-footer flex-around flex-grow-1">
-        <button className="btn btn-atc btn-cta btn-md txt-bold txt-reg w-100">
+        {state["cart"].some((item) => item.id === product._id) ? (
+          <button className="btn btn-wish btn-md txt-bold txt-reg w-100">
+            <i className="fas fa-shopping-cart"></i>
+            go to cart
+          </button>
+        ) : state["wishlist"].some((item) => item.id === product._id) ? (
+          <button className="btn btn-wish btn-md txt-bold txt-reg w-100">
+            <i className="fas fa-shopping-cart"></i>
+            move to cart
+          </button>
+        ) : (
+          <button className="btn btn-atc btn-cta btn-md txt-bold txt-reg w-100">
+            <i className="fas fa-shopping-cart"></i>
+            add to cart
+          </button>
+        )}
+        {/* <button className="btn btn-atc btn-cta btn-md txt-bold txt-reg w-100">
           <i className="fas fa-shopping-cart"></i>
-          Add to cart
+          add to cart
         </button>
+        <button className="btn btn-wish btn-md txt-bold txt-reg w-100">
+          <i className="fas fa-shopping-cart"></i>
+          go to cart
+        </button> */}
       </div>
     </div>
   );

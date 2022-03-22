@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-import "../styles/navbar.css"
+import { useAuthProducts } from "../context/auth-products-context";
+import "../styles/navbar.css";
 
 export function Navbar() {
+  const { state } = useAuthProducts();
   return (
     <div className="header pos-st top-left-pos py-md">
       <header className="max-width-1200 nav-main flex-row px-md mx-auto">
@@ -45,7 +47,7 @@ export function Navbar() {
                   <Link to="/wishlist">
                     <div className="fas fa-heart badge-icon txt-md px-sm"></div>
                     <div className="badge-count top-right-icon flex-center badge-yellow">
-                      0
+                      {state["wishlist"].length}
                     </div>
                   </Link>
                 </div>
