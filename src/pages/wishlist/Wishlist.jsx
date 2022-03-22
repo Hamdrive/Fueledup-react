@@ -1,13 +1,13 @@
 import React from "react";
 import { Footer, Navbar } from "../../components";
-import { WishlistCards } from "./WishlistCards";
+import { WishlistItems } from "./WishlistItems";
 
 export function Wishlist() {
   return (
     <>
       <Navbar />
       <main className="max-width-1200 mx-auto">
-        <WishlistCards />
+        <WishlistItems />
       </main>
       <Footer />
     </>

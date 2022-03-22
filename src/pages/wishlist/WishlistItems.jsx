@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Wishlist.module.css";
 import Hat from "../../assets/card-img1.png";
 
-export function WishlistCards() {
+export function WishlistItems() {
   return (
     <>
       <h2 className="page-title txt-bold mx-auto py-md">My Wishlist (4)</h2>
