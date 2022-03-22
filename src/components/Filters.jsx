@@ -1,4 +1,4 @@
-import { useProducts } from "../utils/product-context";
+import { useProducts } from "../context/product-context";
 
 export function Filters() {
   const { state, dispatch } = useProducts();

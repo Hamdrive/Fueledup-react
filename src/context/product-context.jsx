@@ -14,10 +14,10 @@ import {
   userBrand,
   userCategory,
   userRating,
-} from "./filters/filterFunctions";
-import { applyFilters } from "./filters/applyFilters";
-import { filterSpecification } from "./filters/filterSpecification";
-import { getFinalProducts } from "./filters/getFinalProducts";
+} from "../utils/filters/filterFunctions";
+import { applyFilters } from "../utils/filters/applyFilters";
+import { filterSpecification } from "../utils/filters/filterSpecification";
+import { getFinalProducts } from "../utils/filters/getFinalProducts";
 
 const ProductContext = createContext(filterSpecification);
 
