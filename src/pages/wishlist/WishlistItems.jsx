@@ -15,7 +15,7 @@ export function WishlistItems() {
       <section
         className={`min-h-100 grid ${styles.grid__cols__auto} ${styles.grid__col__1} ${styles.grid__cols__2} gap-2 my-3 px-md`}>
         {state["wishlist"].map((product) => (
-          <ProductCard product={product} />
+          <ProductCard key={product._id} product={product} />
         ))}
       </section>
     </>

@@ -3,10 +3,9 @@ import styles from "../pages/products/Products.module.css";
 
 export default function ProductCard({ product }) {
   const { state, dispatch } = useAuthProducts();
-  console.log(state);
 
   return (
-    <div key={product._id} className={`pos-rel card ${styles.card} mx-auto`}>
+    <div className={`pos-rel card ${styles.card} mx-auto`}>
       {!product.inStock && (
         <div
           className={`brief-overlay ${styles.brief__overlay} pos-ab top-left-pos`}>

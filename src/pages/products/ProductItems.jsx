@@ -13,7 +13,7 @@ export default function ProductItems() {
         <div className="h1">No Products Available :(</div>
       )}
       {finalProducts.map((product) => (
-        <ProductCard product={product}/>
+        <ProductCard key={product._id} product={product} />
       ))}
     </section>
   );
