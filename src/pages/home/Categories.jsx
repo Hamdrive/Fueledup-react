@@ -1,23 +1,10 @@
 import styles from "./Home.module.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useProducts } from "../../context/product-context";
 
 export default function Categories() {
-  const [categories, setCategories] = useState([]);
-
-  async function getCategories() {
-    try {
-      const res = await axios.get("/api/categories");
-      setCategories(res.data.categories);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    getCategories();
-  }, []);
-
+  const { categories } = useProducts();
   return (
     <section className="categories">
       <h3>

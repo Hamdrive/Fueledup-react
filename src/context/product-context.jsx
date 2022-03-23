@@ -6,7 +6,6 @@ import {
   useReducer,
   useEffect,
 } from "react";
-import { applyFilters } from "./applyFilters";
 import {
   fastDelivery,
   inStock,
@@ -15,9 +14,10 @@ import {
   userBrand,
   userCategory,
   userRating,
-} from "./filterFunctions";
-import { filterSpecification } from "./filterSpecification";
-import { getFinalProducts } from "./getFinalProducts";
+} from "../utils/filters/filterFunctions";
+import { applyFilters } from "../utils/filters/applyFilters";
+import { filterSpecification } from "../utils/filters/filterSpecification";
+import { getFinalProducts } from "../utils/filters/getFinalProducts";
 
 const ProductContext = createContext(filterSpecification);
 
@@ -26,6 +26,18 @@ const useProducts = () => useContext(ProductContext);
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [state, dispatch] = useReducer(applyFilters, filterSpecification);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await axios.get("/api/categories");
+        setCategories(res.data.categories);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
 
   const finalProducts = getFinalProducts(
     sortByPrice,
@@ -49,7 +61,7 @@ const ProductProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={{ finalProducts, state, dispatch }}>
+    <ProductContext.Provider value={{ categories, finalProducts, state, dispatch }}>
       {children}
     </ProductContext.Provider>
   );

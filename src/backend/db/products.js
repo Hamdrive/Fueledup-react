@@ -24,6 +24,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -44,6 +46,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -64,6 +68,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -84,6 +90,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -104,6 +112,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -124,6 +134,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -144,6 +156,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -164,6 +178,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -184,6 +200,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -204,6 +222,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -224,6 +244,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -244,6 +266,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -264,6 +288,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -284,6 +310,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -304,6 +332,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -324,6 +354,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -344,6 +376,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -364,6 +398,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -384,6 +420,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -404,6 +442,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -424,6 +464,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -444,6 +486,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -464,6 +508,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -484,6 +530,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
   {
@@ -504,6 +552,8 @@ export const products = [
     },
     productRating: (Math.random() * 4 + 1).toFixed(1),
     fastDelivery: false,
+    inCart: false,
+    inWishlist: false,
     inStock: true,
   },
 ];

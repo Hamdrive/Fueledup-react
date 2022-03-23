@@ -1,4 +1,4 @@
-import { useProducts } from "../utils/product-context";
+import { useProducts } from "../context/product-context";
 
 export function Filters() {
   const { state, dispatch } = useProducts();
@@ -52,7 +52,7 @@ export function Filters() {
                 name="category"
                 id="Masks"
                 value="Masks"
-                checked={state["categories"].includes("Masks")}
+                defaultChecked={state["categories"].includes("Masks")}
               />
               Masks
             </label>
@@ -70,7 +70,7 @@ export function Filters() {
                 name="category"
                 id="Clothes"
                 value="Clothes"
-                checked={state["categories"].includes("Clothes")}
+                defaultChecked={state["categories"].includes("Clothes")}
               />
               Clothes
             </label>
@@ -88,7 +88,7 @@ export function Filters() {
                 name="category"
                 id="Bags"
                 value="Bags"
-                checked={state["categories"].includes("Bags")}
+                defaultChecked={state["categories"].includes("Bags")}
               />
               Bags
             </label>
@@ -107,7 +107,7 @@ export function Filters() {
                 name="category"
                 id="Headwear"
                 value="Headwear"
-                checked={state["categories"].includes("Headwear")}
+                defaultChecked={state["categories"].includes("Headwear")}
               />
               Headwear
             </label>
@@ -125,7 +125,7 @@ export function Filters() {
                 name="category"
                 id="Models"
                 value="Models"
-                checked={state["categories"].includes("Models")}
+                defaultChecked={state["categories"].includes("Models")}
               />
               Models
             </label>
@@ -146,7 +146,7 @@ export function Filters() {
                 name="brand"
                 id="Alpeene"
                 value="Alpeene"
-                checked={state["brands"].includes("Alpeene")}
+                defaultChecked={state["brands"].includes("Alpeene")}
               />
               Alpeene
             </label>
@@ -164,7 +164,7 @@ export function Filters() {
                 name="brand"
                 id="Alpha-Ball"
                 value="Alpha-Ball"
-                checked={state["brands"].includes("Alpha-Ball")}
+                defaultChecked={state["brands"].includes("Alpha-Ball")}
               />
               Alpha-Ball
             </label>
@@ -182,7 +182,7 @@ export function Filters() {
                 name="brand"
                 id="Anton Marten"
                 value="Anton Marten"
-                checked={state["brands"].includes("Anton Marten")}
+                defaultChecked={state["brands"].includes("Anton Marten")}
               />
               Anton Marten
             </label>
@@ -200,7 +200,7 @@ export function Filters() {
                 name="brand"
                 id="BcLaren"
                 value="BcLaren"
-                checked={state["brands"].includes("BcLaren")}
+                defaultChecked={state["brands"].includes("BcLaren")}
               />
               BcLaren
             </label>
@@ -219,7 +219,7 @@ export function Filters() {
                 name="brand"
                 id="Merdeces"
                 value="Merdeces"
-                checked={state["brands"].includes("Merdeces")}
+                defaultChecked={state["brands"].includes("Merdeces")}
               />
               Merdeces
             </label>
@@ -237,7 +237,7 @@ export function Filters() {
                 name="brand"
                 id="Purrari"
                 value="Purrari"
-                checked={state["brands"].includes("Purrari")}
+                defaultChecked={state["brands"].includes("Purrari")}
               />
               Purrari
             </label>
@@ -255,7 +255,7 @@ export function Filters() {
                 name="brand"
                 id="Red-Ball"
                 value="Red-Ball"
-                checked={state["brands"].includes("Red-Ball")}
+                defaultChecked={state["brands"].includes("Red-Ball")}
               />
               Red-Ball
             </label>
@@ -273,7 +273,7 @@ export function Filters() {
                 name="brand"
                 id="Welleams"
                 value="Welleams"
-                checked={state["brands"].includes("Welleams")}
+                defaultChecked={state["brands"].includes("Welleams")}
               />
               Welleams
             </label>
@@ -293,7 +293,7 @@ export function Filters() {
                 className="radiobutton mr-3"
                 name="review"
                 id="4"
-                checked={state.ratings === "4"}
+                defaultChecked={state.ratings === "4"}
               />
               4 Stars & above
             </label>
@@ -310,7 +310,7 @@ export function Filters() {
                 className="radiobutton mr-3"
                 name="review"
                 id="3"
-                checked={state.ratings === "3"}
+                defaultChecked={state.ratings === "3"}
               />
               3 Stars & above
             </label>
@@ -327,7 +327,7 @@ export function Filters() {
                 className="radiobutton mr-3"
                 name="review"
                 id="2"
-                checked={state.ratings === "2"}
+                defaultChecked={state.ratings === "2"}
               />
               2 Stars & above
             </label>
@@ -344,7 +344,7 @@ export function Filters() {
                 className="radiobutton mr-3"
                 name="review"
                 id="1"
-                checked={state.ratings === "1"}
+                defaultChecked={state.ratings === "1"}
               />
               1 Star & above
             </label>
@@ -362,7 +362,7 @@ export function Filters() {
                 className="radiobutton mr-3"
                 name="sort"
                 id="sort-high"
-                checked={state.priceSort === "HIGH"}
+                defaultChecked={state.priceSort === "HIGH"}
               />
               High to Low
             </label>
@@ -377,7 +377,7 @@ export function Filters() {
                 className="radiobutton mr-3"
                 name="sort"
                 id="sort-low"
-                checked={state.priceSort === "LOW"}
+                defaultChecked={state.priceSort === "LOW"}
               />
               Low to High
             </label>
