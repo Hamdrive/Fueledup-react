@@ -16,7 +16,7 @@ export default function CartItems() {
       <section
         className={`${styles.page__content} grid ${styles.grid__cols__2__1} grid-cols-1 grid-reverse gap-3 pos-rel my-3 px-lg`}>
         <section className="grid grid-col-1 gap-3">
-          <CartCard />
+          {state["cart"].map((product) => (<CartCard key={product._id} product={product} />))}
         </section>
         <PriceSummary />
       </section>
