@@ -5,9 +5,8 @@ import Hat from "../assets/card-img1.png"
 export default function CartCard() {
   return (
     <div className={`${styles.card} card`}>
-      {/* <div className="pos-ab card-badge card-badge-left top-left-pos">6% off</div> */}
       <div className={`${styles.card__img}`}>
-        <img src={Hat} alt="vertical card" />
+        <img src={Hat} alt="cart item card" />
       </div>
       <div className={`${styles.card__info}`}>
         <div className="card-title flex-col">

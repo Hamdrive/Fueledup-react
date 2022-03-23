@@ -1,6 +1,7 @@
 /* Card styles */
 .card {
   width: 100%;
+  max-width: 35rem;
   flex-direction: row;
   height: 22rem;
 }
@@ -85,13 +86,5 @@
 
   .quantity p {
     font-size: var(--size-9);
-  }
-}
-
-@media screen and (max-width: 360px) {
-  /* Ensure visibility on smallest screen */
-  .page__content {
-    padding-left: var(--size-9);
-    padding-right: var(--size-9);
   }
 }
