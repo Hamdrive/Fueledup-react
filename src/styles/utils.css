@@ -53,6 +53,10 @@
   flex-basis: 20%;
 }
 
+.flex-1{
+  flex: 1;
+}
+
 /* Positioning styles */
 .pos-rel {
   position: relative;
