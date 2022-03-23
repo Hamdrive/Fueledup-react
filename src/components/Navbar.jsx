@@ -59,7 +59,7 @@ export function Navbar() {
                   <Link to="/cart">
                     <div className="fas fa-shopping-cart badge-icon txt-md px-sm"></div>
                     <div className="badge-count top-right-icon flex-center badge-yellow">
-                      0
+                      {state["cart"].length}
                     </div>
                   </Link>
                 </div>
