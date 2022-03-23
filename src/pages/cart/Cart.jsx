@@ -7,7 +7,7 @@ export function Cart() {
   return (
     <>
       <Navbar />
-      <main className={`${styles.max__width__1000} mx-auto`}>
+      <main className={`${styles.max__width__1200} mx-auto`}>
         <CartItems />
       </main>
       <Footer />

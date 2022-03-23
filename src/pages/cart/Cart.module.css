@@ -2,8 +2,8 @@
   grid-template-columns: 2fr 1fr;
 }
 
-.max__width__1000 {
-  max-width: 1000px;
+.max__width__1200 {
+  max-width: 1200px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -18,7 +18,15 @@
   }
 
   /* Better layout for smaller screen */
-  .max__width__1000 {
+  .max__width__1200 {
     max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  /* Ensure visibility on smallest screen */
+  .page__content {
+    padding-left: var(--size-9);
+    padding-right: var(--size-9);
   }
 }
