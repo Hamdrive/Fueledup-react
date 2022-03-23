@@ -73,14 +73,6 @@ export default function ProductCard({ product }) {
             add to cart
           </button>
         )}
-        {/* <button className="btn btn-atc btn-cta btn-md txt-bold txt-reg w-100">
-          <i className="fas fa-shopping-cart"></i>
-          add to cart
-        </button>
-        <button className="btn btn-wish btn-md txt-bold txt-reg w-100">
-          <i className="fas fa-shopping-cart"></i>
-          go to cart
-        </button> */}
       </div>
     </div>
   );
