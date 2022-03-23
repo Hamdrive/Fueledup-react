@@ -21,14 +21,14 @@ export default function PriceSummary() {
       </div>
       <hr />
       <div className="price-total flex-between my-1">
-        <p className="txt-capitalize txt-bold txt-md">Total amount</p>
+        <p className="txt-capitalize txt-bold h4">Total amount</p>
         <p className="txt-md txt-bold">₹10,998/-</p>
       </div>
       <hr />
       <div className="total-message my-1">
-        <p className="txt-md txt-center">
+        <p className="h4 txt-center">
           You will save
-          <strong>₹999</strong>
+          <strong> ₹999 </strong>
           on this order!
         </p>
       </div>
