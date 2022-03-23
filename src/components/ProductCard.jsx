@@ -63,12 +63,12 @@ export default function ProductCard({ product }) {
             go to cart
           </button>
         ) : state["wishlist"].some((item) => item.id === product._id) ? (
-          <button className="btn btn-wish btn-md txt-bold txt-reg w-100">
+          <button onClick={()=> dispatch({type:"ADD_TO_CART", payload: product})} className="btn btn-wish btn-md txt-bold txt-reg w-100">
             <i className="fas fa-shopping-cart"></i>
             move to cart
           </button>
         ) : (
-          <button className="btn btn-atc btn-cta btn-md txt-bold txt-reg w-100">
+          <button onClick={()=> dispatch({type:"ADD_TO_CART", payload: product})} className="btn btn-atc btn-cta btn-md txt-bold txt-reg w-100">
             <i className="fas fa-shopping-cart"></i>
             add to cart
           </button>
