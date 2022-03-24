@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Wishlist.module.css";
-import Hat from "../../assets/card-img1.png";
 import { useAuthProducts } from "../../context/auth-products-context";
 import ProductCard from "../../components/ProductCard";
 

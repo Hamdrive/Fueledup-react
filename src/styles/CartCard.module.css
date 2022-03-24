@@ -1,0 +1,90 @@
+/* Card styles */
+.card {
+  width: 100%;
+  max-width: 35rem;
+  flex-direction: row;
+  height: 22rem;
+}
+
+.card__img {
+  width: 40%;
+  height: 100%;
+}
+
+.card__img img{
+  object-fit: contain;
+}
+
+.card__info {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Quantity trigger in card */
+.quantity__trigger {
+  width: var(--size-13);
+  height: 100%;
+  margin: 0 var(--size-7);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--radius-rounded);
+}
+
+.quantity__input {
+  width: var(--size-17);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--radius-large);
+}
+
+.card__btns {
+  margin:  var(--size-9) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  /* Card styles for larger mobiles */
+  .card {
+    max-height: 18rem;
+  }
+
+  .card__info {
+    width: 70%;
+  }
+
+  .card__brief {
+    display: none;
+  }
+
+  .card__img {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Card styles for smaller mobiles */
+  .card__title p {
+    margin-top: 0;
+    font-size: var(--size-10);
+  }
+
+  .card__btns,
+  .quantity {
+    padding: var(--size-5);
+  }
+
+  .card__btns {
+    margin-top: 0;
+  }
+
+  .quantity .px-lg {
+    padding: 0 var(--size-7);
+  }
+
+  .quantity p {
+    font-size: var(--size-9);
+  }
+}
