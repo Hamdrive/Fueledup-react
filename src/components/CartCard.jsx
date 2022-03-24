@@ -45,10 +45,10 @@ export default function CartCard({product}) {
           </div>
         </div>
         <div className={`px-lg ${styles.card__btns} h-100`}>
-          <button onClick={()=> dispatch({type: "REMOVE_FROM_CART" , payload: product})} className="btn btn-atc btn-cta btn-md txt-bold txt-reg w-100 flex-1">
+          <button onClick={()=> dispatch({type: "REMOVE_FROM_CART" , payload: product})} className="btn btn-cta btn-lg txt-bold txt-reg w-100 flex-1">
             remove from cart
           </button>
-          <button onClick={()=> dispatch({type: "MOVE_TO_WISHLIST" , payload: product})} className="btn btn-wish btn-md txt-bold txt-reg w-100 my-1 flex-1">
+          <button onClick={()=> dispatch({type: "MOVE_TO_WISHLIST" , payload: product})} className="btn btn-wish btn-lg txt-bold txt-reg w-100 my-1 flex-1">
             move to wishlist
           </button>
         </div>

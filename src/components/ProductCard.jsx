@@ -1,8 +1,12 @@
+import { Link, useLocation } from "react-router-dom";
 import { useAuthProducts } from "../context/auth-products-context";
 import styles from "../pages/products/Products.module.css";
 
 export default function ProductCard({ product }) {
   const { state, dispatch } = useAuthProducts();
+
+  // Get current path to show appropriate button on card
+  const location = useLocation()
 
   return (
     <div className={`pos-rel card ${styles.card} mx-auto`}>
@@ -57,19 +61,23 @@ export default function ProductCard({ product }) {
       </div>
       <hr />
       <div className="card-footer flex-around flex-grow-1">
-        {state["cart"].some((item) => item.id === product._id) ? (
-          <button className="btn btn-wish btn-md txt-bold txt-reg w-100">
+        {state["cart"].some((item) => item._id === product._id) ? (
+          <Link to="/cart" className="btn btn-suc btn-lg txt-bold txt-reg w-100 txt-center">
             <i className="fas fa-shopping-cart"></i>
             go to cart
-          </button>
-        ) : state["wishlist"].some((item) => item.id === product._id) ? (
-          <button onClick={()=> dispatch({type:"ADD_TO_CART", payload: product})} className="btn btn-wish btn-md txt-bold txt-reg w-100">
-            <i className="fas fa-shopping-cart"></i>
+          </Link>
+        ) : state["wishlist"].some((item) => item._id === product._id) && location.pathname === "/wishlist" ? (
+          <button
+            onClick={() => dispatch({ type: "ADD_TO_CART", payload: product })}
+            className="btn btn-wish btn-lg txt-bold txt-reg w-100">
+            <i className="fas fa-cart-arrow-down"></i>
             move to cart
           </button>
         ) : (
-          <button onClick={()=> dispatch({type:"ADD_TO_CART", payload: product})} className="btn btn-atc btn-cta btn-md txt-bold txt-reg w-100">
-            <i className="fas fa-shopping-cart"></i>
+          <button
+            onClick={() => dispatch({ type: "ADD_TO_CART", payload: product })}
+            className="btn btn-cta btn-lg txt-bold txt-reg w-100">
+            <i className="fas fa-cart-plus"></i>
             add to cart
           </button>
         )}

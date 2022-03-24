@@ -135,7 +135,7 @@
 
 .btn-cta {
   background-color: var(--badge-yellow);
-  padding: var(--size-7) var(--size-9);
+  color: var(--color-black);
 }
 
 .btn-cta:hover {
@@ -148,7 +148,6 @@
 }
 
 .btn-wish {
-  padding: var(--size-7) var(--size-9);
   outline: 2px solid var(--primary-dark-color);
   color: var(--primary-dark-color);
 }

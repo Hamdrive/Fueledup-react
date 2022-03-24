@@ -21,11 +21,11 @@ export default function HeroSection() {
           <em> FueledUp </em>
           by fans.
         </h2>
-        <Link to="/products">
-          <button className="btn btn-product btn-cta btn-md flex-center txt-bold txt-reg w-60 mx-auto mt-1 mb-1 txt-wrap">
+        <Link
+          to="/products"
+          className="btn btn-cta btn-lg flex-center txt-bold txt-reg w-60 mx-auto mt-1 mb-1 txt-center txt-wrap">
             <i className="fas fa-flag-checkered txt-md rotate-icon"></i>
             Check out Products
-          </button>
         </Link>
       </div>
     </>
