@@ -2,18 +2,24 @@ import React from "react";
 
 export default function PriceSummary({ products }) {
   const tally = products.reduce(
-    (total, curr) => ({
-      ...total,
-      initPrice: Number(total.initPrice) + Number(curr.price),
+    (summary, item) => ({
+      ...summary,
+      initPrice:
+        (Number(summary.initPrice) + Number(item.price)) * Number(item.quantity),
       totalDisc:
-        Number(total.totalDisc) +
-        (Number(curr.price) - Number(curr.productDiscountPrice)),
-      totalPrice: Number(total.totalPrice) + Number(curr.productDiscountPrice),
+        (Number(summary.totalDisc) +
+          (Number(item.price) - Number(item.productDiscountPrice))) *
+        Number(item.quantity),
+      totalPrice:
+        (Number(summary.totalPrice) + Number(item.productDiscountPrice)) *
+        Number(item.quantity),
+        quantity: summary.quantity + item.quantity
     }),
     {
       initPrice: 0,
       totalDisc: 0,
       totalPrice: 0,
+      quantity: 0,
     }
   );
 
@@ -25,7 +31,7 @@ export default function PriceSummary({ products }) {
       <hr />
       <div className="price-breakup">
         <div className="flex-between my-1">
-          <p>Price ({[products.length]} items)</p>
+          <p>Price ({tally.quantity} items)</p>
           <p className="txt-semibold">₹ {tally.initPrice}/-</p>
         </div>
         <div className="flex-between my-1">
