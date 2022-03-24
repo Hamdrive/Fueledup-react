@@ -4,7 +4,9 @@ import Hat from "../assets/card-img1.png";
 import { useAuthProducts } from "../context/auth-products-context";
 
 export default function CartCard({ product }) {
-  const { dispatch } = useAuthProducts();
+  const { state, dispatch } = useAuthProducts();
+
+
   return (
     <div className={`${styles.card} card`}>
       <div className={`${styles.card__img}`}>
@@ -29,7 +31,7 @@ export default function CartCard({ product }) {
         <div className="flex-row px-md my-sm quantity">
           <p>Quantity</p>
           <div className="flex-row px-lg">
-            <div className={`${styles.quantity__trigger} flex-center`}>
+            <div onClick={() => dispatch({type: "DECREMENT_QUANTITY", payload: product})} className={`${styles.quantity__trigger} flex-center`}>
               <i className="fas fa-sm fa-minus"></i>
             </div>
             <input
@@ -37,9 +39,9 @@ export default function CartCard({ product }) {
               type="number"
               name="quantity"
               id="quantity"
-              value="1"
+              value={product.quantity}
             />
-            <div className={`${styles.quantity__trigger} flex-center`}>
+            <div onClick={() => dispatch({type: "INCREMENT_QUANTITY", payload: product})} className={`${styles.quantity__trigger} flex-center`}>
               <i className="fas fa-sm fa-plus"></i>
             </div>
           </div>

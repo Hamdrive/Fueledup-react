@@ -11,12 +11,41 @@ export function productsReducer(state, action) {
         ),
       };
     case "ADD_TO_CART":
-      return { ...state, cart: [...state.cart, action.payload] };
+      return {
+        ...state,
+        cart: [...state.cart, { ...action.payload, quantity: 1 }],
+      };
     case "REMOVE_FROM_CART":
       return {
         ...state,
         cart: state["cart"].filter((item) => item._id !== action.payload._id),
       };
+    case "INCREMENT_QUANTITY":
+      return {
+        ...state,
+        cart: state["cart"].map((item) =>
+          item._id === action.payload._id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        ),
+      };
+    case "DECREMENT_QUANTITY":
+      let quantityZeroFlag = false;
+      let updatedCart = state["cart"].map((item) => {
+        item._id === action.payload._id
+          ? item.quantity === 1
+            ? (quantityZeroFlag = true)
+            : { ...item, quantity: item.quantity - 1 }
+          : item;
+        return item;
+      });
+
+      return quantityZeroFlag
+        ? {
+            ...state,
+            cart: updatedCart.filter((item) => item._id !== action.payload._id),
+          }
+        : { ...state, cart: updatedCart };
     // case "MOVE_TO_WISHLIST":
     //   const updatedCart = {
     //     ...state,
