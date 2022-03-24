@@ -60,7 +60,7 @@ export default function PriceSummary({ products }) {
           on this order!
         </p>
       </div>
-      <button className="btn btn-order btn-cta btn-md txt-bold txt-reg w-100">
+      <button className="btn btn-order btn-cta btn-lg txt-bold txt-reg w-100 py-sm">
         <i className="fas fa-truck"></i>
         Place Order
       </button>

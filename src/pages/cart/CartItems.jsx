@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import CartCard from "../../components/CartCard";
 import PriceSummary from "../../components/PriceSummary";
 import { useAuthProducts } from "../../context/auth-products-context";
-import { priceSummaryReducer } from "../../utils/products/priceSummaryReducer";
 import styles from "./Cart.module.css";
 
 export default function CartItems() {
