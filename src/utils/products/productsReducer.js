@@ -31,7 +31,7 @@ export function productsReducer(state, action) {
       };
     case "DECREMENT_QUANTITY":
       let isQuantityZero = false;
-      let updatedCart = state["cart"].map((item) => {
+      const updatedCart = state["cart"].map((item) => {
         if (item._id === action.payload._id) {
           if (item.quantity === 1) isQuantityZero = true;
           else {
@@ -44,24 +44,29 @@ export function productsReducer(state, action) {
       });
 
       if (isQuantityZero) {
-        updatedCart = updatedCart.filter((item) => item._id !== action.payload._id);
+        updatedCart = updatedCart.filter(
+          (item) => item._id !== action.payload._id
+        );
       }
 
-      return {...state, cart: updatedCart}
+      return { ...state, cart: updatedCart };
 
-    // case "MOVE_TO_WISHLIST":
-    //   const updatedCart = {
-    //     ...state,
-    //     cart: state["cart"].filter((item) => item._id !== action.payload._id),
-    //   };
-    //   const updatedWishlist = {
-    //     ...state,
-    //     cart: state["cart"].filter((item) => item._id !== action.payload._id),
-    //   };
-    //   return {
-    //     ...state,
-    //     cart: state["cart"].filter((item) => item._id !== action.payload._id),
-    //   };
+    case "MOVE_TO_WISHLIST":
+      const productToMove = state["cart"].find(
+        (item) => item._id === action.payload._id
+      );
+
+      const newCart = state["cart"].filter(
+        (item) => item._id !== action.payload._id
+      );
+
+      const updatedWishlist = state["wishlist"].concat(productToMove);
+
+      return {
+        ...state,
+        cart: newCart,
+        wishlist: updatedWishlist,
+      };
 
     default:
       return state;
