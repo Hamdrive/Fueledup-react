@@ -1,12 +1,20 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import CartCard from "../../components/CartCard";
 import PriceSummary from "../../components/PriceSummary";
 import { useAuthProducts } from "../../context/auth-products-context";
+import { priceSummaryReducer } from "../../utils/products/priceSummaryReducer";
 import styles from "./Cart.module.css";
 
 export default function CartItems() {
   const { state } = useAuthProducts();
   console.log(state)
+
+  const [tally, setTally] = useState({})
+
+  useEffect(() => {
+    setTally(priceSummaryReducer(state["cart"]))
+  }, [state["cart"]])
+  
   return (
     <>
       <h2 className="page-title txt-bold mx-auto py-md">
@@ -18,7 +26,7 @@ export default function CartItems() {
         <section className="grid grid-col-1 gap-3">
           {state["cart"].map((product) => (<CartCard key={product._id} product={product} />))}
         </section>
-        <PriceSummary />
+        <PriceSummary tally={tally} />
       </section>
     </>
   );
