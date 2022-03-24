@@ -23,8 +23,6 @@ export default function PriceSummary({ products }) {
     }
   );
 
-  console.log(tally);
-
   return (
     <section className="grid-reverse">
       <h2 className="txt-capitalize">Price details</h2>
