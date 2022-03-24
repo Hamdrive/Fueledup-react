@@ -1,10 +1,10 @@
-import React from 'react'
-import styles from "../styles/CartCard.module.css"
-import Hat from "../assets/card-img1.png"
-import { useAuthProducts } from '../context/auth-products-context';
+import React from "react";
+import styles from "../styles/CartCard.module.css";
+import Hat from "../assets/card-img1.png";
+import { useAuthProducts } from "../context/auth-products-context";
 
-export default function CartCard({product}) {
-  const {dispatch} = useAuthProducts()
+export default function CartCard({ product }) {
+  const { dispatch } = useAuthProducts();
   return (
     <div className={`${styles.card} card`}>
       <div className={`${styles.card__img}`}>
@@ -45,10 +45,18 @@ export default function CartCard({product}) {
           </div>
         </div>
         <div className={`px-lg ${styles.card__btns} h-100`}>
-          <button onClick={()=> dispatch({type: "REMOVE_FROM_CART" , payload: product})} className="btn btn-cta btn-lg txt-bold txt-reg w-100 flex-1">
+          <button
+            onClick={() =>
+              dispatch({ type: "REMOVE_FROM_CART", payload: product })
+            }
+            className="btn btn-cta btn-lg txt-bold txt-reg w-100 flex-1">
             remove from cart
           </button>
-          <button onClick={()=> dispatch({type: "MOVE_TO_WISHLIST" , payload: product})} className="btn btn-wish btn-lg txt-bold txt-reg w-100 my-1 flex-1">
+          <button
+            onClick={() =>
+              dispatch({ type: "MOVE_TO_WISHLIST", payload: product })
+            }
+            className="btn btn-wish btn-lg txt-bold txt-reg w-100 my-1 flex-1">
             move to wishlist
           </button>
         </div>
