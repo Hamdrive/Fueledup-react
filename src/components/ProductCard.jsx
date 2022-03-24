@@ -62,7 +62,7 @@ export default function ProductCard({ product }) {
       <hr />
       <div className="card-footer flex-around flex-grow-1">
         {state["cart"].some((item) => item._id === product._id) ? (
-          <Link to="/cart" className="btn btn-suc btn-lg txt-bold txt-reg w-100 txt-center">
+          <Link to="/cart" onClick={() => dispatch({type: "CLEANUP_WISHLIST", payload: product})} className="btn btn-suc btn-lg txt-bold txt-reg w-100 txt-center">
             <i className="fas fa-shopping-cart"></i>
             go to cart
           </Link>

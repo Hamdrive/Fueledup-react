@@ -3,6 +3,7 @@ export function productsReducer(state, action) {
   switch (action.type) {
     case "ADD_TO_WISHLIST":
       return { ...state, wishlist: [...state.wishlist, action.payload] };
+
     case "REMOVE_FROM_WISHLIST":
       return {
         ...state,
@@ -10,16 +11,27 @@ export function productsReducer(state, action) {
           (item) => item._id !== action.payload._id
         ),
       };
+
     case "ADD_TO_CART":
       return {
         ...state,
         cart: [...state.cart, { ...action.payload, quantity: 1 }],
       };
+
     case "REMOVE_FROM_CART":
       return {
         ...state,
         cart: state["cart"].filter((item) => item._id !== action.payload._id),
       };
+
+    case "CLEANUP_WISHLIST":
+      return {
+        ...state,
+        wishlist: state["wishlist"].filter(
+          (item) => item._id !== action.payload._id
+        ),
+      };
+
     case "INCREMENT_QUANTITY":
       return {
         ...state,
@@ -29,6 +41,7 @@ export function productsReducer(state, action) {
             : item
         ),
       };
+
     case "DECREMENT_QUANTITY":
       let isQuantityZero = false;
       const updatedCart = state["cart"].map((item) => {
