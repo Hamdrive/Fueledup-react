@@ -17,6 +17,19 @@ export function productsReducer(state, action) {
         ...state,
         cart: state["cart"].filter((item) => item._id !== action.payload._id),
       };
+    // case "MOVE_TO_WISHLIST":
+    //   const updatedCart = {
+    //     ...state,
+    //     cart: state["cart"].filter((item) => item._id !== action.payload._id),
+    //   };
+    //   const updatedWishlist = {
+    //     ...state,
+    //     cart: state["cart"].filter((item) => item._id !== action.payload._id),
+    //   };
+    //   return {
+    //     ...state,
+    //     cart: state["cart"].filter((item) => item._id !== action.payload._id),
+    //   };
 
     default:
       return state;
