@@ -6,7 +6,6 @@ import styles from "./Cart.module.css";
 
 export default function CartItems() {
   const { state } = useAuthProducts();
-  console.log(state);
 
   return (
     <>
