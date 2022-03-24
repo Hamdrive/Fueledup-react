@@ -31,17 +31,22 @@ export default function CartCard({ product }) {
         <div className="flex-row px-md my-sm quantity">
           <p>Quantity</p>
           <div className="flex-row px-lg">
-            <div onClick={() => dispatch({type: "DECREMENT_QUANTITY", payload: product})} className={`${styles.quantity__trigger} flex-center`}>
+            <div
+              onClick={() =>
+                dispatch({ type: "DECREMENT_QUANTITY", payload: product })
+              }
+              className={`${styles.quantity__trigger} flex-center`}>
               <i className="fas fa-sm fa-minus"></i>
             </div>
-            <input
-              className={`txt-reg txt-bold txt-center ${styles.quantity__input}`}
-              type="number"
-              name="quantity"
-              id="quantity"
-              value={product.quantity}
-            />
-            <div onClick={() => dispatch({type: "INCREMENT_QUANTITY", payload: product})} className={`${styles.quantity__trigger} flex-center`}>
+            <span
+              className={`txt-reg txt-bold txt-center ${styles.quantity__input}`}>
+              {product.quantity}
+            </span>
+            <div
+              onClick={() =>
+                dispatch({ type: "INCREMENT_QUANTITY", payload: product })
+              }
+              className={`${styles.quantity__trigger} flex-center`}>
               <i className="fas fa-sm fa-plus"></i>
             </div>
           </div>
