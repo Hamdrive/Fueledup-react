@@ -1,7 +1,7 @@
 import { createContext, useState, useContext, useReducer } from "react";
 import { productsReducer } from "../utils/products/productsReducer";
 
-const productsSpecification = { wishlist: [], cart: [] };
+const productsSpecification = { wishlist: [], cart: [], tally: {} };
 
 const AuthProductsContext = createContext(productsSpecification);
 
@@ -9,7 +9,7 @@ const useAuthProducts = () => useContext(AuthProductsContext);
 
 const AuthProductsProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([]);
 
   const [state, dispatch] = useReducer(productsReducer, productsSpecification);
 
