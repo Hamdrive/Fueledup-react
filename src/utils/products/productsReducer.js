@@ -72,7 +72,7 @@ export function productsReducer(state, action) {
         (item) => item._id !== action.payload._id
       );
 
-      const updatedWishlist = state["wishlist"].concat(productToMove);
+      const updatedWishlist =  state["wishlist"].concat(productToMove);
 
       return {
         ...state,
