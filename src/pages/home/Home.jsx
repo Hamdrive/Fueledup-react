@@ -14,9 +14,8 @@ export function Home() {
           <section className={styles.hero__section}>
             <HeroSection />
           </section>
-          <section className="my-2 px-lg">
+          <section className="my-3 px-lg">
             <Categories />
-            <Collections />
           </section>
         </main>
       </div>
