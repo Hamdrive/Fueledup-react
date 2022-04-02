@@ -1,5 +1,5 @@
 import {Routes, Route} from "react-router-dom"
-import {Home, Products, Cart, Wishlist, Login, Signup} from "./pages"
+import {Home, Products, Cart, Wishlist, Login, Signup, PageNotFound} from "./pages"
 
 export default function App() {
   return (
@@ -10,6 +10,7 @@ export default function App() {
         <Route path="/wishlist" element={<Wishlist />}/>
         <Route path="/signup" element={<Signup />}/>
         <Route path="/login" element={<Login />}/>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
   );
 }
