@@ -23,7 +23,7 @@ export default function ProductCard({ product }) {
         {product.productDiscount}% off
       </div>
       <div
-        className={`pos-ab ${styles.top__right__pos} flex-center ${styles.border__circle} ${styles.wish__heart__btn}`}>
+        className={`pos-ab ${styles.top__right__pos} flex-center ${styles.border__circle} ${styles.wish__heart__btn} pointer`}>
         {state["wishlist"].some((item) => item._id === product._id) ? (
           <i
             onClick={() =>
