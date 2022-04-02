@@ -277,6 +277,16 @@
   color: var(--primary-dark-color);
 }
 
+.btn-fab{
+  position: fixed;
+  z-index: 40;
+}
+
+.bottom-right-10{
+  right: 5%;
+  bottom: 5%;
+}
+
 @media screen and (max-width: 480px) {
   .btn-product {
     width: 90%;

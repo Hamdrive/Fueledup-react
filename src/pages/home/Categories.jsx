@@ -1,21 +1,25 @@
 import styles from "./Home.module.css";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useProducts } from "../../context/product-context";
+import { Link } from "react-router-dom";
 
 export default function Categories() {
-  const { categories } = useProducts();
+  const { categories, dispatch } = useProducts();
   return (
     <section className="categories">
-      <h3>
+      <h2 className="txt-center txt-semibold my-2">
         Check out various
-        <span className={styles.imp__word}> categories </span>
-      </h3>
+        <span className={`${styles.imp__word} txt-bold`}> categories </span>
+      </h2>
       <div className="category-list flex-wrap flex-row gap-1">
         {categories.map((category) => (
-          <div
+          <Link
             key={category._id}
-            className={`${styles.category} flex-center flex-grow-1`}>
+            to="/products"
+            className={`${styles.category} flex-center flex-grow-1 pointer`}
+            onClick={() =>
+              dispatch({ type: "CATEGORY", payload: category.categoryName })
+            }>
             <img
               className="w-100 blur"
               src={category.categoryImage}
@@ -24,7 +28,7 @@ export default function Categories() {
             <div className={`pos-ab ${styles.cover__text} txt-lg txt-bold`}>
               {category.categoryName}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
