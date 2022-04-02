@@ -1,0 +1,1 @@
+export {WindowScrollToTop} from "./WindowScrollToTop"
