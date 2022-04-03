@@ -6,6 +6,11 @@
   max-width: 1200px;
 }
 
+.empty__cart {
+  width: 20rem;
+  height: 20rem;
+}
+
 @media screen and (max-width: 1024px) {
   /* Grid column for large screen */
   .grid__cols__2__1 {
