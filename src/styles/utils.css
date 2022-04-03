@@ -40,6 +40,10 @@
   grid-template-columns: 20% 1fr;
 }
 
+.span-auto {
+  grid-column: 1 / -1;
+}
+
 /* Flexbox styles */
 .align-center {
   align-items: center;
