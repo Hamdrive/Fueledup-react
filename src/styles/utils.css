@@ -300,6 +300,10 @@
   height: 20rem;
 }
 
+.btn {
+  white-space: normal;
+}
+
 @media screen and (max-width: 480px) {
   .btn-product {
     width: 90%;
