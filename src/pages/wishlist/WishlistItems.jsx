@@ -19,7 +19,7 @@ export function WishlistItems() {
             <ProductCard key={product._id} product={product} />
           ))
         ) : (
-          <div className="dis-flex flex-column align-center">
+          <div className="flex-column align-center h-100">
             <img
               className={`${styles.empty__wishlist}`}
               src={EmptyWishlist}

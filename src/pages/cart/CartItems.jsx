@@ -25,7 +25,7 @@ export default function CartItems() {
               <CartCard key={product._id} product={product} />
             ))
           ) : (
-            <div className="dis-flex flex-column align-center">
+            <div className="flex-column align-center h-100">
               <img
                 className={`${styles.empty__cart}`}
                 src={EmptyCart}
