@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Wishlist.module.css";
 import { useAuthProducts } from "../../context/auth-products-context";
 import ProductCard from "../../components/ProductCard";
+import EmptyWishlist from "../../assets/EmptyWishlist.png";
 
 export function WishlistItems() {
   const { state } = useAuthProducts();
@@ -12,10 +13,24 @@ export function WishlistItems() {
       </h2>
       <hr />
       <section
-        className={`min-h-100 grid ${styles.grid__cols__auto} ${styles.grid__col__1} ${styles.grid__cols__2} gap-2 my-3 px-md`}>
-        {state["wishlist"].map((product) => (
-          <ProductCard key={product._id} product={product} />
-        ))}
+        className={`min-h-100 grid ${styles.grid__cols__auto} gap-2 my-3 px-md`}>
+        {state["wishlist"].length > 0 ? (
+          state["wishlist"].map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))
+        ) : (
+          <div className="dis-flex flex-column align-center">
+            <img
+              className={`${styles.empty__wishlist}`}
+              src={EmptyWishlist}
+              alt="empty wishlist"
+            />
+            <div className="flex-column align-center txt-center">
+              <h3>Empty Wishlist</h3>
+              <p>You have no items in your wishlist. Start adding!</p>
+            </div>
+          </div>
+        )}
       </section>
     </>
   );

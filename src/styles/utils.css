@@ -9,7 +9,7 @@
   min-height: 100vh;
 }
 
-.min-h-100{
+.min-h-100 {
   min-height: 100vh;
 }
 
@@ -53,8 +53,12 @@
   flex-basis: 20%;
 }
 
-.flex-1{
+.flex-1 {
   flex: 1;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 /* Positioning styles */
@@ -277,12 +281,12 @@
   color: var(--primary-dark-color);
 }
 
-.btn-fab{
+.btn-fab {
   position: fixed;
   z-index: 40;
 }
 
-.bottom-right-10{
+.bottom-right-10 {
   right: 5%;
   bottom: 5%;
 }
@@ -328,7 +332,6 @@
     padding-left: 0;
     margin-top: 0;
   }
-
 }
 
 /* Media queries to handle upto large screens */
