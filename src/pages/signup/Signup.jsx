@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navbar } from "../../components";
 import "./signup.css";
 
 export function Signup() {
+  useEffect(() => {
+    document.title = `Signup | FueledUp`;
+  }, []);
+
   return (
     <>
-    <Navbar />
+      <Navbar />
       <div class="main my-2">
         <main class="px-md">
           <section class="sign-up-page">

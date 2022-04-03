@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { Navbar, Footer } from "../../components/index";
 import Categories from "./Categories";
 import Collections from "./Collections";
@@ -6,6 +7,9 @@ import styles from "./Home.module.css";
 import "../../styles/utils.css";
 
 export function Home() {
+  useEffect(() => {
+    document.title = `FueledUp - For the love of racing`;
+  }, []);
   return (
     <div className="wrapper">
       <Navbar />
