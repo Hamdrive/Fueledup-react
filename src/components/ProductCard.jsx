@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuthProducts } from "../context/auth-products-context";
 import styles from "../pages/products/Products.module.css";
 
-export default function ProductCard({ product }) {
+export function ProductCard({ product }) {
   const { state, dispatch } = useAuthProducts();
 
   // Get current path to show appropriate button on card

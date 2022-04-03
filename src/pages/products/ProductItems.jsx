@@ -1,10 +1,10 @@
 import styles from "./Products.module.css";
 import React from "react";
 import { useProducts } from "../../context/product-context";
-import ProductCard from "../../components/ProductCard";
 import ProductsNotFound from "../../assets/ProductsNotFound.png";
+import { ProductCard } from "../../components";
 
-export default function ProductItems() {
+export function ProductItems() {
   const { finalProducts } = useProducts();
 
   return (

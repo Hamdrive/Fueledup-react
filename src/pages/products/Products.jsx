@@ -1,13 +1,12 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Filters, Navbar, Footer } from "../../components/index";
-import ProductItems from "./ProductItems";
+import { ProductItems } from "./ProductItems";
 import "../../styles/utils.css";
 
 export function Products() {
-
-    useEffect(() => {
-      document.title = `Shop from our various products | FueledUp`;
-    }, []);
+  useEffect(() => {
+    document.title = `Shop from our various products | FueledUp`;
+  }, []);
   return (
     <>
       <Navbar />

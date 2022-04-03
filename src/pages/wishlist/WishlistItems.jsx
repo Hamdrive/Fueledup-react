@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Wishlist.module.css";
 import { useAuthProducts } from "../../context/auth-products-context";
-import ProductCard from "../../components/ProductCard";
 import EmptyWishlist from "../../assets/EmptyWishlist.png";
+import { ProductCard } from "../../components";
 
 export function WishlistItems() {
   const { state } = useAuthProducts();

@@ -2,8 +2,8 @@ import React from "react";
 import styles from "../styles/CartCard.module.css";
 import { useAuthProducts } from "../context/auth-products-context";
 
-export default function CartCard({ product }) {
-  const { state, dispatch } = useAuthProducts();
+export function CartCard({ product }) {
+  const { dispatch } = useAuthProducts();
 
 
   return (
