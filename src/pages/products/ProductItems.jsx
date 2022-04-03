@@ -8,7 +8,7 @@ export default function ProductItems() {
 
   return (
     <section
-      className={`min-h-100 grid ${styles.grid__cols__auto} ${styles.grid__col__1} ${styles.grid__cols__2} gap-2 my-3 px-md`}>
+      className={`min-h-95 grid ${styles.grid__cols__auto} ${styles.grid__col__1} ${styles.grid__cols__2} gap-2 my-3 px-md`}>
       {finalProducts.length === 0 && (
         <div className="h1">No Products Available :(</div>
       )}

@@ -9,8 +9,8 @@
   min-height: 100vh;
 }
 
-.min-h-100 {
-  min-height: 100vh;
+.min-h-95 {
+  min-height: calc(100vh - 5rem);
 }
 
 /* Style icon for CTA on homepage */

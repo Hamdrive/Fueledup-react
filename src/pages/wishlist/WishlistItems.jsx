@@ -13,7 +13,7 @@ export function WishlistItems() {
       </h2>
       <hr />
       <section
-        className={`min-h-100 grid ${styles.grid__cols__auto} gap-2 my-3 px-md`}>
+        className={`min-h-95 grid ${styles.grid__cols__auto} gap-2 my-3 px-md`}>
         {state["wishlist"].length > 0 ? (
           state["wishlist"].map((product) => (
             <ProductCard key={product._id} product={product} />

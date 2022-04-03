@@ -54,14 +54,13 @@
   transform: translate(-25%, 25%);
 }
 
-.empty__wishlist{
+.empty__wishlist {
   width: 20rem;
   height: 20rem;
 }
 
 /* Media queries to handle grid responsiveness on large screens */
 @media screen and (min-width: 769px) {
-
   .grid__cols__auto {
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
@@ -69,11 +68,9 @@
 
 /* Media queries to handle upto large screens */
 @media screen and (max-width: 768px) {
-
   .grid__cols__auto {
     grid-template-columns: repeat(1, minmax(min-content, auto));
   }
-
 }
 
 /* Media queries to handle upto large screens */
