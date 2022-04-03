@@ -295,6 +295,11 @@
   bottom: 5%;
 }
 
+.empty__page {
+  width: 20rem;
+  height: 20rem;
+}
+
 @media screen and (max-width: 480px) {
   .btn-product {
     width: 90%;

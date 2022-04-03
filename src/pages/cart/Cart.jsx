@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Footer, Navbar, PriceSummary } from "../../components";
+import { useAuthProducts } from "../../context/auth-products-context";
 import { CartItems } from "./CartItems";
 import styles from "./Cart.module.css";
 
@@ -23,8 +24,10 @@ export function Cart() {
             styles.page__content
           } ${state["cart"].length > 0 && styles.grid__cols__2__1}`}>
           <CartItems />
+          {state["cart"].length > 0 && (
+            <PriceSummary products={state["cart"]} />
+          )}
         </section>
-        {state["cart"].length > 0 && <PriceSummary products={state["cart"]} />}
       </main>
       <Footer />
     </>

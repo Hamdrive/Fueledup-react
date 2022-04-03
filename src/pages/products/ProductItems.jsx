@@ -2,7 +2,7 @@ import styles from "./Products.module.css";
 import React from "react";
 import { useProducts } from "../../context/product-context";
 import ProductsNotFound from "../../assets/ProductsNotFound.png";
-import { ProductCard } from "../../components";
+import { EmptyPage, ProductCard } from "../../components";
 
 export function ProductItems() {
   const { finalProducts } = useProducts();
@@ -16,17 +16,15 @@ export function ProductItems() {
         ))
       ) : (
         <div className={`${finalProducts.length === 0 && "span-auto"}`}>
-          <div className="h-100 flex-column flex-center">
-            <img
-              className={`${styles.empty__products}`}
-              src={ProductsNotFound}
-              alt="No products found"
-            />
-            <div className="flex-column align-center txt-center">
-              <h3>This place is devoid of any life!</h3>
-              <p>We couldn't find any products, try changing your filters.</p>
-            </div>
-          </div>
+          <EmptyPage
+            title={"This place is devoid of any life!"}
+            description={
+              "We couldn't find any products, try changing your filters."
+            }
+            imgSrc={ProductsNotFound}
+            imgAlt={"No products found"}
+            type={"products"}
+          />
         </div>
       )}
     </section>

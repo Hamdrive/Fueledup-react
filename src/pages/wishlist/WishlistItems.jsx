@@ -2,10 +2,12 @@ import React from "react";
 import styles from "./Wishlist.module.css";
 import { useAuthProducts } from "../../context/auth-products-context";
 import EmptyWishlist from "../../assets/EmptyWishlist.png";
-import { ProductCard } from "../../components";
+import { EmptyPage, ProductCard } from "../../components";
+import { useNavigate } from "react-router-dom";
 
 export function WishlistItems() {
   const { state } = useAuthProducts();
+  const navigate = useNavigate();
   return (
     <>
       <h2 className="page-title txt-bold mx-auto py-md">
@@ -19,17 +21,14 @@ export function WishlistItems() {
             <ProductCard key={product._id} product={product} />
           ))
         ) : (
-          <div className="flex-column align-center h-100">
-            <img
-              className={`${styles.empty__wishlist}`}
-              src={EmptyWishlist}
-              alt="empty wishlist"
-            />
-            <div className="flex-column align-center txt-center">
-              <h3>Empty Wishlist</h3>
-              <p>You have no items in your wishlist. Start adding!</p>
-            </div>
-          </div>
+          <EmptyPage
+            title={"Empty Wishlist"}
+            description={"You have no items in your wishlist. Start adding!"}
+            imgSrc={EmptyWishlist}
+            imgAlt={"empty wishlist page"}
+            type={"wishlist"}
+            onClick={() => navigate("/products")}
+          />
         )}
       </section>
     </>
