@@ -165,10 +165,6 @@
 }
 
 /* Border styles */
-.border-r-2 {
-  border-right: 2px solid var(--secondary-color);
-}
-
 .form-border {
   border: 2px solid var(--primary-dark-color);
   border-radius: var(--radius-extra-large);
@@ -222,12 +218,6 @@
   position: fixed;
   width: 18rem;
   height: 100vh;
-}
-
-.filter-section {
-  height: 70vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
 }
 
 .rating {
@@ -304,16 +294,76 @@
   white-space: normal;
 }
 
-@media screen and (max-width: 480px) {
-  .btn-product {
-    width: 90%;
-  }
+.pos-fixed {
+  position: fixed;
+}
+
+.filters {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 4rem;
+  background-color: var(--color-white);
+  /* border-right: 2px solid var(--secondary-color); */
+  z-index: 2;
+}
+
+.mob-show-filters {
+  top: 4.5rem;
+}
+
+.filter-section {
+  padding: 0 var(--size-9);
+
+  background-color: var(--color-white);
+  height: calc(100vh - 8.5rem);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.mb-2 {
+  margin-bottom: var(--size-13);
+}
+
+.ov-hidden {
+  overflow: hidden;
 }
 
 /* Media queries to handle filter responnsiveness on large screens */
 @media screen and (min-width: 769px) {
   footer .grid-cols-2 {
     grid-template-columns: 0;
+  }
+
+  .desktop-filter {
+    display: flex;
+    margin-top: 2rem;
+  }
+
+  .mobile-filter {
+    display: none;
+  }
+
+  .filters {
+    position: relative;
+    height: 100%;
+    top: 0;
+  }
+
+  .filter-section {
+    height: calc(100vh - 5rem);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .filter-section {
+    padding: 0 var(--size-19);
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .filter-section {
+    overflow: hidden;
   }
 }
 
@@ -324,26 +374,16 @@
     width: 100%;
   }
 
-  .mob-hide {
+  .desktop-filter {
     display: none;
   }
 
-  .filters {
-    width: 100%;
+  .mobile-filter {
+    display: flex;
   }
 
-  .mob-header {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin: var(--size-11) 0;
-  }
-
-  .mob-aside {
-    position: relative;
-    min-height: 0;
-    height: fit-content;
-    padding-left: 0;
-    margin-top: 0;
+  .filter-section {
+    padding: 0 var(--size-25);
   }
 }
 
@@ -354,5 +394,15 @@
   }
   .grid-col-1 {
     grid-template-columns: minmax(min-content, auto);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .btn-product {
+    width: 90%;
+  }
+
+  .mob-show-filters {
+    top: 7rem;
   }
 }

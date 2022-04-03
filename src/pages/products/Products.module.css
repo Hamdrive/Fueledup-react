@@ -68,6 +68,11 @@
   .grid__cols__auto {
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
+
+  .desktop__grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
 }
 
 /* Media queries to handle upto large screens */

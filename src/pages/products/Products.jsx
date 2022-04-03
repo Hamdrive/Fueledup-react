@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Filters, Navbar, Footer } from "../../components/index";
 import { ProductItems } from "./ProductItems";
 import "../../styles/utils.css";
+import styles from "./Products.module.css";
 
 export function Products() {
   useEffect(() => {
@@ -11,14 +12,12 @@ export function Products() {
     <>
       <Navbar />
       <main className="pos-rel">
-        <div className="filter-pos-size mob-hide">
+        <div className={`${styles.desktop__grid}`}>
           <Filters />
-        </div>
-        <div className="align-content-right">
           <ProductItems />
-          <Footer />
         </div>
       </main>
+      <Footer />
     </>
   );
 }
