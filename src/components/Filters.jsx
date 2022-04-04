@@ -17,7 +17,6 @@ export function Filters() {
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "auto");
 
-    document.body.clientWidth > 768 && setisSideMenuOpen(false);
   }, [isFilterOpen]);
 
   return (
