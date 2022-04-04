@@ -29,7 +29,11 @@
 }
 
 .gap-4 {
-  gap: 10rem;
+  gap: 4rem;
+}
+
+.gap-5 {
+  gap: 5rem;
 }
 
 .grid-20-80 {
@@ -293,6 +297,7 @@
 
 .btn {
   white-space: normal;
+  width: 100%;
 }
 
 .pos-fixed {

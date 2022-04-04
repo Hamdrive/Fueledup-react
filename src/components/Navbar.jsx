@@ -32,7 +32,7 @@ export function Navbar() {
               <div className="fas fa-search search-icon"></div>
               <label htmlFor="searchbar"></label>
               <input
-                className="input-round input-sm border-2"
+                className="input-corner input-sm border-2"
                 type="search"
                 name="searchbar"
                 id="searchbar"
@@ -82,7 +82,7 @@ export function Navbar() {
         <div className="mob-search-input px-md">
           <label htmlFor="searchbar"></label>
           <input
-            className="input-round input-sm border-2"
+            className="input-corner input-sm border-2"
             type="search"
             name="searchbar"
             id="searchbar"

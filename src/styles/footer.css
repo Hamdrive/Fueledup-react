@@ -13,10 +13,8 @@
   margin-top: auto;
 }
 
-@media screen and (max-width: 768px) {
-  .footer {
-    margin-bottom: 4rem;
-  }
+.footer-filter{
+  margin-bottom: 4rem;
 }
 
 @media screen and (max-width: 350px) {

@@ -16,13 +16,19 @@ export function Filters() {
     isFilterOpen
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "auto");
-
   }, [isFilterOpen]);
+
+  useEffect(() => {
+    console.log(document.body.clientWidth);
+    document.body.clientWidth < 768 &&
+      (document.getElementsByClassName("footer")[0].style.marginBottom =
+        "4rem");
+  }, []);
 
   return (
     <aside className="filters">
       <div className="mobile-filter flex-center h-100 ">
-        <div className={` ${isFilterOpen && "w-100 flex-between px-md"}`}>
+        <div className={` ${isFilterOpen && "w-100 flex-between gap-5 px-md"}`}>
           <button onClick={() => toggleFilter()} className="btn btn-def btn-md">
             <i className="fas fa-sm fa-filter"></i>
             Filters

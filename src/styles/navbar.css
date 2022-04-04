@@ -23,7 +23,7 @@
   z-index: 2;
   width: 100%;
   background-color: var(--primary-extra-light-color);
-  margin-top: var(--size-5);
+  margin-top: var(--size-7);
 }
 
 .mob-search-input input {
@@ -116,9 +116,9 @@
 
 .nav-logo-sidemenu {
   font-weight: var(--weight-bold);
-  font-size: var(--size-13);
+  font-size: var(--size-11);
   color: var(--primary-color);
-  margin: var(--size-11);
+  margin: var(--size-21) var(--size-11);
 }
 
 @media screen and (min-width: 769px) {
