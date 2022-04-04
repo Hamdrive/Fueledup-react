@@ -158,6 +158,7 @@
 .btn-wish {
   outline: 2px solid var(--primary-dark-color);
   color: var(--primary-dark-color);
+  background-color: var(--color-white);
 }
 
 .btn-wish:hover {
@@ -348,6 +349,7 @@
     position: relative;
     height: 100%;
     top: 0;
+    border-right: 2px solid var(--primary-dark-color);
   }
 
   .filter-section {

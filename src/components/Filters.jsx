@@ -9,9 +9,16 @@ export function Filters() {
     document
       .getElementsByClassName("filters")[0]
       .classList.toggle("mob-show-filters");
-    document.body.classList.toggle("ov-hidden");
     setisFilterOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    isFilterOpen
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto");
+
+    document.body.clientWidth > 768 && setisSideMenuOpen(false);
+  }, [isFilterOpen]);
 
   return (
     <aside className="filters">
@@ -24,7 +31,7 @@ export function Filters() {
           {isFilterOpen && (
             <button
               onClick={() => dispatch({ type: "CLEAR" })}
-              className="btn btn-sm btn-sec px-md mobile-show-clear">
+              className="btn btn-md btn-wish px-md mobile-show-clear">
               Clear
             </button>
           )}
