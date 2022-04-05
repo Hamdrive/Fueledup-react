@@ -48,7 +48,7 @@ $ npm start
 
 ## Preview
 
-![FueledUp Ecommerce store preview](https://res.cloudinary.com/fueledup-ecom/image/upload/v1649146963/preview%20GIFs/ecom_preview.gif)
+<img src="https://res.cloudinary.com/fueledup-ecom/image/upload/v1649146963/preview%20GIFs/ecom_preview.gif" alt="FueledUp Ecommerce store preview" />
 
 
 
