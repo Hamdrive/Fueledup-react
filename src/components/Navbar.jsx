@@ -21,7 +21,7 @@ export function Navbar() {
     <div className="header pos-st top-left-pos py-md">
       <header className="max-width-1200 h-100 nav-main nav-layout px-md mx-auto">
         <nav className="flex-row w-100">
-          <div className="dis-flex w-100">
+          <div className="flex-center w-100">
             <button onClick={() => toggleSideMenu()} className="hamburger">
               <i className="fas fa-bars"></i>
             </button>

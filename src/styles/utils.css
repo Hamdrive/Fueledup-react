@@ -309,12 +309,11 @@
   bottom: 0;
   height: 4rem;
   background-color: var(--color-white);
-  /* border-right: 2px solid var(--secondary-color); */
   z-index: 2;
 }
 
 .mob-show-filters {
-  top: 4.5rem;
+  top: 5rem;
 }
 
 .filter-section {
@@ -357,7 +356,7 @@
   }
 
   .filter-section {
-    height: calc(100vh - 5rem);
+    height: 100%;
   }
 }
 
@@ -410,5 +409,9 @@
 
   .mob-show-filters {
     top: 7rem;
+  }
+
+  .header{
+    height: 7rem;
   }
 }
