@@ -105,12 +105,12 @@ export function Navbar() {
             } h-100`}>
             <li className="nav-item">
               <Link to="/signup">
-                <button className="btn btn-lg btn-wish px-md">Signup</button>
+                <button className="btn btn-lg btn-wish px-md w-100">Signup</button>
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/login">
-                <button className="btn btn-lg btn-cta px-md">Login</button>
+                <button className="btn btn-lg btn-cta px-md w-100">Login</button>
               </Link>
             </li>
             <li className="nav-item">
@@ -118,7 +118,7 @@ export function Navbar() {
                 <div className="ecom-heart-icon">
                   <Link to="/wishlist">
                     {/* <div className="fas fa-heart badge-icon txt-md px-sm"></div> */}
-                    <button className="btn btn-lg btn-wish px-md">
+                    <button className="btn btn-lg btn-wish px-md w-100">
                       Wishlist
                       <div className="badge-count top-right-icon flex-center badge-yellow">
                         {state["wishlist"].length}
@@ -132,7 +132,7 @@ export function Navbar() {
               <div className="badge">
                 <div className="ecom-basket-icon">
                   <Link to="/cart">
-                    <button className="btn btn-lg btn-cta px-md">
+                    <button className="btn btn-lg btn-cta px-md w-100">
                       Cart
                       {/* <div className="fas fa-shopping-cart badge-icon txt-md px-sm"></div> */}
                       <div className="badge-count top-right-icon flex-center badge-yellow">
