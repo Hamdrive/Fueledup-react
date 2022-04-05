@@ -90,7 +90,13 @@ export function Filters() {
                 value="Masks"
                 checked={state["categories"].includes("Masks")}
                 onChange={(e) =>
-                  dispatch({ type: "CATEGORY", payload: e.target.id })
+                  dispatch({
+                    type: "CATEGORY",
+                    payload: {
+                      isChecked: e.target.checked,
+                      value: e.target.id,
+                    },
+                  })
                 }
               />
               Masks
@@ -106,7 +112,13 @@ export function Filters() {
                 value="Clothes"
                 checked={state["categories"].includes("Clothes")}
                 onChange={(e) =>
-                  dispatch({ type: "CATEGORY", payload: e.target.id })
+                  dispatch({
+                    type: "CATEGORY",
+                    payload: {
+                      isChecked: e.target.checked,
+                      value: e.target.id,
+                    },
+                  })
                 }
               />
               Clothes
@@ -122,7 +134,13 @@ export function Filters() {
                 value="Bags"
                 checked={state["categories"].includes("Bags")}
                 onChange={(e) =>
-                  dispatch({ type: "CATEGORY", payload: e.target.id })
+                  dispatch({
+                    type: "CATEGORY",
+                    payload: {
+                      isChecked: e.target.checked,
+                      value: e.target.id,
+                    },
+                  })
                 }
               />
               Bags
@@ -139,7 +157,13 @@ export function Filters() {
                 value="Headwear"
                 checked={state["categories"].includes("Headwear")}
                 onChange={(e) =>
-                  dispatch({ type: "CATEGORY", payload: e.target.id })
+                  dispatch({
+                    type: "CATEGORY",
+                    payload: {
+                      isChecked: e.target.checked,
+                      value: e.target.id,
+                    },
+                  })
                 }
               />
               Headwear
@@ -155,7 +179,13 @@ export function Filters() {
                 value="Models"
                 checked={state["categories"].includes("Models")}
                 onChange={(e) =>
-                  dispatch({ type: "CATEGORY", payload: e.target.id })
+                  dispatch({
+                    type: "CATEGORY",
+                    payload: {
+                      isChecked: e.target.checked,
+                      value: e.target.id,
+                    },
+                  })
                 }
               />
               Models
