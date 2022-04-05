@@ -1,31 +1,17 @@
 import { useProducts } from "../context/product-context";
 import { useState, useEffect } from "react";
 
-export function Filters() {
+export function Filters({setisOverflow}) {
   const [isFilterOpen, setisFilterOpen] = useState(false);
   const { state, dispatch } = useProducts();
 
   const toggleFilter = () => {
-    document
-      .getElementsByClassName("filters")[0]
-      .classList.toggle("mob-show-filters");
     setisFilterOpen((prev) => !prev);
+    setisOverflow((prev) => !prev)
   };
 
-  useEffect(() => {
-    isFilterOpen
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "auto");
-  }, [isFilterOpen]);
-
-  useEffect(() => {
-    document.body.clientWidth < 768 &&
-      (document.getElementsByClassName("footer")[0].style.marginBottom =
-        "4rem");
-  }, []);
-
   return (
-    <aside className="filters">
+    <aside className={`filters ${isFilterOpen ? "mob-show-filters" : ""}`}>
       <div className="mobile-filter flex-center h-100 ">
         <div className={` ${isFilterOpen && "w-100 flex-between gap-5 px-md"}`}>
           <button onClick={() => toggleFilter()} className="btn btn-def btn-md">

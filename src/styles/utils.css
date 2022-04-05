@@ -333,7 +333,22 @@
   overflow: hidden;
 }
 
+.ov-auto {
+  overflow: auto;
+}
+
+.mobile-filter-bottom {
+  margin-bottom: 0;
+}
+
 /* Media queries to handle filter responnsiveness on large screens */
+
+@media screen and (min-width: 1025px) {
+  .filter-section {
+    padding: 0 var(--size-19);
+  }
+}
+
 @media screen and (min-width: 769px) {
   footer .grid-cols-2 {
     grid-template-columns: 0;
@@ -356,19 +371,8 @@
   }
 
   .filter-section {
-    height: calc(100% - 5rem);
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .filter-section {
-    padding: 0 var(--size-19);
-  }
-}
-
-@media screen and (min-width: 769px) {
-  .filter-section {
     overflow: hidden;
+    height: calc(100% - 5rem);
   }
 }
 
@@ -389,6 +393,10 @@
 
   .filter-section {
     padding: 0 var(--size-25);
+  }
+
+  .mobile-filter-bottom {
+    margin-bottom: 4rem;
   }
 }
 
