@@ -356,7 +356,7 @@
   }
 
   .filter-section {
-    height: 100%;
+    height: calc(100% - 5rem);
   }
 }
 
@@ -411,7 +411,7 @@
     top: 7rem;
   }
 
-  .header{
+  .header {
     height: 7rem;
   }
 }

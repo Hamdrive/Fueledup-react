@@ -7,10 +7,10 @@ export function CartCard({ product }) {
 
   return (
     <div className={`${styles.card} card`}>
-      <div className={`${styles.card__img}`}>
+      <div className={styles.card__img}>
         <img src={product.productImage} alt="cart item card" />
       </div>
-      <div className={`${styles.card__info}`}>
+      <div className={styles.card__info}>
         <div className="card-title flex-col">
           <p className="h3 txt-semibold mb-sm">{product.title}</p>
           <p className="txt-reg txt-semibold">

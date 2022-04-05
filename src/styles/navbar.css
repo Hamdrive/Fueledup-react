@@ -88,7 +88,7 @@
   height: 100vh;
   width: 0;
   overflow: hidden;
-  transition: 0.2s width ease-in-out;
+  transition: 0.1s width ease-in-out;
   background-color: #e6e6e6;
   z-index: 4;
 }
@@ -163,5 +163,9 @@
   .nav-layout {
     flex-direction: column;
     flex-grow: 1;
+  }
+
+  .sidebar-menu-open {
+    width: 70vw;
   }
 }
