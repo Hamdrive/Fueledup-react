@@ -19,7 +19,6 @@ export function Filters() {
   }, [isFilterOpen]);
 
   useEffect(() => {
-    console.log(document.body.clientWidth);
     document.body.clientWidth < 768 &&
       (document.getElementsByClassName("footer")[0].style.marginBottom =
         "4rem");
@@ -82,12 +81,7 @@ export function Filters() {
           <h4 className="txt-black">Category</h4>
 
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "CATEGORY", payload: e.target.id })
-              }
-              htmlFor="masks"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -95,17 +89,15 @@ export function Filters() {
                 id="Masks"
                 value="Masks"
                 checked={state["categories"].includes("Masks")}
+                onChange={(e) =>
+                  dispatch({ type: "CATEGORY", payload: e.target.id })
+                }
               />
               Masks
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "CATEGORY", payload: e.target.id })
-              }
-              htmlFor="clothing"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -113,17 +105,15 @@ export function Filters() {
                 id="Clothes"
                 value="Clothes"
                 checked={state["categories"].includes("Clothes")}
+                onChange={(e) =>
+                  dispatch({ type: "CATEGORY", payload: e.target.id })
+                }
               />
               Clothes
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "CATEGORY", payload: e.target.id })
-              }
-              htmlFor="bags"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -131,18 +121,16 @@ export function Filters() {
                 id="Bags"
                 value="Bags"
                 checked={state["categories"].includes("Bags")}
+                onChange={(e) =>
+                  dispatch({ type: "CATEGORY", payload: e.target.id })
+                }
               />
               Bags
             </label>
           </article>
 
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "CATEGORY", payload: e.target.id })
-              }
-              htmlFor="headwear"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -150,17 +138,15 @@ export function Filters() {
                 id="Headwear"
                 value="Headwear"
                 checked={state["categories"].includes("Headwear")}
+                onChange={(e) =>
+                  dispatch({ type: "CATEGORY", payload: e.target.id })
+                }
               />
               Headwear
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "CATEGORY", payload: e.target.id })
-              }
-              htmlFor="models"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -168,6 +154,9 @@ export function Filters() {
                 id="Models"
                 value="Models"
                 checked={state["categories"].includes("Models")}
+                onChange={(e) =>
+                  dispatch({ type: "CATEGORY", payload: e.target.id })
+                }
               />
               Models
             </label>
@@ -176,12 +165,7 @@ export function Filters() {
         <section className="mt-2">
           <h4 className="txt-black">Brands</h4>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "BRAND", payload: e.target.id })
-              }
-              htmlFor="headwear"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -189,17 +173,15 @@ export function Filters() {
                 id="Alpeene"
                 value="Alpeene"
                 checked={state["brands"].includes("Alpeene")}
+                onChange={(e) =>
+                  dispatch({ type: "BRAND", payload: e.target.id })
+                }
               />
               Alpeene
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "BRAND", payload: e.target.id })
-              }
-              htmlFor="masks"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -207,17 +189,15 @@ export function Filters() {
                 id="Alpha-Ball"
                 value="Alpha-Ball"
                 checked={state["brands"].includes("Alpha-Ball")}
+                onChange={(e) =>
+                  dispatch({ type: "BRAND", payload: e.target.id })
+                }
               />
               Alpha-Ball
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "BRAND", payload: e.target.id })
-              }
-              htmlFor="clothing"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -225,17 +205,15 @@ export function Filters() {
                 id="Anton Marten"
                 value="Anton Marten"
                 checked={state["brands"].includes("Anton Marten")}
+                onChange={(e) =>
+                  dispatch({ type: "BRAND", payload: e.target.id })
+                }
               />
               Anton Marten
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "BRAND", payload: e.target.id })
-              }
-              htmlFor="bags"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -243,18 +221,16 @@ export function Filters() {
                 id="BcLaren"
                 value="BcLaren"
                 checked={state["brands"].includes("BcLaren")}
+                onChange={(e) =>
+                  dispatch({ type: "BRAND", payload: e.target.id })
+                }
               />
               BcLaren
             </label>
           </article>
 
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "BRAND", payload: e.target.id })
-              }
-              htmlFor="models"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -262,17 +238,15 @@ export function Filters() {
                 id="Merdeces"
                 value="Merdeces"
                 checked={state["brands"].includes("Merdeces")}
+                onChange={(e) =>
+                  dispatch({ type: "BRAND", payload: e.target.id })
+                }
               />
               Merdeces
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "BRAND", payload: e.target.id })
-              }
-              htmlFor="models"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -280,17 +254,15 @@ export function Filters() {
                 id="Purrari"
                 value="Purrari"
                 checked={state["brands"].includes("Purrari")}
+                onChange={(e) =>
+                  dispatch({ type: "BRAND", payload: e.target.id })
+                }
               />
               Purrari
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "BRAND", payload: e.target.id })
-              }
-              htmlFor="models"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -298,17 +270,15 @@ export function Filters() {
                 id="Red-Ball"
                 value="Red-Ball"
                 checked={state["brands"].includes("Red-Ball")}
+                onChange={(e) =>
+                  dispatch({ type: "BRAND", payload: e.target.id })
+                }
               />
               Red-Ball
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "BRAND", payload: e.target.id })
-              }
-              htmlFor="models"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="checkbox"
                 className="checkbox mr-1"
@@ -316,6 +286,9 @@ export function Filters() {
                 id="Welleams"
                 value="Welleams"
                 checked={state["brands"].includes("Welleams")}
+                onChange={(e) =>
+                  dispatch({ type: "BRAND", payload: e.target.id })
+                }
               />
               Welleams
             </label>
@@ -324,69 +297,61 @@ export function Filters() {
         <section className="mt-2">
           <h4 className="txt-black">Ratings</h4>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "RATING", payload: e.target.id })
-              }
-              htmlFor="review-4"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="radio"
                 className="radiobutton mr-1"
                 name="review"
                 id="4"
                 checked={state.ratings === "4"}
+                onChange={(e) =>
+                  dispatch({ type: "RATING", payload: e.target.id })
+                }
               />
               4 Stars & above
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "RATING", payload: e.target.id })
-              }
-              htmlFor="review-3"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="radio"
                 className="radiobutton mr-1"
                 name="review"
                 id="3"
                 checked={state.ratings === "3"}
+                onChange={(e) =>
+                  dispatch({ type: "RATING", payload: e.target.id })
+                }
               />
               3 Stars & above
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "RATING", payload: e.target.id })
-              }
-              htmlFor="review-2"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="radio"
                 className="radiobutton mr-1"
                 name="review"
                 id="2"
                 checked={state.ratings === "2"}
+                onChange={(e) =>
+                  dispatch({ type: "RATING", payload: e.target.id })
+                }
               />
               2 Stars & above
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={(e) =>
-                dispatch({ type: "RATING", payload: e.target.id })
-              }
-              htmlFor="review-1"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="radio"
                 className="radiobutton mr-1"
                 name="review"
                 id="1"
                 checked={state.ratings === "1"}
+                onChange={(e) =>
+                  dispatch({ type: "RATING", payload: e.target.id })
+                }
               />
               1 Star & above
             </label>
@@ -395,31 +360,27 @@ export function Filters() {
         <section className="mt-2 mb-2">
           <h4 className="txt-black">Sort by</h4>
           <article className="mx-sm py-sm">
-            <label
-              onChange={() => dispatch({ type: "HIGH", payload: "HIGH" })}
-              htmlFor="sort-high"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="radio"
                 className="radiobutton mr-1"
                 name="sort"
                 id="sort-high"
                 checked={state.priceSort === "HIGH"}
+                onChange={() => dispatch({ type: "HIGH", payload: "HIGH" })}
               />
               High to Low
             </label>
           </article>
           <article className="mx-sm py-sm">
-            <label
-              onChange={() => dispatch({ type: "LOW", payload: "LOW" })}
-              htmlFor="sort-low"
-              className="txt-reg txt-semibold">
+            <label className="txt-reg txt-semibold">
               <input
                 type="radio"
                 className="radiobutton mr-1"
                 name="sort"
                 id="sort-low"
                 checked={state.priceSort === "LOW"}
+                onChange={() => dispatch({ type: "LOW", payload: "LOW" })}
               />
               Low to High
             </label>
