@@ -1,4 +1,6 @@
 <div align="center">
+
+<img src="/src/assets/README.png" alt="FueledUp Ecommerce store logo" width="250px" height="250px" />
   
 # FueledUp Ecommerce Store
 
@@ -12,6 +14,8 @@ Guaranteed to find the best deals on your team's apparel and other merchandise!
 
 </div>
 
+
+<!-- 
 ---
 
 ## How to install and run locally ?
@@ -21,7 +25,13 @@ $ git clone https://github.com/Hamdrive/Fueledup-react.git
 $ cd fueledup-react
 $ npm install
 $ npm start
-```
+``` -->
+
+---
+
+## Live Deployment
+
+Checkout the live website [here](https://fueledup-store.netlify.app/)
 
 ---
 
