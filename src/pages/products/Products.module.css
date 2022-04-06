@@ -68,17 +68,22 @@
   .grid__cols__auto {
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
+
+  .desktop__grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
 }
 
 /* Media queries to handle upto large screens */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 651px) and (max-width: 768px) {
   .grid__cols__auto {
     grid-template-columns: repeat(2, minmax(min-content, auto));
   }
 }
 
 /* Media queries to handle upto large screens */
-@media screen and (max-width: 650px) {
+@media screen and (min-width: 300px) and (max-width: 650px) {
   .grid__col__auto {
     grid-template-columns: minmax(min-content, auto);
   }

@@ -28,9 +28,9 @@ export function applyFilters(state, action) {
     case "CATEGORY":
       return {
         ...state,
-        categories: state["categories"].includes(action.payload)
-          ? updateCategories(state, action.payload)
-          : state["categories"].concat(action.payload),
+        categories: action.payload.isChecked === false 
+          ? updateCategories(state, action.payload.value)
+          : state["categories"].concat(action.payload.value),
       };
     case "BRAND":
       return {

@@ -1,6 +1,6 @@
 /* Search bar styles */
 .search-input {
-  flex-basis: 40%;
+  flex-basis: 50%;
 }
 
 .search-input input {
@@ -20,10 +20,10 @@
 .mob-search-input {
   position: sticky;
   top: 4rem;
-  z-index: 9999;
+  z-index: 2;
   width: 100%;
   background-color: var(--primary-extra-light-color);
-  margin-top: var(--size-5);
+  margin-top: var(--size-7);
 }
 
 .mob-search-input input {
@@ -38,6 +38,11 @@
   margin: 0 var(--size-9);
 }
 
+.nav-item:nth-child(n + 2) {
+  margin: 0 var(--size-11);
+  color: var(--color-white);
+}
+
 .nav-logo {
   margin: 0 var(--size-5);
 }
@@ -49,6 +54,85 @@
   transform: translate(25%, -50%);
 }
 
+.hamburger {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.nav-list {
+  flex-grow: 1;
+}
+
+.nav-menu-mob {
+  display: flex;
+  flex-direction: column;
+  margin: var(--size-19) var(--size-11) 0;
+  flex-grow: 1;
+}
+
+.nav-menu-mob .nav-item {
+  margin: var(--size-9) 0;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-layout {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 0;
+  overflow: hidden;
+  transition: 0.1s width ease-in-out;
+  background-color: #e6e6e6;
+  z-index: 4;
+}
+
+.sidebar-menu-open {
+  width: 50vw;
+}
+
+.sidebar-menu-close-btn {
+  position: absolute;
+  top: var(--size-11);
+  right: var(--size-11);
+  width: var(--size-15);
+  height: var(--size-15);
+  border-radius: 50%;
+}
+
+.sidebar-menu-close-btn:hover {
+  background-color: #a1a1a1;
+}
+
+.header {
+  height: 5rem;
+  z-index: 3;
+}
+
+.nav-logo-sidemenu {
+  font-weight: var(--weight-bold);
+  font-size: var(--size-11);
+  color: var(--primary-color);
+  margin: var(--size-21) var(--size-11);
+}
+
+@media screen and (min-width: 769px) {
+  .nav-list {
+    display: inline-flex;
+    justify-content: space-between;
+  }
+
+  .sidebar-menu-open {
+    width: 0;
+  }
+}
+
 /* Media queries for tablets and up */
 @media screen and (max-width: 768px) {
   .nav-list {
@@ -57,6 +141,10 @@
 
   .search-input {
     flex-basis: 50%;
+  }
+
+  .nav-menu {
+    display: none;
   }
 }
 
@@ -68,5 +156,16 @@
 
   .search-input {
     display: block;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav-layout {
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .sidebar-menu-open {
+    width: 70vw;
   }
 }

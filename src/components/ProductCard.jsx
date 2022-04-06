@@ -6,7 +6,7 @@ export function ProductCard({ product }) {
   const { state, dispatch } = useAuthProducts();
 
   // Get current path to show appropriate button on card
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <div className={`pos-rel card ${styles.card} mx-auto`}>
@@ -62,11 +62,17 @@ export function ProductCard({ product }) {
       <hr />
       <div className="card-footer flex-around flex-grow-1">
         {state["cart"].some((item) => item._id === product._id) ? (
-          <Link to="/cart" onClick={() => dispatch({type: "CLEANUP_WISHLIST", payload: product})} className="btn btn-suc btn-lg txt-bold txt-reg w-100 txt-center">
+          <Link
+            to="/cart"
+            onClick={() =>
+              dispatch({ type: "CLEANUP_WISHLIST", payload: product })
+            }
+            className="btn btn-suc btn-lg txt-bold txt-reg w-100 txt-center">
             <i className="fas fa-shopping-cart"></i>
             go to cart
           </Link>
-        ) : state["wishlist"].some((item) => item._id === product._id) && location.pathname === "/wishlist" ? (
+        ) : state["wishlist"].some((item) => item._id === product._id) &&
+          location.pathname === "/wishlist" ? (
           <button
             onClick={() => dispatch({ type: "ADD_TO_CART", payload: product })}
             className="btn btn-wish btn-lg txt-bold txt-reg w-100">

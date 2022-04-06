@@ -18,7 +18,10 @@ export default function Categories() {
             to="/products"
             className={`${styles.category} flex-center flex-grow-1 pointer`}
             onClick={() =>
-              dispatch({ type: "CATEGORY", payload: category.categoryName })
+              dispatch({
+                type: "CATEGORY",
+                payload: { isChecked: true, value: category.categoryName },
+              })
             }>
             <img
               className="w-100 blur"

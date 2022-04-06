@@ -5,13 +5,12 @@ import { useAuthProducts } from "../context/auth-products-context";
 export function CartCard({ product }) {
   const { dispatch } = useAuthProducts();
 
-
   return (
     <div className={`${styles.card} card`}>
-      <div className={`${styles.card__img}`}>
+      <div className={styles.card__img}>
         <img src={product.productImage} alt="cart item card" />
       </div>
-      <div className={`${styles.card__info}`}>
+      <div className={styles.card__info}>
         <div className="card-title flex-col">
           <p className="h3 txt-semibold mb-sm">{product.title}</p>
           <p className="txt-reg txt-semibold">
@@ -27,9 +26,8 @@ export function CartCard({ product }) {
           </div>
         </div>
 
-        <div className="flex-row px-md my-sm quantity">
-          <p>Quantity</p>
-          <div className="flex-row px-lg">
+        <div className="flex-row px-sm my-sm quantity">
+          <div className="flex-row">
             <div
               onClick={() =>
                 dispatch({ type: "DECREMENT_QUANTITY", payload: product })
@@ -55,14 +53,14 @@ export function CartCard({ product }) {
             onClick={() =>
               dispatch({ type: "REMOVE_FROM_CART", payload: product })
             }
-            className="btn btn-cta btn-lg txt-bold txt-reg w-100 flex-1">
+            className="btn btn-cta btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
             remove from cart
           </button>
           <button
             onClick={() =>
               dispatch({ type: "MOVE_TO_WISHLIST", payload: product })
             }
-            className="btn btn-wish btn-lg txt-bold txt-reg w-100 my-1 flex-1">
+            className="btn btn-wish btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
             move to wishlist
           </button>
         </div>

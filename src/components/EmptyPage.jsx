@@ -11,7 +11,9 @@ export function EmptyPage({
 }) {
   return (
     <div className="flex-column align-center h-100">
-      <img className="empty__page" src={imgSrc} alt={imgAlt} />
+      <div className="empty__page">
+        <img className="w-100 h-100" src={imgSrc} alt={imgAlt} />
+      </div>
       <div className="flex-column align-center txt-center">
         <h3>{title}</h3>
         <p>{description}</p>

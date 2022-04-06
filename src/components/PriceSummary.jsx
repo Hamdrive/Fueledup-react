@@ -1,7 +1,6 @@
 import React from "react";
 
 export function PriceSummary({ products }) {
-  console.log(products)
   const tally = products.reduce(
     (summary, item) => ({
       ...summary,

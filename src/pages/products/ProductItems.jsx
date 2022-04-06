@@ -9,7 +9,7 @@ export function ProductItems() {
 
   return (
     <section
-      className={`min-h-95 grid ${styles.grid__cols__auto} gap-2 my-3 px-md`}>
+      className={`min-h-95 grid ${styles.grid__cols__auto} gap-2 py-md mx-sm`}>
       {finalProducts.length > 0 ? (
         finalProducts.map((product) => (
           <ProductCard key={product._id} product={product} />

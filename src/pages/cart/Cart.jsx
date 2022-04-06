@@ -20,7 +20,7 @@ export function Cart() {
         </h2>
         <hr />
         <section
-          className={`min-h-95 grid grid-cols-1 grid-reverse gap-3 pos-rel my-3 px-lg ${
+          className={`min-h-95 grid grid-cols-1 grid-reverse gap-3 pos-rel my-3 ${
             styles.page__content
           } ${state["cart"].length > 0 && styles.grid__cols__2__1}`}>
           <CartItems />
