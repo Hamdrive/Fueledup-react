@@ -42,11 +42,6 @@ export function Navbar() {
           </div>
           <ul className={` ${"nav-menu"} h-100`}>
             <li className="nav-item">
-              <Link to="/signup">
-                <button className="btn btn-md btn-wish px-md">Signup</button>
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link to="/login">
                 <button className="btn btn-md btn-cta btn-login px-md">
                   Login
@@ -103,11 +98,6 @@ export function Navbar() {
             className={` ${
               isSideMenuOpen ? "nav-menu-mob" : "nav-menu"
             } h-100`}>
-            <li className="nav-item">
-              <Link to="/signup">
-                <button className="btn btn-lg btn-wish px-md w-100">Signup</button>
-              </Link>
-            </li>
             <li className="nav-item">
               <Link to="/login">
                 <button className="btn btn-lg btn-cta px-md w-100">Login</button>
