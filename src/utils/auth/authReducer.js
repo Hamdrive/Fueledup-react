@@ -3,8 +3,8 @@ export const initialUserState = {
   userDetails: {
     email: "",
     password: "",
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
   },
 };
 
