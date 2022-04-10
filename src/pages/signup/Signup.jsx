@@ -1,28 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Loader, Navbar } from "../../components";
+import { InputError, Loader, Navbar } from "../../components";
 import { useAuth } from "../../context/auth-context";
-import { initialUserState } from "../../utils/auth/authReducer";
+import { useValidation } from "../../utils/validation/useValidation";
 import "./signup.css";
 
 export function Signup() {
-  const [signupDetails, setSignupDetails] = useState(
-    initialUserState.userDetails
-  );
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
 
-  const { signupUser, loader } = useAuth();
+  const {
+    inputState,
+    inputDispatch,
+    errorState,
+    errorDispatch,
+    validateInputs,
+  } = useValidation();
+  const { firstName, lastName, email, password, confirmPassword } = inputState;
+  const {
+    emailError,
+    lastNameError,
+    passwordError,
+    passwordMatchError,
+    firstNameError,
+  } = errorState;
 
-  const handleSignupDetails = (e) => {
-    const { name, value } = e.target;
-    setSignupDetails((prev) => ({ ...prev, [name]: value }));
-  };
+  const { signupUser, loader } = useAuth();
 
   const handleSignup = (e) => {
     e.preventDefault();
-    console.log(signupDetails);
-    signupUser(signupDetails);
+    if (validateInputs()) {
+      const userAuthDetails = inputState;
+      delete userAuthDetails.confirmPassword;
+      console.log(userAuthDetails);
+      errorDispatch({ type: "CLEAR_ERRORS" });
+      inputDispatch({ type: "CLEAR_INPUTS" });
+      signupUser(userAuthDetails);
+    }
   };
 
   useEffect(() => {
@@ -52,8 +66,16 @@ export function Signup() {
                     name="firstname"
                     id="input"
                     placeholder="John"
-                    onChange={(e) => handleSignupDetails(e)}
+                    value={firstName}
+                    onChange={(e) =>
+                      inputDispatch({
+                        type: "FIRST_NAME",
+                        payload: e.target.value,
+                      })
+                    }
                   />
+
+                  <InputError errorMessage={firstNameError} />
                 </div>
                 <div className="input-section">
                   <label
@@ -67,8 +89,15 @@ export function Signup() {
                     name="lastname"
                     id="input"
                     placeholder="Doe"
-                    onChange={(e) => handleSignupDetails(e)}
+                    value={lastName}
+                    onChange={(e) =>
+                      inputDispatch({
+                        type: "LAST_NAME",
+                        payload: e.target.value,
+                      })
+                    }
                   />
+                  <InputError errorMessage={lastNameError} />
                 </div>
                 <div className="input-section grid-span-2">
                   <label htmlFor="email" className="form-input input-required">
@@ -80,10 +109,17 @@ export function Signup() {
                     name="email"
                     id="input"
                     placeholder="john.doe@email.com"
-                    onChange={(e) => handleSignupDetails(e)}
+                    value={email}
+                    onChange={(e) =>
+                      inputDispatch({
+                        type: "EMAIL",
+                        payload: e.target.value,
+                      })
+                    }
                   />
+                  <InputError errorMessage={emailError} />
                 </div>
-                <div className="input-section">
+                <div className="input-section span-2">
                   <label
                     htmlFor="password"
                     className="form-input input-required">
@@ -92,31 +128,52 @@ export function Signup() {
                   <div className="input-toggle pos-rel">
                     <i
                       onClick={() => setShowPass((prev) => !prev)}
-                      className="fas fa-eye-slash pos-ab pointer"></i>
+                      className="fas fa-eye-slash toggle-vis pos-ab pointer"></i>
                     <input
                       type={showPass ? "text" : "password"}
                       className="input-corner input-md border-2 pr-4"
                       name="password"
                       id="input"
                       placeholder="***********"
-                      onChange={(e) => handleSignupDetails(e)}
+                      value={password}
+                      onChange={(e) =>
+                        inputDispatch({
+                          type: "PASSWORD",
+                          payload: e.target.value,
+                        })
+                      }
+                    />
+                    <InputError
+                      type={"spanError"}
+                      errorMessage={passwordError}
                     />
                   </div>
                 </div>
-                <div className="input-section">
+                <div className="input-section span-2">
                   <label htmlFor="input" className="form-input input-required">
                     Confirm Password
                   </label>
                   <div className="input-toggle pos-rel">
                     <i
                       onClick={() => setShowConfirmPass((prev) => !prev)}
-                      className="fas fa-eye-slash pos-ab pointer"></i>
+                      className="fas fa-eye-slash toggle-vis pos-ab pointer"></i>
                     <input
                       type={showConfirmPass ? "text" : "password"}
                       className="input-corner input-md border-2 pr-4"
                       name="input"
                       id="input"
                       placeholder="***********"
+                      value={confirmPassword}
+                      onChange={(e) =>
+                        inputDispatch({
+                          type: "CONFIRM_PASSWORD",
+                          payload: e.target.value,
+                        })
+                      }
+                    />
+                    <InputError
+                      type={"spanError"}
+                      errorMessage={passwordMatchError}
                     />
                   </div>
                 </div>
