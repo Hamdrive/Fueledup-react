@@ -1,7 +1,6 @@
 import React from "react";
 
 export function InputError({ errorMessage, type = "" }) {
-  console.log(errorMessage);
   return (
     <div
       className={`align-center flex-row input-error  my-sm ${

@@ -35,7 +35,6 @@ export function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(loginCredentials);
     if (loginCredentials.email) {
       loginUser(loginCredentials);
     } else if (validateLogin()) {

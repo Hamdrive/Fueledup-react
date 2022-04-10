@@ -5,8 +5,6 @@ export const RequireAuth = ({ children }) => {
   const { userToken } = useAuth();
   const location = useLocation();
 
-  console.log(userToken)
-
   return userToken ? (
     children
   ) : (

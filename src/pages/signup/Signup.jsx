@@ -32,7 +32,6 @@ export function Signup() {
     if (validateInputs()) {
       const userAuthDetails = inputState;
       delete userAuthDetails.confirmPassword;
-      console.log(userAuthDetails);
       errorDispatch({ type: "CLEAR_ERRORS" });
       inputDispatch({ type: "CLEAR_INPUTS" });
       signupUser(userAuthDetails);

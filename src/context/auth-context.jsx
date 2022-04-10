@@ -25,8 +25,6 @@ const AuthProvider = ({ children }) => {
     try {
       const res = await performUserSignup(signupCredentials);
       if (res.status === 200 || res.status === 201) {
-        console.log(res.data);
-
         dispatchUserDetails({ type: "SIGNUP", payload: res.data });
         navigate(location?.state?.from?.pathname || "/", { replace: true });
       }
@@ -41,14 +39,12 @@ const AuthProvider = ({ children }) => {
     setLoader(true);
     try {
       const res = await performUserLogin(loginCredentials);
-      console.log(res);
       if (res.status === 200 || res.status === 201) {
-        console.log(res.data);
         dispatchUserDetails({ type: "LOGIN", payload: res.data });
         navigate(location?.state?.from?.pathname || "/", { replace: true });
       }
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     } finally {
       setLoader(false);
     }

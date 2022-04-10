@@ -54,9 +54,7 @@ const ProductProvider = ({ children }) => {
   const addToCart = async (product) => {
     try {
       const res = await performAddToCart(product, userToken);
-      console.log(res);
       dispatch({ type: "ADD_TO_CART", payload: res.data.cart });
-      console.log(state);
     } catch (error) {
       console.log(error);
     }
@@ -65,7 +63,6 @@ const ProductProvider = ({ children }) => {
   const getCart = async () => {
     try {
       const res = await performGetCart(userToken);
-      console.log(res);
       dispatch({ type: "GET_CART", payload: res.data.cart });
     } catch (error) {
       console.log(error);
@@ -75,7 +72,6 @@ const ProductProvider = ({ children }) => {
   const updateCartQuantity = async (id, type) => {
     try {
       const res = await performUpdateCartQuantity(id, type, userToken);
-      console.log(res);
       dispatch({
         type: "UPDATE_CART",
         payload: res.data.cart,
@@ -86,7 +82,6 @@ const ProductProvider = ({ children }) => {
   const removeFromCart = async (id) => {
     try {
       const res = await performRemoveFromCart(id, userToken);
-      console.log(res);
       dispatch({
         type: "REMOVE_FROM_CART",
         payload: res.data.cart,

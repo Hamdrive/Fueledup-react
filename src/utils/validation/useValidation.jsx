@@ -29,7 +29,6 @@ export const useValidation = () => {
         payload: "Password length should contain minimum 8 characters",
       });
       inputValid = false;
-      console.log(errorState);
     }
 
     return inputValid;
@@ -64,7 +63,6 @@ export const useValidation = () => {
         payload: "Password length should contain minimum 8 characters",
       });
       inputValid = false;
-      console.log(errorState);
     }
 
     if (inputState.password !== inputState.confirmPassword) {
