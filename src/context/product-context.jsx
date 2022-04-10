@@ -35,7 +35,9 @@ const ProductContext = createContext(initialDataState);
 const useProduct = () => useContext(ProductContext);
 
 const ProductProvider = ({ children }) => {
-  const [loader, setLoader] = useState(false);
+  // Setup in future PR
+  // const [loader, setLoader] = useState(false);
+
   const [state, dispatch] = useReducer(productReducer, initialDataState);
   const { userToken } = useAuth();
 

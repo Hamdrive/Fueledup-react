@@ -1,6 +1,6 @@
 import Mockman from "mockman-js";
 
-export function MockAPI () {
+export function MockAPI() {
   return (
     <div className="MockAPI">
       <Mockman />
