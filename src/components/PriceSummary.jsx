@@ -5,15 +5,15 @@ export function PriceSummary({ products }) {
     (summary, item) => ({
       ...summary,
       initPrice:
-        (Number(summary.initPrice) + Number(item.price)) * Number(item.quantity),
+        (Number(summary.initPrice) + Number(item.price)) * Number(item.qty),
       totalDisc:
         (Number(summary.totalDisc) +
           (Number(item.price) - Number(item.productDiscountPrice))) *
-        Number(item.quantity),
+        Number(item.qty),
       totalPrice:
         (Number(summary.totalPrice) + Number(item.productDiscountPrice)) *
-        Number(item.quantity),
-        quantity: summary.quantity + item.quantity
+        Number(item.qty),
+      quantity: summary.quantity + item.qty,
     }),
     {
       initPrice: 0,
