@@ -9,3 +9,4 @@ export { EmptyPage } from "./EmptyPage";
 export { MockAPI } from "./MockAPI";
 export { Loader } from "./Loader";
 export { WishlistCard } from "./WishlistCard";
+export { InputError } from "./InputError";
