@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Loader, Navbar } from "../../components";
+import { InputError, Loader, Navbar } from "../../components";
 import { useAuth } from "../../context/auth-context";
+import { useValidation } from "../../utils/validation/useValidation";
 import "./login.css";
 
 export function Login() {
@@ -10,6 +11,17 @@ export function Login() {
     password: "",
   });
   const [showPass, setShowPass] = useState(false);
+
+  const {
+    inputState,
+    inputDispatch,
+    errorState,
+    errorDispatch,
+    validateLogin,
+  } = useValidation();
+
+  const { email, password } = inputState;
+  const { emailError, passwordError } = errorState;
 
   const { loginUser, loader } = useAuth();
 
@@ -23,7 +35,12 @@ export function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    loginUser(loginCredentials);
+    console.log(loginCredentials);
+    if (loginCredentials.email) {
+      loginUser(loginCredentials);
+    } else if (validateLogin()) {
+      loginUser({ email: email, password: password });
+    }
   };
 
   useEffect(() => {
@@ -53,14 +70,19 @@ export function Login() {
                       name="emailID"
                       id="emailID"
                       value={loginCredentials.email}
-                      onChange={(e) =>
+                      onChange={(e) => {
+                        inputDispatch({
+                          type: "EMAIL",
+                          payload: e.target.value,
+                        });
                         setLoginCredentials((prev) => ({
                           ...prev,
                           email: e.target.value,
-                        }))
-                      }
+                        }));
+                      }}
                       placeholder="john.doe@email.com"
                     />
+                    <InputError errorMessage={emailError} />
                   </div>
                   <div className="input-section">
                     <label
@@ -71,20 +93,28 @@ export function Login() {
                     <div className="input-toggle pos-rel">
                       <i
                         onClick={() => setShowPass((prev) => !prev)}
-                        className="fas fa-eye-slash pos-ab pointer"></i>
+                        className="fas fa-eye-slash toggle-vis pos-ab pointer"></i>
                       <input
                         type={showPass ? "text" : "password"}
                         className="input-corner input-md border-2 pr-4"
                         name="password"
                         id="password"
                         value={loginCredentials.password}
-                        onChange={(e) =>
+                        onChange={(e) => {
+                          inputDispatch({
+                            type: "PASSWORD",
+                            payload: e.target.value,
+                          });
                           setLoginCredentials((prev) => ({
                             ...prev,
                             password: e.target.value,
-                          }))
-                        }
+                          }));
+                        }}
                         placeholder="***********"
+                      />
+                      <InputError
+                        type={"spanError"}
+                        errorMessage={passwordError}
                       />
                     </div>
                   </div>
