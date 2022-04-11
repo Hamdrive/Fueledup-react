@@ -10,3 +10,4 @@ export { MockAPI } from "./MockAPI";
 export { Loader } from "./Loader";
 export { WishlistCard } from "./WishlistCard";
 export { InputError } from "./InputError";
+export { SingleProductCard } from "./SingleProductCard";
