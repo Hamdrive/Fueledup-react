@@ -11,3 +11,4 @@ export { Loader } from "./Loader";
 export { WishlistCard } from "./WishlistCard";
 export { InputError } from "./InputError";
 export { SingleProductCard } from "./SingleProductCard";
+export { Toast } from "./Toast";
