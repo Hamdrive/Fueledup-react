@@ -25,10 +25,10 @@ export function SingleProductCard({ product }) {
         <div className="pos-ab card-badge card-badge-left top-left-pos txt-lg">
           {product.productDiscount}% off
         </div>
-        <div className={`${styles.card__img}`}>
+        <div className={`${styles.card__img} w-100`}>
           <img src={product.productImage} alt="cart item card" />
         </div>
-        <div className={styles.card__info}>
+        <div className={`${styles.card__info} w-100`}>
           <div className="card-title flex-col p-1">
             <p className="h2 txt-semibold mb-sm">{product.title}</p>
             <p className="h4 txt-semibold">

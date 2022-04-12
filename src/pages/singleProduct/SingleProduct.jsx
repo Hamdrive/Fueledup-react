@@ -1,19 +1,49 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Footer, Navbar, SingleProductCard } from "../../components";
-import { useProduct } from "../../context/product-context";
+import { useEffect, useState } from "react";
+import {
+  Footer,
+  Loader,
+  Navbar,
+  SingleProductCard,
+  Toast,
+} from "../../components";
+import axios from "axios";
 
 export function SingleProduct() {
   const { productId } = useParams();
-  const { finalProducts } = useProduct();
+  const [singleProduct, setSingleProduct] = useState("");
+  const [loader, setLoader] = useState(false);
 
-  const product = finalProducts.filter((item) => item._id === productId);
+  useEffect(() => {
+    (async () => {
+      setLoader(true);
+      try {
+        const res = await axios.get(`/api/products/${productId}`);
+        setSingleProduct(res.data.product);
+      } catch (error) {
+        Toast({
+          type: "warning",
+          message:
+            "Unable to fetch product at this time. Please reload the page.",
+        });
+        console.log(error);
+      } finally {
+        setLoader(false);
+      }
+    })();
+  }, []);
 
   return (
     <div>
       <Navbar />
       <main className="pos-rel min-h-95 flex-column align-center">
-        <SingleProductCard product={product[0]} />
+        {loader && (
+          <div className="flex-center min-h-95 w-100">
+            <Loader loaderStyle={"lds-ring-product"} />
+          </div>
+        )}
+        {!loader && <SingleProductCard product={singleProduct} />}
       </main>
       <Footer />
     </div>

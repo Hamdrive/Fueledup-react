@@ -49,9 +49,9 @@ export function ProductCard({ product }) {
         )}
       </div>
       <div className={`${styles.card__img}`}>
-      <Link to={`/products/${product._id}`}>
-        <img src={product.productImage} alt="vertical card" />
-      </Link>
+        <Link to={`/products/${product.id}`} state={{ productID: product.id }}>
+          <img src={product.productImage} alt="vertical card" />
+        </Link>
       </div>
       <div className="card-title flex-col flex-grow-1">
         <p className="txt-md txt-bold">{product.title}</p>
