@@ -1,24 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Loader } from "../../components";
 import { useProduct } from "../../context/product-context";
 import styles from "./SingleProductCard.module.css";
 
 export function SingleProductCard({ product }) {
+
   const {
     state: { productsInWishlist, productsInCart },
     addToWishlist,
     addToCart,
+    cartLoader,
+    setCartLoader,
+    wishlistLoader,
+    setWishlistLoader,
   } = useProduct();
 
-  const handleAddToWishlist = (product) => {
-    addToWishlist(product);
+  const handleAddToWishlist = async (product) => {
+    setWishlistLoader(true);
+    if (await addToWishlist(product)) setWishlistLoader(false);
   };
 
-  const handleAddToCart = (product) => {
-    addToCart(product);
+  const handleAddToCart = async (product) => {
+    setCartLoader(true);
+    if (await addToCart(product)) setCartLoader(false);
   };
 
-  console.log(product);
   return (
     <div className="max-width-1200 mx-auto py-3 h-100 flex-column align-center flex-1">
       <div className={`${styles.card} card w-100 h-100 flex-1`}>
@@ -63,8 +70,14 @@ export function SingleProductCard({ product }) {
               <button
                 onClick={() => handleAddToCart(product)}
                 className="btn btn-cta btn-lg txt-bold txt-reg w-100 mb-1">
-                <i className="fas fa-cart-plus"></i>
-                add to cart
+                {cartLoader ? (
+                  <Loader loaderStyle={"lds-ring-auth"} />
+                ) : (
+                  <>
+                    <i className="fas fa-cart-plus"></i>
+                    add to cart
+                  </>
+                )}
               </button>
             )}
             {productsInWishlist.some((item) => item._id === product._id) ? (
@@ -77,8 +90,14 @@ export function SingleProductCard({ product }) {
               <button
                 onClick={() => handleAddToWishlist(product)}
                 className="btn btn-wish btn-lg txt-bold txt-reg w-100 mt-1">
-                <i className="fas fa-heart"></i>
-                add to wishlist
+                {wishlistLoader ? (
+                  <Loader loaderStyle={"lds-ring-auth"} />
+                ) : (
+                  <>
+                    <i className="fas fa-heart"></i>
+                    add to wishlist
+                  </>
+                )}
               </button>
             )}
           </div>

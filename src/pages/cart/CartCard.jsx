@@ -1,4 +1,5 @@
 import React from "react";
+import { Loader } from "../../components";
 import { useProduct } from "../../context/product-context";
 import styles from "./CartCard.module.css";
 
@@ -8,19 +9,26 @@ export function CartCard({ product }) {
     addToWishlist,
     removeFromCart,
     updateCartQuantity,
+    cartLoader,
+    setCartLoader,
+    wishlistLoader,
+    setWishlistLoader,
   } = useProduct();
 
-  const handleRemoveFromCart = (product) => {
-    removeFromCart(product._id);
+  const handleRemoveFromCart = async(product) => {
+    setCartLoader(true)
+    if (await removeFromCart(product._id)) setCartLoader(false);
   };
 
-  const handleMoveToWishlist = (product) => {
+  const handleMoveToWishlist = async(product) => {
+    setWishlistLoader(true)
     if (productsInWishlist.some((item) => item._id === product._id)) {
-      handleRemoveFromCart(product);
+      await handleRemoveFromCart(product);
     } else {
-      addToWishlist(product);
-      removeFromCart(product._id);
+      await addToWishlist(product);
+      await removeFromCart(product._id);
     }
+    setWishlistLoader(false)
   };
 
   const handleUpdateCartQuantity = (product, type) => {
@@ -74,12 +82,20 @@ export function CartCard({ product }) {
           <button
             onClick={() => handleRemoveFromCart(product)}
             className="btn btn-cta btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
-            remove from cart
+            {cartLoader ? (
+              <Loader loaderStyle={"lds-ring-auth"} />
+            ) : (
+              "remove from cart"
+            )}
           </button>
           <button
             onClick={() => handleMoveToWishlist(product)}
             className="btn btn-wish btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
-            move to wishlist
+            {wishlistLoader ? (
+              <Loader loaderStyle={"lds-ring-auth"} />
+            ) : (
+              "move to wishlist"
+            )}
           </button>
         </div>
       </div>

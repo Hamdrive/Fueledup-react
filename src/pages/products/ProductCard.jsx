@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Loader } from "../../components";
 import { useProduct } from "../../context/product-context";
 import styles from "./Products.module.css";
 
 export function ProductCard({ product }) {
+    const [wishlistLoader, setWishlistLoader] = useState(false);
+    const [cartLoader, setCartLoader] = useState(false);
   const {
     state: { productsInWishlist, productsInCart },
     addToWishlist,
@@ -10,16 +14,19 @@ export function ProductCard({ product }) {
     addToCart,
   } = useProduct();
 
-  const handleAddToWishlist = (product) => {
-    addToWishlist(product);
+  const handleAddToWishlist = async (product) => {
+    setWishlistLoader(true);
+    if (await addToWishlist(product)) setWishlistLoader(false);
   };
 
-  const handleAddToCart = (product) => {
-    addToCart(product);
+  const handleAddToCart = async (product) => {
+    setCartLoader(true);
+    if (await addToCart(product)) setCartLoader(false);
   };
 
-  const handleRemoveFromWishlist = (product) => {
-    removeFromWishlist(product._id);
+  const handleRemoveFromWishlist = async (product) => {
+    setWishlistLoader(true);
+    if (await removeFromWishlist(product._id)) setWishlistLoader(false);
   };
 
   return (
@@ -39,9 +46,15 @@ export function ProductCard({ product }) {
       <div
         className={`pos-ab ${styles.top__right__pos} flex-center ${styles.border__circle} ${styles.wish__heart__btn} pointer`}>
         {productsInWishlist.some((item) => item._id === product._id) ? (
-          <i
-            onClick={() => handleRemoveFromWishlist(product)}
-            className={`fa fa-heart ${styles.fill} `}></i>
+          wishlistLoader ? (
+            <Loader loaderStyle={"lds-ring-heart"} />
+          ) : (
+            <i
+              onClick={() => handleRemoveFromWishlist(product)}
+              className={`fa fa-heart ${styles.fill} `}></i>
+          )
+        ) : wishlistLoader ? (
+          <Loader loaderStyle={"lds-ring-heart"} />
         ) : (
           <i
             onClick={() => handleAddToWishlist(product)}
@@ -84,8 +97,14 @@ export function ProductCard({ product }) {
           <button
             onClick={() => handleAddToCart(product)}
             className="btn btn-cta btn-lg txt-bold txt-reg w-100">
-            <i className="fas fa-cart-plus"></i>
-            add to cart
+            {cartLoader ? (
+              <Loader loaderStyle={"lds-ring-auth"} />
+            ) : (
+              <>
+                <i className="fas fa-cart-plus"></i>
+                add to cart
+              </>
+            )}
           </button>
         )}
       </div>
