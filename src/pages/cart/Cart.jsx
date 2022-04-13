@@ -27,7 +27,7 @@ export function Cart() {
           } ${productsInCart.length > 0 && styles.grid__cols__2__1}`}>
           <CartItems />
           {productsInCart.length > 0 && (
-            <PriceSummary products={productsInCart} />
+            <PriceSummary />
           )}
         </section>
       </main>
