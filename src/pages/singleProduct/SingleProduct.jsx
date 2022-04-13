@@ -5,10 +5,10 @@ import {
   Footer,
   Loader,
   Navbar,
-  SingleProductCard,
   Toast,
 } from "../../components";
 import axios from "axios";
+import { SingleProductCard } from "./SingleProductCard";
 
 export function SingleProduct() {
   const { productId } = useParams();

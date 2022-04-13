@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useProduct } from "../context/product-context";
-import styles from "../styles/SingleProductCard.module.css";
+import { useProduct } from "../../context/product-context";
+import styles from "./SingleProductCard.module.css";
 
 export function SingleProductCard({ product }) {
   const {
