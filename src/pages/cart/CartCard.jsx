@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../styles/CartCard.module.css";
-import { useProduct } from "../context/product-context";
+import { useProduct } from "../../context/product-context";
+import styles from "./CartCard.module.css";
 
 export function CartCard({ product }) {
   const {

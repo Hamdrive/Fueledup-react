@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import styles from "../pages/products/Products.module.css";
-import { useProduct } from "../context/product-context";
+import styles from "../products/Products.module.css";
+import { useProduct } from "../../context/product-context";
 
 export function WishlistCard({ product }) {
   const [isProductAdded, setisProductAdded] = useState(false);

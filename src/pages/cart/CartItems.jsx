@@ -1,8 +1,9 @@
 import React from "react";
 import EmptyCart from "../../assets/EmptyCart.png";
-import { CartCard, EmptyPage } from "../../components";
+import { EmptyPage } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { useProduct } from "../../context/product-context";
+import { CartCard } from "./CartCard";
 
 export function CartItems() {
   const {
