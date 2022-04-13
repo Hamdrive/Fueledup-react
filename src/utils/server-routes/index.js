@@ -1,11 +1,13 @@
-export { performUserSignup } from "./server-routes";
-export { performUserLogin } from "./server-routes";
-export { performGetCategories } from "./server-routes";
-export { performGetProducts } from "./server-routes";
-export { performAddToCart } from "./server-routes";
-export { performGetCart } from "./server-routes";
-export { performUpdateCartQuantity } from "./server-routes";
-export { performRemoveFromCart } from "./server-routes";
-export { performAddToWishlist } from "./server-routes";
-export { performGetWishlist } from "./server-routes";
-export { performRemoveFromWishlist } from "./server-routes";
+export {
+  performUserSignup,
+  performUserLogin,
+  performGetCategories,
+  performGetProducts,
+  performAddToCart,
+  performGetCart,
+  performUpdateCartQuantity,
+  performRemoveFromCart,
+  performAddToWishlist,
+  performGetWishlist,
+  performRemoveFromWishlist,
+} from "./server-routes";
