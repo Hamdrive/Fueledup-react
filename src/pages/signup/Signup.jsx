@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { InputError, Loader, Navbar } from "../../components";
 import { useAuth } from "../../context/auth-context";
+import { useDocumentTitle } from "../../utils";
 import { useValidation } from "../../utils/validation/useValidation";
 import "./signup.css";
 
@@ -38,9 +39,7 @@ export function Signup() {
     }
   };
 
-  useEffect(() => {
-    document.title = `Signup | FueledUp`;
-  }, []);
+  useDocumentTitle(`Signup | FueledUp`);
 
   return (
     <>

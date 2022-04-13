@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import { Footer, Navbar, PriceSummary } from "../../components";
+import React from "react";
+import { Footer, Navbar } from "../../components";
 import { CartItems } from "./CartItems";
 import styles from "./Cart.module.css";
 import { useProduct } from "../../context/product-context";
+import { useDocumentTitle } from "../../utils";
+import { PriceSummary } from "./PriceSummary";
 
 export function Cart() {
   const {
     state: { productsInCart },
   } = useProduct();
 
-  useEffect(() => {
-    document.title = `My Cart (${productsInCart.length}) | FueledUp`;
-  }, [productsInCart]);
+  useDocumentTitle(`My Cart | FueledUp`);
 
   return (
     <>
@@ -27,7 +27,7 @@ export function Cart() {
           } ${productsInCart.length > 0 && styles.grid__cols__2__1}`}>
           <CartItems />
           {productsInCart.length > 0 && (
-            <PriceSummary products={productsInCart} />
+            <PriceSummary />
           )}
         </section>
       </main>

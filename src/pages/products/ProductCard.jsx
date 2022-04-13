@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useProduct } from "../context/product-context";
-import styles from "../pages/products/Products.module.css";
+import { useProduct } from "../../context/product-context";
+import styles from "./Products.module.css";
 
 export function ProductCard({ product }) {
   const {

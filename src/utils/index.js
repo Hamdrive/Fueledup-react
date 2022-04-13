@@ -12,3 +12,5 @@ export {
   userCategory,
   userRating,
 } from "./filters/filterFunctions";
+export { useDocumentTitle } from "./page-title/useDocumentTitle";
+export { priceTallyReducer } from "./products/priceTallyReducer";

@@ -2,7 +2,8 @@ import styles from "./Products.module.css";
 import React from "react";
 import { useProduct } from "../../context/product-context";
 import ProductsNotFound from "../../assets/ProductsNotFound.png";
-import { EmptyPage, ProductCard } from "../../components";
+import { EmptyPage } from "../../components";
+import { ProductCard } from "./ProductCard";
 
 export function ProductItems() {
   const { finalProducts } = useProduct();

@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./Wishlist.module.css";
 import EmptyWishlist from "../../assets/EmptyWishlist.png";
-import { EmptyPage, WishlistCard } from "../../components";
+import { EmptyPage } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { useProduct } from "../../context/product-context";
+import { WishlistCard } from "./WishlistCard";
 
 export function WishlistItems() {
   const {
