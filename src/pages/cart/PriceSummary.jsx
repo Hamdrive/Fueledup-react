@@ -1,27 +1,13 @@
 import React from "react";
+import { useProduct } from "../../context/product-context";
+import { priceTallyReducer } from "../../utils";
 
-export function PriceSummary({ products }) {
-  const tally = products.reduce(
-    (summary, item) => ({
-      ...summary,
-      initPrice:
-        (Number(summary.initPrice) + Number(item.price)) * Number(item.quantity),
-      totalDisc:
-        (Number(summary.totalDisc) +
-          (Number(item.price) - Number(item.productDiscountPrice))) *
-        Number(item.quantity),
-      totalPrice:
-        (Number(summary.totalPrice) + Number(item.productDiscountPrice)) *
-        Number(item.quantity),
-        quantity: summary.quantity + item.quantity
-    }),
-    {
-      initPrice: 0,
-      totalDisc: 0,
-      totalPrice: 0,
-      quantity: 0,
-    }
-  );
+export function PriceSummary() {
+  const {
+    state: { productsInCart },
+  } = useProduct();
+  
+  const tally = priceTallyReducer(productsInCart);
 
   return (
     <section className="grid-reverse">

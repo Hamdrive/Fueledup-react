@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Footer, Navbar } from "../../components";
-import { useAuthProducts } from "../../context/auth-products-context";
+import { useProduct } from "../../context/product-context";
+import { useDocumentTitle } from "../../utils";
 import { WishlistItems } from "./WishlistItems";
 
 export function Wishlist() {
-  const { state } = useAuthProducts();
 
-  useEffect(() => {
-    document.title = `My Wishlist (${state["wishlist"].length}) | FueledUp`;
-  }, [state]);
+  useDocumentTitle(`My Wishlist | FueledUp`);
 
   return (
     <>

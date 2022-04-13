@@ -1,9 +1,31 @@
 import React from "react";
-import styles from "../styles/CartCard.module.css";
-import { useAuthProducts } from "../context/auth-products-context";
+import { useProduct } from "../../context/product-context";
+import styles from "./CartCard.module.css";
 
 export function CartCard({ product }) {
-  const { dispatch } = useAuthProducts();
+  const {
+    state: { productsInWishlist },
+    addToWishlist,
+    removeFromCart,
+    updateCartQuantity,
+  } = useProduct();
+
+  const handleRemoveFromCart = (product) => {
+    removeFromCart(product._id);
+  };
+
+  const handleMoveToWishlist = (product) => {
+    if (productsInWishlist.some((item) => item._id === product._id)) {
+      handleRemoveFromCart(product);
+    } else {
+      addToWishlist(product);
+      removeFromCart(product._id);
+    }
+  };
+
+  const handleUpdateCartQuantity = (product, type) => {
+    updateCartQuantity(product._id, type);
+  };
 
   return (
     <div className={`${styles.card} card`}>
@@ -29,20 +51,20 @@ export function CartCard({ product }) {
         <div className="flex-row px-sm my-sm quantity">
           <div className="flex-row">
             <div
-              onClick={() =>
-                dispatch({ type: "DECREMENT_QUANTITY", payload: product })
-              }
+              onClick={() => {
+                product.qty > 1
+                  ? handleUpdateCartQuantity(product, "decrement")
+                  : handleRemoveFromCart(product);
+              }}
               className={`${styles.quantity__trigger} flex-center`}>
               <i className="fas fa-sm fa-minus"></i>
             </div>
             <span
               className={`txt-reg txt-bold txt-center ${styles.quantity__input}`}>
-              {product.quantity}
+              {product.qty}
             </span>
             <div
-              onClick={() =>
-                dispatch({ type: "INCREMENT_QUANTITY", payload: product })
-              }
+              onClick={() => handleUpdateCartQuantity(product, "increment")}
               className={`${styles.quantity__trigger} flex-center`}>
               <i className="fas fa-sm fa-plus"></i>
             </div>
@@ -50,16 +72,12 @@ export function CartCard({ product }) {
         </div>
         <div className={`px-lg ${styles.card__btns} h-100`}>
           <button
-            onClick={() =>
-              dispatch({ type: "REMOVE_FROM_CART", payload: product })
-            }
+            onClick={() => handleRemoveFromCart(product)}
             className="btn btn-cta btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
             remove from cart
           </button>
           <button
-            onClick={() =>
-              dispatch({ type: "MOVE_TO_WISHLIST", payload: product })
-            }
+            onClick={() => handleMoveToWishlist(product)}
             className="btn btn-wish btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
             move to wishlist
           </button>

@@ -48,6 +48,10 @@
   grid-column: 1 / -1;
 }
 
+.span-2{
+  grid-column: span 2;
+}
+
 /* Flexbox styles */
 .align-center {
   align-items: center;
@@ -262,16 +266,16 @@
 }
 
 /* Input visibility toggle */
-.input-toggle i {
+.input-toggle .toggle-vis {
   right: 0;
   top: 50%;
-  transform: translate(-25%, -50%);
+  transform: translate(-25%, -95%);
   color: var(--primary-dark-color);
   padding: var(--size-5);
   border-radius: 50%;
 }
 
-.input-toggle i:hover {
+.input-toggle .toggle-vis:hover {
   background-color: var(--primary-extra-light-color);
 }
 
@@ -339,6 +343,11 @@
 
 .mobile-filter-bottom {
   margin-bottom: 0;
+}
+
+.input-error{
+  color: hsl(0, 74%, 54%);
+  height: var(--size-11);
 }
 
 /* Media queries to handle filter responnsiveness on large screens */
