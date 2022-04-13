@@ -3,15 +3,14 @@ import { Footer, Navbar, PriceSummary } from "../../components";
 import { CartItems } from "./CartItems";
 import styles from "./Cart.module.css";
 import { useProduct } from "../../context/product-context";
+import { useDocumentTitle } from "../../utils";
 
 export function Cart() {
   const {
     state: { productsInCart },
   } = useProduct();
 
-  useEffect(() => {
-    document.title = `My Cart (${productsInCart.length}) | FueledUp`;
-  }, [productsInCart]);
+  useDocumentTitle(`My Cart | FueledUp`);
 
   return (
     <>

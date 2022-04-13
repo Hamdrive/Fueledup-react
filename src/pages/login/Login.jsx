@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { InputError, Loader, Navbar } from "../../components";
 import { useAuth } from "../../context/auth-context";
+import { useDocumentTitle } from "../../utils";
 import { useValidation } from "../../utils/validation/useValidation";
 import "./login.css";
 
@@ -42,9 +43,8 @@ export function Login() {
     }
   };
 
-  useEffect(() => {
-    document.title = `Login | FueledUp`;
-  }, []);
+  useDocumentTitle(`Login | FueledUp`);
+
   return (
     <>
       <Navbar />

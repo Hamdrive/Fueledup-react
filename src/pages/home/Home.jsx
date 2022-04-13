@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Navbar, Footer } from "../../components/index";
 import Categories from "./Categories";
 import Collections from "./Collections";
 import HeroSection from "./HeroSection";
 import styles from "./Home.module.css";
 import "../../styles/utils.css";
+import { useDocumentTitle } from "../../utils";
 
 export function Home() {
-  useEffect(() => {
-    document.title = `FueledUp - For the love of racing`;
-  }, []);
+  useDocumentTitle(`FueledUp - For the love of racing`);
+
   return (
     <div className="wrapper">
       <Navbar />
