@@ -19,22 +19,10 @@ export default function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<PageNotFound />} />
-      <Route
-        path="/cart"
-        element={
-          <RequireAuth>
-            <Cart />
-          </RequireAuth>
-        }
-      />
-      <Route
-        path="/wishlist"
-        element={
-          <RequireAuth>
-            <Wishlist />
-          </RequireAuth>
-        }
-      />
+      <Route element={<RequireAuth />}>
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+      </Route>
       <Route path="/mockman" element={<MockAPI />} />
     </Routes>
   );
