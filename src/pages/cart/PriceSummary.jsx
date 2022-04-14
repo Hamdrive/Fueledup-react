@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useProduct } from "../../context/product-context";
 import { priceTallyReducer } from "../../utils";
-import styles from "./Cart.module.css"
+import styles from "./Cart.module.css";
 
 export function PriceSummary() {
   const {
@@ -12,7 +12,8 @@ export function PriceSummary() {
   const tally = priceTallyReducer(productsInCart);
 
   return (
-    <section className={`${styles.price__summary__pos} grid-reverse w-100 mx-auto`}>
+    <section
+      className={`${styles.price__summary__pos} grid-reverse w-100 mx-auto`}>
       <h2 className="txt-capitalize">Price details</h2>
       <hr />
       <div className="price-breakup">
@@ -47,12 +48,10 @@ export function PriceSummary() {
         </p>
       </div>
 
-      <Link
-        to="/checkout"
-        state={{tally: tally}}>
+      <Link to="/checkout" state={tally}>
         <button className="btn btn-order btn-cta btn-lg txt-bold txt-reg txt-center w-100 py-sm">
-        <i className="fas fa-cash-register"></i>
-        checkout
+          <i className="fas fa-cash-register"></i>
+          checkout
         </button>
       </Link>
     </section>

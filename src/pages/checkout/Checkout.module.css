@@ -12,8 +12,6 @@
 
 .checkout__summary__pos {
   height: fit-content;
-  position: sticky;
-  top: 30%;
 }
 
 @media screen and (max-width: 1024px) {
@@ -30,10 +28,5 @@
   /* Better layout for smaller screen */
   .max__width__1200 {
     max-width: 37.5rem;
-  }
-
-  .price__summary__pos {
-    position: relative;
-    top: 0;
   }
 }

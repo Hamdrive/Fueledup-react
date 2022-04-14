@@ -123,6 +123,10 @@
   margin-bottom: var(--size-5);
 }
 
+.my-md {
+  margin: var(--size-7) 0;
+}
+
 /* Padding styles */
 .py-3 {
   padding: var(--size-17) 0;
@@ -352,6 +356,10 @@
 .input-error {
   color: hsl(0, 74%, 54%);
   height: var(--size-11);
+}
+
+.txt-upper {
+  text-transform: uppercase;
 }
 
 /* Media queries to handle filter responnsiveness on large screens */
