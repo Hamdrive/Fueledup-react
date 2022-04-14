@@ -13,7 +13,7 @@ export function CartItems() {
   const navigate = useNavigate();
 
   return (
-    <section className="grid grid-col-1 gap-3">
+    <section className="grid grid-col-1 gap-3 mx-auto">
       {productsInCart.length > 0 ? (
         productsInCart.map((product) => (
           <CartCard key={product._id} product={product} />
