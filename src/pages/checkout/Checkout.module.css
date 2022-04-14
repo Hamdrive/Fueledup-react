@@ -1,0 +1,39 @@
+.grid__cols__2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.max__width__1200 {
+  max-width: 75rem;
+}
+
+.page__content {
+  padding: var(--size-13) var(--size-9);
+}
+
+.checkout__summary__pos {
+  height: fit-content;
+  position: sticky;
+  top: 30%;
+}
+
+@media screen and (max-width: 1024px) {
+  /* Grid column for large screen */
+  .grid__cols__2 {
+    grid-template-columns: none;
+  }
+
+  /* Price table shows on top */
+  .grid__reverse {
+    order: -1;
+  }
+
+  /* Better layout for smaller screen */
+  .max__width__1200 {
+    max-width: 37.5rem;
+  }
+
+  .price__summary__pos {
+    position: relative;
+    top: 0;
+  }
+}

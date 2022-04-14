@@ -1,19 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useProduct } from "../../context/product-context";
 import { priceTallyReducer } from "../../utils";
-import styles from "./Cart.module.css"
+import styles from "./Checkout.module.css";
 
-export function PriceSummary() {
+export function CheckoutSummary() {
   const {
     state: { productsInCart },
   } = useProduct();
 
-  const tally = priceTallyReducer(productsInCart);
+  const { state: tally } = useLocation();
+  console.log(tally)
 
   return (
-    <section className={`${styles.price__summary__pos} grid-reverse w-100 mx-auto`}>
-      <h2 className="txt-capitalize">Price details</h2>
+    <section
+      className={`${styles.checkout__summary__pos} grid-reverse w-100 mx-auto`}>
+      <h2 className="txt-capitalize txt-center">Order Summary</h2>
       <hr />
       <div className="price-breakup">
         <div className="flex-between my-1">
@@ -47,12 +49,10 @@ export function PriceSummary() {
         </p>
       </div>
 
-      <Link
-        to="/checkout"
-        state={{tally: tally}}>
+      <Link to="#">
         <button className="btn btn-order btn-cta btn-lg txt-bold txt-reg txt-center w-100 py-sm">
-        <i className="fas fa-cash-register"></i>
-        checkout
+          <i className="fas fa-truck"></i>
+          place order
         </button>
       </Link>
     </section>
