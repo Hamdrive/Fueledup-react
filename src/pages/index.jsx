@@ -6,3 +6,4 @@ export { Signup } from "./signup/Signup";
 export { Login } from "./login/Login";
 export { PageNotFound } from "./PageNotFound/PageNotFound";
 export { SingleProduct } from "./singleProduct/SingleProduct";
+export { Checkout } from "./checkout/Checkout";
