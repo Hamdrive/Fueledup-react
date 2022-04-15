@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Toast } from "../../components";
 import { useProduct } from "../../context/product-context";
 import { loadScript } from "../../utils";
@@ -9,13 +9,23 @@ import portalImage from "../../assets/portalImage.png";
 export function CheckoutSummary() {
   const {
     state: { productsInCart },
+    clearCart,
+    dispatch,
   } = useProduct();
 
   const { state: tally } = useLocation();
+  const navigate = useNavigate();
 
   const handlePlaceOrder = (e) => {
     e.preventDefault();
     handlePayment(tally.totalPrice + tally.deliveryFee);
+  };
+
+  const handleClearCart = async () => {
+    if (await clearCart(productsInCart)) {
+      navigate("/summary");
+      dispatch({ type: "CLEAR_CART" });
+    }
   };
 
   const handlePayment = async (totalAmount) => {
@@ -38,9 +48,10 @@ export function CheckoutSummary() {
       description: "Payment for your order",
       image: { portalImage },
       handler: function (response) {
-        alert(response.razorpay_payment_id);
-        alert(response.razorpay_order_id);
-        alert(response.razorpay_signature);
+        handleClearCart();
+        // alert(response.razorpay_payment_id);
+        // alert(response.razorpay_order_id);
+        // alert(response.razorpay_signature);
       },
       prefill: {
         name: "Gaurav Kumar",
@@ -119,7 +130,7 @@ export function CheckoutSummary() {
       <h4 className="txt-upper txt-center my-sm">deliver to</h4>
       <hr />
       <div className="my-2">
-        <p className="h3">Hamza Husein</p>
+        <p className="h3">Carlos Sainz Jr.</p>
         <p>Viale di Vedano, 5, 20900 Monza MB, Italy</p>
         <p>123-456-789</p>
       </div>

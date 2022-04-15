@@ -85,7 +85,7 @@ const ProductProvider = ({ children }) => {
       });
       console.log(error);
     } finally {
-      return true
+      return true;
     }
   };
 
@@ -105,7 +105,7 @@ const ProductProvider = ({ children }) => {
         message: "We were unable to do that. Please try again.",
       });
     } finally {
-      return true
+      return true;
     }
   };
 
@@ -127,6 +127,23 @@ const ProductProvider = ({ children }) => {
         type: "error",
         message:
           "We were unable to remove the product from your cart. Please try again.",
+      });
+      console.log(error);
+    } finally {
+      return true;
+    }
+  };
+
+  const clearCart = async (products) => {
+    try {
+      for (const item of products) {
+        await performRemoveFromCart(item._id, userToken);
+      }
+      Toast({ type: "success", message: "Your order has been placed 🚀" });
+    } catch (error) {
+      Toast({
+        type: "error",
+        message: "Could not place your order, please try again",
       });
       console.log(error);
     } finally {
@@ -172,7 +189,7 @@ const ProductProvider = ({ children }) => {
       });
       console.log(error);
     } finally {
-      return true
+      return true;
     }
   };
 
@@ -197,7 +214,7 @@ const ProductProvider = ({ children }) => {
       });
       console.log(error);
     } finally {
-      return true
+      return true;
     }
   };
 
@@ -253,12 +270,13 @@ const ProductProvider = ({ children }) => {
         getCart,
         updateCartQuantity,
         removeFromCart,
-        loader, 
+        clearCart,
+        loader,
         setLoader,
         cartLoader,
         setCartLoader,
         wishlistLoader,
-        setWishlistLoader
+        setWishlistLoader,
       }}>
       {children}
     </ProductContext.Provider>
