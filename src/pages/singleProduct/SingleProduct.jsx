@@ -27,7 +27,7 @@ export function SingleProduct() {
           message:
             "Unable to fetch product at this time. Please reload the page.",
         });
-        console.log(error);
+        throw new Error(error)
       } finally {
         setLoader(false);
       }

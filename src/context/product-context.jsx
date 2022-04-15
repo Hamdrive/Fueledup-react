@@ -66,7 +66,7 @@ const ProductProvider = ({ children }) => {
         type: "error",
         message: "Something went wrong from our end. Try again.",
       });
-      console.log(error);
+        throw new Error(error);
     } finally {
       return true;
     }
@@ -83,7 +83,7 @@ const ProductProvider = ({ children }) => {
         type: "error",
         message: "We had an issue fetching your cart. Please reload the page.",
       });
-      console.log(error);
+        throw new Error(error);
     } finally {
       return true
     }
@@ -128,7 +128,7 @@ const ProductProvider = ({ children }) => {
         message:
           "We were unable to remove the product from your cart. Please try again.",
       });
-      console.log(error);
+        throw new Error(error);
     } finally {
       return true
     }
@@ -152,7 +152,7 @@ const ProductProvider = ({ children }) => {
         type: "error",
         message: "Something went wrong from our end. Try again.",
       });
-      console.log(error);
+        throw new Error(error);
     } finally {
       return true;
     }
@@ -170,7 +170,7 @@ const ProductProvider = ({ children }) => {
         message:
           "We had an issue fetching your wishlist. Please reload the page",
       });
-      console.log(error);
+        throw new Error(error);
     } finally {
       return true
     }
@@ -195,7 +195,7 @@ const ProductProvider = ({ children }) => {
         message:
           "We were unable to remove the product from your wishlist. Please try again.",
       });
-      console.log(error);
+        throw new Error(error);
     } finally {
       return true
     }
@@ -214,7 +214,7 @@ const ProductProvider = ({ children }) => {
           message:
             "Unable to fetch categories at this time. Please reload the page.",
         });
-        console.log(error);
+        throw new Error(error);
       }
     })();
   }, []);
@@ -233,7 +233,7 @@ const ProductProvider = ({ children }) => {
           message:
             "Unable to fetch products at this time. Please reload the page.",
         });
-        console.log(error);
+        throw new Error(error);
       } finally {
         setLoader(false);
       }
