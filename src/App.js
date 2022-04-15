@@ -10,7 +10,7 @@ import {
   PageNotFound,
   SingleProduct,
 } from "./pages";
-import { RequireAuth } from "./router/RequireAuth";
+import { RedirectAuth, RequireAuth } from "./router";
 
 export default function App() {
   return (
@@ -18,8 +18,10 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Products />} />
       <Route path="/products/:productId" element={<SingleProduct />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/login" element={<Login />} />
+      <Route element={<RedirectAuth />}>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Route>
       <Route path="*" element={<PageNotFound />} />
       <Route element={<RequireAuth />}>
         <Route path="/cart" element={<Cart />} />

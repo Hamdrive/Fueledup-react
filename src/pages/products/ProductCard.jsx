@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { Loader } from "../../components";
 import { useProduct } from "../../context/product-context";
 import styles from "./Products.module.css";
+import { useAuth } from "../../context/auth-context";
 
 export function ProductCard({ product }) {
-    const [wishlistLoader, setWishlistLoader] = useState(false);
-    const [cartLoader, setCartLoader] = useState(false);
+  const [wishlistLoader, setWishlistLoader] = useState(false);
+  const [cartLoader, setCartLoader] = useState(false);
   const {
     state: { productsInWishlist, productsInCart },
     addToWishlist,
@@ -14,13 +15,18 @@ export function ProductCard({ product }) {
     addToCart,
   } = useProduct();
 
+  const { userToken } = useAuth();
+  const navigate = useNavigate();
+
   const handleAddToWishlist = async (product) => {
     setWishlistLoader(true);
+    if (!userToken) return navigate("/login", { replace: true });
     if (await addToWishlist(product)) setWishlistLoader(false);
   };
 
   const handleAddToCart = async (product) => {
     setCartLoader(true);
+    if (!userToken) return navigate("/login", { replace: true });
     if (await addToCart(product)) setCartLoader(false);
   };
 
