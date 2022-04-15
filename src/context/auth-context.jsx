@@ -73,7 +73,7 @@ const AuthProvider = ({ children }) => {
       message: "You have been successfully logged out! See you soon 👋",
     });
     dispatchUserDetails({ type: "LOGOUT" });
-    navigate("/");
+    navigate("/", { replace: true });
   };
 
   return (

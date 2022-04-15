@@ -23,7 +23,7 @@ export function CheckoutSummary() {
 
   const handleClearCart = async () => {
     if (await clearCart(productsInCart)) {
-      navigate("/summary");
+      navigate("/summary", { replace: true });
       dispatch({ type: "CLEAR_CART" });
     }
   };
