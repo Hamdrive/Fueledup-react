@@ -11,7 +11,7 @@ import {
   SingleProduct,
   Checkout,
 } from "./pages";
-import { RequireAuth } from "./router/RequireAuth";
+import { RedirectRefresh, RequireAuth } from "./router";
 
 export default function App() {
   return (
@@ -25,7 +25,10 @@ export default function App() {
       <Route element={<RequireAuth />}>
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route element={<RedirectRefresh />}>
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/summary" />
+        </Route>
       </Route>
       <Route path="/mockman" element={<MockAPI />} />
     </Routes>

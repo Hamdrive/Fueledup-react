@@ -1,4 +1,4 @@
-export { WindowScrollToTop } from "./WindowScrollToTop";
+export { WindowScrollToTop } from "./windowScrollToTop/WindowScrollToTop";
 export { authReducer } from "./auth/authReducer";
 export { productReducer } from "./products/productReducer";
 export { getFinalProducts } from "./filters/getFinalProducts";
