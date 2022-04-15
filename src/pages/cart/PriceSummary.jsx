@@ -27,16 +27,14 @@ export function PriceSummary() {
         </div>
         <div className="flex-between my-1">
           <p className="txt-capitalize">Delivery charges</p>
-          <p className="txt-semibold">
-            ₹ {Math.ceil(tally.totalPrice * 0.05)}/-
-          </p>
+          <p className="txt-semibold">₹ {tally.deliveryFee}/-</p>
         </div>
       </div>
       <hr />
       <div className="price-total flex-between my-1">
         <p className="txt-capitalize txt-bold h4">Total amount</p>
         <p className="txt-md txt-bold">
-          ₹ {Math.ceil(tally.totalPrice - tally.totalPrice * 0.05)}/-
+          ₹ {tally.totalPrice + tally.deliveryFee}/-
         </p>
       </div>
       <hr />
