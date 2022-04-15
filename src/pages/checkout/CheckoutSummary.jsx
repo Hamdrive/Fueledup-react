@@ -1,7 +1,10 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Toast } from "../../components";
 import { useProduct } from "../../context/product-context";
+import { loadScript } from "../../utils";
 import styles from "./Checkout.module.css";
+import portalImage from "../../assets/portalImage.png";
 
 export function CheckoutSummary() {
   const {
@@ -10,7 +13,47 @@ export function CheckoutSummary() {
 
   const { state: tally } = useLocation();
 
-  const deliveryFee = Math.ceil(tally.totalPrice - tally.totalPrice * 0.9);
+  const handlePlaceOrder = (e) => {
+    e.preventDefault();
+    handlePayment(tally.totalPrice + tally.deliveryFee);
+  };
+
+  const handlePayment = async (totalAmount) => {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      Toast({
+        type: "error",
+        message: "Failed to initiate payment, please check your connection",
+      });
+    }
+
+    const options = {
+      key: process.env.REACT_APP_RZP_KEY_ID,
+      amount: totalAmount * 100,
+      currency: "INR",
+      name: "FueledUp Store",
+      description: "Payment for your order",
+      image: { portalImage },
+      handler: function (response) {
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature);
+      },
+      prefill: {
+        name: "Gaurav Kumar",
+        email: "gaurav.kumar@example.com",
+        contact: "9999999999",
+      },
+      theme: {
+        color: "#7c3aed",
+      },
+    };
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
 
   return (
     <section
@@ -61,14 +104,14 @@ export function CheckoutSummary() {
           <li className="my-md">
             <div className="flex-between">
               <p className="txt-capitalize">delivery charges</p>
-              <p>₹ {deliveryFee}/-</p>
+              <p>₹ {tally.deliveryFee}/-</p>
             </div>
           </li>
         </ul>
         <div className="price-total flex-between my-1">
           <p className="txt-capitalize txt-bold h4">Total amount</p>
           <p className="txt-md txt-bold">
-            ₹ {tally.totalPrice + deliveryFee}/-
+            ₹ {tally.totalPrice + tally.deliveryFee}/-
           </p>
         </div>
       </div>
@@ -82,7 +125,9 @@ export function CheckoutSummary() {
       </div>
 
       <Link to="#">
-        <button className="btn btn-order btn-cta btn-lg txt-bold txt-reg txt-center w-100 py-sm">
+        <button
+          onClick={(e) => handlePlaceOrder(e)}
+          className="btn btn-order btn-cta btn-lg txt-bold txt-reg txt-center w-100 py-sm">
           <i className="fas fa-truck"></i>
           place order
         </button>
