@@ -370,6 +370,17 @@
   text-transform: uppercase;
 }
 
+.large-radio{ 
+  width: var(--size-11);
+  height: var(--size-11);
+  border: 3px solid var(--primary-color);
+  cursor: pointer;
+}
+
+.large-radio:checked{
+  accent-color: var(--primary-color);
+
+}
 /* Media queries to handle filter responnsiveness on large screens */
 
 @media screen and (min-width: 1025px) {
