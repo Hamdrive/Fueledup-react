@@ -11,7 +11,7 @@ export function priceTallyReducer(products) {
       totalPrice:
         (Number(summary.totalPrice) + Number(item.productDiscountPrice)) *
         Number(item.qty),
-      quantity: summary.quantity + item.qty,
+      quantity: Number(summary.quantity) + Number(item.qty),
       deliveryFee: summary.totalPrice > 10000 ? 0 : 1500,
     }),
     {

@@ -26,7 +26,7 @@ export function CheckoutSummary() {
     if (!res) {
       Toast({
         type: "error",
-        message: "Failed to initiate payment, please check your connection",
+        message: "Failed to initiate payment, please try again.",
       });
     }
 
