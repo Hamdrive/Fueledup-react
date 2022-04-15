@@ -108,6 +108,9 @@ export function productReducer(dataState, { type, payload }) {
     case "REMOVE_FROM_CART":
       return { ...dataState, productsInCart: payload };
 
+    case "CLEAR_CART":
+      return {...dataState, productsInCart: []}
+
     case "CLEAR":
       return { ...dataState, filters: { ...initialDataState.filters } };
 
