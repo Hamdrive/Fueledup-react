@@ -2,7 +2,7 @@ import React from "react";
 import { Footer, Navbar } from "../../components";
 import { useProduct } from "../../context/product-context";
 import { useDocumentTitle } from "../../utils";
-import { CartItems } from "../cart/CartItems";
+import { Addresses } from "./Addresses";
 import styles from "./Checkout.module.css";
 import { CheckoutSummary } from "./CheckoutSummary";
 
@@ -25,7 +25,7 @@ export function Checkout() {
           } grid grid-cols-1 grid-reverse gap-3 pos-rel mx-auto ${
             styles.page__content
           } ${productsInCart.length > 0 && styles.grid__cols__2}`}>
-          <CartItems />
+          <Addresses />
           {productsInCart.length > 0 && <CheckoutSummary />}
         </section>
       </main>
