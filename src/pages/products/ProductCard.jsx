@@ -51,7 +51,8 @@ export function ProductCard({ product }) {
       </div>
       <div
         className={`pos-ab ${styles.top__right__pos} flex-center ${styles.border__circle} ${styles.wish__heart__btn} pointer`}>
-        {productsInWishlist.some((item) => item._id === product._id) ? (
+        {userToken &&
+        productsInWishlist.some((item) => item._id === product._id) ? (
           wishlistLoader ? (
             <Loader loaderStyle={"lds-ring-heart"} />
           ) : (
@@ -92,7 +93,8 @@ export function ProductCard({ product }) {
       </div>
       <hr />
       <div className="card-footer flex-around flex-grow-1">
-        {productsInCart.some((item) => item._id === product._id) ? (
+        {userToken &&
+        productsInCart.some((item) => item._id === product._id) ? (
           <Link
             to="/cart"
             className="btn btn-suc btn-lg txt-bold txt-reg w-100 txt-center">
