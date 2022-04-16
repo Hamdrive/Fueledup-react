@@ -10,7 +10,26 @@
   border-bottom: 1px solid var(--primary-color);
 }
 
-.profile__nav li div {
-  font-size: var(--size-12);
+.profile__section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--primary-light-color);
+}
+
+.active {
+  border-bottom: 3px solid var(--primary-color);
+  transition: 0.1s ease;
+}
+
+.active div {
+  color: var(--primary-color);
+}
+
+.profile__section div {
+  font-size: var(--size-12);
+}
+
+.profile__section div:hover {
+  color: var(--primary-color);
 }
