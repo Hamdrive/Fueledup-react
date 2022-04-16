@@ -11,6 +11,7 @@ import {
   SingleProduct,
   Checkout,
   Summary,
+  UserProfile,
 } from "./pages";
 import { RedirectRefresh, RequireAuth } from "./router";
 
@@ -24,6 +25,7 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<PageNotFound />} />
       <Route element={<RequireAuth />}>
+        <Route path="/profile" element={<UserProfile />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route element={<RedirectRefresh />}>

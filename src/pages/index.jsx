@@ -8,3 +8,4 @@ export { PageNotFound } from "./PageNotFound/PageNotFound";
 export { SingleProduct } from "./singleProduct/SingleProduct";
 export { Checkout } from "./checkout/Checkout";
 export { Summary } from "./Summary/Summary";
+export { UserProfile } from "./userProfile/UserProfile";
