@@ -5,6 +5,7 @@ import { useProduct } from "../../context/product-context";
 import { loadScript } from "../../utils";
 import styles from "./Checkout.module.css";
 import portalImage from "../../assets/portalImage.png";
+import { v4 as uuid } from "uuid";
 
 export function CheckoutSummary() {
   const {
@@ -21,9 +22,9 @@ export function CheckoutSummary() {
     handlePayment(tally.totalPrice + tally.deliveryFee);
   };
 
-  const handleClearCart = async () => {
+  const handleClearCart = async (orderId) => {
     if (await clearCart(productsInCart)) {
-      navigate("/summary", { replace: true });
+      navigate("/summary", { replace: true, state: { orderId } });
       dispatch({ type: "CLEAR_CART" });
     }
   };
@@ -48,7 +49,15 @@ export function CheckoutSummary() {
       description: "Payment for your order",
       image: { portalImage },
       handler: function (response) {
-        handleClearCart();
+        const order = {
+          paymentId: response?.razorpay_payment_id,
+          orderId: uuid(),
+          amountPaid: totalAmount,
+          orderedProducts: [...productsInCart],
+          deliveryAddress: {},
+        };
+        dispatch({ type: "ORDERS", payload: order });
+        handleClearCart(order.orderId);
         // alert(response.razorpay_payment_id);
         // alert(response.razorpay_order_id);
         // alert(response.razorpay_signature);

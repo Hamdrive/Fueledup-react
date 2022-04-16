@@ -1,0 +1,9 @@
+.summary__cad{
+    width: 100%;
+    height: 20rem;
+}
+
+.products__order{
+    min-height: 100%;
+    overflow: scroll;
+}

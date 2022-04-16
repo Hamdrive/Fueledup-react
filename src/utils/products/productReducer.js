@@ -3,6 +3,7 @@ export const initialDataState = {
   categories: [],
   productsInCart: [],
   productsInWishlist: [],
+  orders: [],
   filters: {
     priceSort: "",
     inStock: false,
@@ -107,6 +108,9 @@ export function productReducer(dataState, { type, payload }) {
     case "UPDATE_CART":
     case "REMOVE_FROM_CART":
       return { ...dataState, productsInCart: payload };
+
+    case "ORDERS":
+      return {...dataState, orders: [...dataState.orders, payload]}
 
     case "CLEAR_CART":
       return {...dataState, productsInCart: []}
