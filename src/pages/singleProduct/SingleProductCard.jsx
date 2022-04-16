@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Loader } from "../../components";
+import { useAuth } from "../../context/auth-context";
 import { useProduct } from "../../context/product-context";
 import styles from "./SingleProductCard.module.css";
 
 export function SingleProductCard({ product }) {
-
   const {
     state: { productsInWishlist, productsInCart },
     addToWishlist,
@@ -16,13 +16,18 @@ export function SingleProductCard({ product }) {
     setWishlistLoader,
   } = useProduct();
 
+  const { userToken } = useAuth();
+  const navigate = useNavigate();
+
   const handleAddToWishlist = async (product) => {
     setWishlistLoader(true);
+    if (!userToken) return navigate("/login", { replace: true });
     if (await addToWishlist(product)) setWishlistLoader(false);
   };
 
   const handleAddToCart = async (product) => {
     setCartLoader(true);
+    if (!userToken) return navigate("/login", { replace: true });
     if (await addToCart(product)) setCartLoader(false);
   };
 
@@ -59,7 +64,8 @@ export function SingleProductCard({ product }) {
           </div>
 
           <div className={`px-lg ${styles.card__btns}`}>
-            {productsInCart.some((item) => item._id === product._id) ? (
+            {userToken &&
+            productsInCart.some((item) => item._id === product._id) ? (
               <Link
                 to="/cart"
                 className="btn btn-suc btn-lg txt-bold txt-reg w-100 txt-center mb-1">
@@ -80,7 +86,8 @@ export function SingleProductCard({ product }) {
                 )}
               </button>
             )}
-            {productsInWishlist.some((item) => item._id === product._id) ? (
+            {userToken &&
+            productsInWishlist.some((item) => item._id === product._id) ? (
               <Link
                 to="/wishlist"
                 className="btn btn-wish btn-lg txt-bold txt-reg w-100 txt-center mt-1">
