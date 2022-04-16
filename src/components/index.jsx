@@ -7,3 +7,4 @@ export { EmptyPage } from "./EmptyPage";
 export { MockAPI } from "./MockAPI";
 export { Loader } from "./Loader";
 export { InputError } from "./InputError";
+export { Toast } from "./Toast";

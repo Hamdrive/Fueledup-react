@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "../products/Products.module.css";
 import { useProduct } from "../../context/product-context";
+import { Loader } from "../../components";
 
 export function WishlistCard({ product }) {
   const [isProductAdded, setisProductAdded] = useState(false);
@@ -11,20 +12,29 @@ export function WishlistCard({ product }) {
     removeFromWishlist,
     addToCart,
     updateCartQuantity,
+    cartLoader,
+    setCartLoader,
+    wishlistLoader,
+    setWishlistLoader,
   } = useProduct();
 
   // Get current path to show appropriate button on card
   const location = useLocation();
 
-  const handleAddToCart = (product) => {
-    productsInCart.some((item) => item._id === product._id)
-      ? updateCartQuantity(product._id, "increment")
-      : addToCart(product);
+  const handleAddToCart = async (product) => {
+    setCartLoader(true);
+
+    const cartReturn = productsInCart.some((item) => item._id === product._id)
+      ? await updateCartQuantity(product._id, "increment")
+      : await addToCart(product);
+
+    if (cartReturn) setCartLoader(false);
     setisProductAdded(true);
   };
 
-  const handleRemoveFromWishlist = (product) => {
-    removeFromWishlist(product._id);
+  const handleRemoveFromWishlist = async(product) => {
+    setWishlistLoader(true)
+    if(await removeFromWishlist(product._id)) setWishlistLoader(false);
   };
 
   useEffect(() => {
@@ -47,9 +57,13 @@ export function WishlistCard({ product }) {
       </div>
       <div
         className={`pos-ab ${styles.top__right__pos} flex-center ${styles.border__circle} ${styles.wish__heart__btn} pointer`}>
-        <i
-          onClick={() => handleRemoveFromWishlist(product)}
-          className={`fa fa-heart ${styles.fill} `}></i>
+        {wishlistLoader ? (
+          <Loader loaderStyle={"lds-ring-heart"} />
+        ) : (
+          <i
+            onClick={() => handleRemoveFromWishlist(product)}
+            className={`fa fa-heart ${styles.fill} `}></i>
+        )}
       </div>
       <div className={`${styles.card__img}`}>
         <img src={product.productImage} alt="vertical card" />
@@ -85,8 +99,14 @@ export function WishlistCard({ product }) {
           <button
             onClick={() => handleAddToCart(product)}
             className="btn btn-cta btn-lg txt-bold txt-reg w-100">
-            <i className="fas fa-cart-plus"></i>
-            add to cart
+            {cartLoader ? (
+              <Loader loaderStyle={"lds-ring-auth"} />
+            ) : (
+              <>
+                <i className="fas fa-cart-plus"></i>
+                add to cart
+              </>
+            )}
           </button>
         )}
       </div>

@@ -8,16 +8,20 @@ import {
   Login,
   Signup,
   PageNotFound,
+  SingleProduct,
 } from "./pages";
-import { RequireAuth } from "./router/RequireAuth";
+import { RedirectAuth, RequireAuth } from "./router";
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Products />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/products/:productId" element={<SingleProduct />} />
+      <Route element={<RedirectAuth />}>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Route>
       <Route path="*" element={<PageNotFound />} />
       <Route element={<RequireAuth />}>
         <Route path="/cart" element={<Cart />} />

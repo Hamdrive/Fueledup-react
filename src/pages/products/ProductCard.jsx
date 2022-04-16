@@ -1,8 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Loader } from "../../components";
 import { useProduct } from "../../context/product-context";
 import styles from "./Products.module.css";
+import { useAuth } from "../../context/auth-context";
 
 export function ProductCard({ product }) {
+  const [wishlistLoader, setWishlistLoader] = useState(false);
+  const [cartLoader, setCartLoader] = useState(false);
   const {
     state: { productsInWishlist, productsInCart },
     addToWishlist,
@@ -10,16 +15,24 @@ export function ProductCard({ product }) {
     addToCart,
   } = useProduct();
 
-  const handleAddToWishlist = (product) => {
-    addToWishlist(product);
+  const { userToken } = useAuth();
+  const navigate = useNavigate();
+
+  const handleAddToWishlist = async (product) => {
+    setWishlistLoader(true);
+    if (!userToken) return navigate("/login", { replace: true });
+    if (await addToWishlist(product)) setWishlistLoader(false);
   };
 
-  const handleAddToCart = (product) => {
-    addToCart(product);
+  const handleAddToCart = async (product) => {
+    setCartLoader(true);
+    if (!userToken) return navigate("/login", { replace: true });
+    if (await addToCart(product)) setCartLoader(false);
   };
 
-  const handleRemoveFromWishlist = (product) => {
-    removeFromWishlist(product._id);
+  const handleRemoveFromWishlist = async (product) => {
+    setWishlistLoader(true);
+    if (await removeFromWishlist(product._id)) setWishlistLoader(false);
   };
 
   return (
@@ -38,10 +51,17 @@ export function ProductCard({ product }) {
       </div>
       <div
         className={`pos-ab ${styles.top__right__pos} flex-center ${styles.border__circle} ${styles.wish__heart__btn} pointer`}>
-        {productsInWishlist.some((item) => item._id === product._id) ? (
-          <i
-            onClick={() => handleRemoveFromWishlist(product)}
-            className={`fa fa-heart ${styles.fill} `}></i>
+        {userToken &&
+        productsInWishlist.some((item) => item._id === product._id) ? (
+          wishlistLoader ? (
+            <Loader loaderStyle={"lds-ring-heart"} />
+          ) : (
+            <i
+              onClick={() => handleRemoveFromWishlist(product)}
+              className={`fa fa-heart ${styles.fill} `}></i>
+          )
+        ) : wishlistLoader ? (
+          <Loader loaderStyle={"lds-ring-heart"} />
         ) : (
           <i
             onClick={() => handleAddToWishlist(product)}
@@ -49,7 +69,9 @@ export function ProductCard({ product }) {
         )}
       </div>
       <div className={`${styles.card__img}`}>
-        <img src={product.productImage} alt="vertical card" />
+        <Link to={`/products/${product.id}`} state={{ productID: product.id }}>
+          <img src={product.productImage} alt="vertical card" />
+        </Link>
       </div>
       <div className="card-title flex-col flex-grow-1">
         <p className="txt-md txt-bold">{product.title}</p>
@@ -71,7 +93,8 @@ export function ProductCard({ product }) {
       </div>
       <hr />
       <div className="card-footer flex-around flex-grow-1">
-        {productsInCart.some((item) => item._id === product._id) ? (
+        {userToken &&
+        productsInCart.some((item) => item._id === product._id) ? (
           <Link
             to="/cart"
             className="btn btn-suc btn-lg txt-bold txt-reg w-100 txt-center">
@@ -82,8 +105,14 @@ export function ProductCard({ product }) {
           <button
             onClick={() => handleAddToCart(product)}
             className="btn btn-cta btn-lg txt-bold txt-reg w-100">
-            <i className="fas fa-cart-plus"></i>
-            add to cart
+            {cartLoader ? (
+              <Loader loaderStyle={"lds-ring-auth"} />
+            ) : (
+              <>
+                <i className="fas fa-cart-plus"></i>
+                add to cart
+              </>
+            )}
           </button>
         )}
       </div>

@@ -48,7 +48,7 @@
   grid-column: 1 / -1;
 }
 
-.span-2{
+.span-2 {
   grid-column: span 2;
 }
 
@@ -133,6 +133,10 @@
 
 .pr-4 {
   padding-right: var(--size-21);
+}
+
+.p-1 {
+  padding: var(--size-9);
 }
 
 /* Overflow styles */
@@ -345,7 +349,7 @@
   margin-bottom: 0;
 }
 
-.input-error{
+.input-error {
   color: hsl(0, 74%, 54%);
   height: var(--size-11);
 }

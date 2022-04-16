@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { Toast } from "../components";
 import {
   fastDelivery,
   inStock,
@@ -36,7 +37,9 @@ const useProduct = () => useContext(ProductContext);
 
 const ProductProvider = ({ children }) => {
   // Setup in future PR
-  // const [loader, setLoader] = useState(false);
+  const [wishlistLoader, setWishlistLoader] = useState(false);
+  const [cartLoader, setCartLoader] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const [state, dispatch] = useReducer(productReducer, initialDataState);
   const { userToken } = useAuth();
@@ -54,73 +57,147 @@ const ProductProvider = ({ children }) => {
   const addToCart = async (product) => {
     try {
       const res = await performAddToCart(product, userToken);
-      dispatch({ type: "ADD_TO_CART", payload: res.data.cart });
+      if ((res.status === 200) | (res.status === 201)) {
+        Toast({ type: "success", message: "Product added to your cart! ✨" });
+        dispatch({ type: "ADD_TO_CART", payload: res.data.cart });
+      }
     } catch (error) {
-      console.log(error);
+      Toast({
+        type: "error",
+        message: "Something went wrong from our end. Try again.",
+      });
+        throw new Error(error);
+    } finally {
+      return true;
     }
   };
 
   const getCart = async () => {
     try {
       const res = await performGetCart(userToken);
-      dispatch({ type: "GET_CART", payload: res.data.cart });
+      if ((res.status === 200) | (res.status === 201)) {
+        dispatch({ type: "GET_CART", payload: res.data.cart });
+      }
     } catch (error) {
-      console.log(error);
+      Toast({
+        type: "error",
+        message: "We had an issue fetching your cart. Please reload the page.",
+      });
+        throw new Error(error);
+    } finally {
+      return true
     }
   };
 
   const updateCartQuantity = async (id, type) => {
     try {
       const res = await performUpdateCartQuantity(id, type, userToken);
-      dispatch({
-        type: "UPDATE_CART",
-        payload: res.data.cart,
+      if ((res.status === 200) | (res.status === 201)) {
+        Toast({ type: "info", message: "Product quantity updated ✨" });
+        dispatch({
+          type: "UPDATE_CART",
+          payload: res.data.cart,
+        });
+      }
+    } catch (error) {
+      Toast({
+        type: "error",
+        message: "We were unable to do that. Please try again.",
       });
-    } catch (error) {}
+    } finally {
+      return true
+    }
   };
 
   const removeFromCart = async (id) => {
     try {
       const res = await performRemoveFromCart(id, userToken);
-      dispatch({
-        type: "REMOVE_FROM_CART",
-        payload: res.data.cart,
-      });
+      if ((res.status === 200) | (res.status === 201)) {
+        Toast({
+          type: "info",
+          message: "Product has been removed from cart 🧹",
+        });
+        dispatch({
+          type: "REMOVE_FROM_CART",
+          payload: res.data.cart,
+        });
+      }
     } catch (error) {
-      console.log(error);
+      Toast({
+        type: "error",
+        message:
+          "We were unable to remove the product from your cart. Please try again.",
+      });
+        throw new Error(error);
+    } finally {
+      return true
     }
   };
 
   const addToWishlist = async (product) => {
     try {
       const res = await performAddToWishlist(product, userToken);
-      dispatch({
-        type: "ADD_TO_WISHLIST",
-        payload: res.data.wishlist,
-      });
+      if ((res.status === 200) | (res.status === 201)) {
+        Toast({
+          type: "success",
+          message: "Product added to your wishlist ✨",
+        });
+        dispatch({
+          type: "ADD_TO_WISHLIST",
+          payload: res.data.wishlist,
+        });
+      }
     } catch (error) {
-      console.log(error);
+      Toast({
+        type: "error",
+        message: "Something went wrong from our end. Try again.",
+      });
+        throw new Error(error);
+    } finally {
+      return true;
     }
   };
 
   const getWishlist = async (product) => {
     try {
       const res = await performGetWishlist(product, userToken);
-      dispatch({ type: "GET_WISHLIST", payload: res.data.wishlist });
+      if ((res.status === 200) | (res.status === 201)) {
+        dispatch({ type: "GET_WISHLIST", payload: res.data.wishlist });
+      }
     } catch (error) {
-      console.log(error);
+      Toast({
+        type: "error",
+        message:
+          "We had an issue fetching your wishlist. Please reload the page",
+      });
+        throw new Error(error);
+    } finally {
+      return true
     }
   };
 
   const removeFromWishlist = async (id) => {
     try {
       const res = await performRemoveFromWishlist(id, userToken);
-      dispatch({
-        type: "REMOVE_FROM_WISHLIST",
-        payload: res.data.wishlist,
-      });
+      if ((res.status === 200) | (res.status === 201)) {
+        Toast({
+          type: "info",
+          message: "Product has been removed from wishlist 🧹",
+        });
+        dispatch({
+          type: "REMOVE_FROM_WISHLIST",
+          payload: res.data.wishlist,
+        });
+      }
     } catch (error) {
-      console.log(error);
+      Toast({
+        type: "error",
+        message:
+          "We were unable to remove the product from your wishlist. Please try again.",
+      });
+        throw new Error(error);
+    } finally {
+      return true
     }
   };
 
@@ -128,24 +205,37 @@ const ProductProvider = ({ children }) => {
     (async () => {
       try {
         const res = await performGetCategories();
-        if (res.status === 200 || res.status === 201) {
+        if ((res.status === 200) | (res.status === 201)) {
           dispatch({ type: "SET_CATEGORIES", payload: res.data.categories });
         }
       } catch (error) {
-        console.log(error);
+        Toast({
+          type: "warning",
+          message:
+            "Unable to fetch categories at this time. Please reload the page.",
+        });
+        throw new Error(error);
       }
     })();
   }, []);
 
   useEffect(() => {
     (async () => {
+      setLoader(true);
       try {
         const res = await performGetProducts();
         if (res.status === 200 || res.status === 201) {
           dispatch({ type: "SET_PRODUCTS", payload: res.data.products });
         }
       } catch (error) {
-        console.log(error);
+        Toast({
+          type: "warning",
+          message:
+            "Unable to fetch products at this time. Please reload the page.",
+        });
+        throw new Error(error);
+      } finally {
+        setLoader(false);
       }
     })();
   }, []);
@@ -163,6 +253,12 @@ const ProductProvider = ({ children }) => {
         getCart,
         updateCartQuantity,
         removeFromCart,
+        loader, 
+        setLoader,
+        cartLoader,
+        setCartLoader,
+        wishlistLoader,
+        setWishlistLoader
       }}>
       {children}
     </ProductContext.Provider>
