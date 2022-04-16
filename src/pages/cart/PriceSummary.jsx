@@ -46,7 +46,7 @@ export function PriceSummary() {
         </p>
       </div>
 
-      <Link to="/checkout" state={tally}>
+      <Link to="/checkout" state={tally} replace>
         <button className="btn btn-order btn-cta btn-lg txt-bold txt-reg txt-center w-100 py-sm">
           <i className="fas fa-cash-register"></i>
           checkout

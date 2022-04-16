@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useProduct } from "../context/product-context";
 
 export const RedirectRefresh = () => {
@@ -6,7 +6,9 @@ export const RedirectRefresh = () => {
     state: { productsInCart },
   } = useProduct();
 
-  return productsInCart?.length ? (
+  const {pathname} = useLocation()
+
+  return  productsInCart?.length && pathname === "/summary" ? (
     <Outlet />
   ) : (
     <Navigate to="/products" replace />

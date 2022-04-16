@@ -12,7 +12,7 @@ import {
   Checkout,
   Summary,
 } from "./pages";
-import { RedirectAuth, RequireAuth, RedirectRefresh } from "./router";
+import { RedirectAuth, RequireAuth } from "./router";
 
 export default function App() {
   return (
@@ -28,10 +28,8 @@ export default function App() {
       <Route element={<RequireAuth />}>
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
-        <Route element={<RedirectRefresh />}>
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/summary" element={<Summary />} />
-        </Route>
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/summary" element={<Summary />} />
       </Route>
       <Route path="/mockman" element={<MockAPI />} />
     </Routes>
