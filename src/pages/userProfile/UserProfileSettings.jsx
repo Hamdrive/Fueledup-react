@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
-export function UserProfileSettings({handleLogout, userDetails}) {
+export function UserProfileSettings({ handleLogout, userDetails }) {
   return (
-    <div className="px-md my-1">
+    <>
       <div className="txt-wrap">
         <h3 className="py-sm">Profile Details</h3>
         <div className="flex-between py-sm">
@@ -19,6 +19,6 @@ export function UserProfileSettings({handleLogout, userDetails}) {
         className="btn btn-md btn-cta txt-semibold h4 px-md my-1">
         Logout
       </button>
-    </div>
+    </>
   );
 }

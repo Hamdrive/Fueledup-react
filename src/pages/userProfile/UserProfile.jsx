@@ -28,15 +28,16 @@ export function UserProfile() {
             profileSection={profileSection}
             setProfileSection={setProfileSection}
           />
-
-          {profileSection === "profile" && (
-            <UserProfileSettings
-              handleLogout={handleLogout}
-              userDetails={userDetails}
-            />
-          )}
-          {profileSection === "orders" && <UserProfileOrders />}
-          {profileSection === "addresses" && <UserProfileAddresses />}
+          <div className={styles.profile__content}>
+            {profileSection === "profile" && (
+              <UserProfileSettings
+                handleLogout={handleLogout}
+                userDetails={userDetails}
+              />
+            )}
+            {profileSection === "orders" && <UserProfileOrders />}
+            {profileSection === "addresses" && <UserProfileAddresses />}
+          </div>
         </div>
       </main>
       <Footer />

@@ -1,20 +1,39 @@
-import React from 'react'
+import React from "react";
+import { useProduct } from "../../context/product-context";
+import styles from "./UserProfile.module.css";
 
 export function UserProfileOrders({}) {
+  const {
+    state: { orders },
+  } = useProduct();
+
+  console.log(orders);
+
   return (
-    <div className="px-md my-1">
-      <h3>Order Summary</h3>
-      {/* <div className="txt-wrap">
-        <h3 className="py-sm">Profile Details</h3>
-        <div className="flex-between py-sm">
-          <p className="h4">Username</p>
-          <p className="h4 txt-wrap">{`${userDetails.firstName}${userDetails.lastName}`}</p>
-        </div>
-        <div className="flex-between py-sm">
-          <p className="h4">Email</p>
-          <p className="h4">{userDetails.email}</p>
-        </div>
-      </div> */}
-    </div>
+    <>
+      <div className="txt-wrap">
+        <h3 className="py-sm">Order Summary</h3>
+        <section className={styles.products__order}>
+          {orders.map((item) => (
+            <div key={item._id} className={styles.product}>
+              <section>
+                <img src={item.productImage} alt="product image" />
+              </section>
+              <section className="flex-column">
+                <p className="flex-grow-1">{item.title}</p>
+                <p className="flex-grow-1">
+                  {item.team} - {item.categoryName}
+                </p>
+                <p className="flex-grow-1">Quantity: {item.qty}</p>
+                <p className="flex-grow-1">
+                  Total Price: ₹{" "}
+                  {Number(item.productDiscountPrice) * Number(item.qty)}/-
+                </p>
+              </section>
+            </div>
+          ))}
+        </section>
+      </div>
+    </>
   );
 }
