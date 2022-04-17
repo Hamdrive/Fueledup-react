@@ -8,16 +8,10 @@ import useWindowSize from "react-use/lib/useWindowSize";
 
 export function Summary() {
   const {
-    state: { orders },
-  } = useProduct();
-
-  const {
-    state: { orderId },
+    state: { order },
   } = useLocation();
 
   const { width, height } = useWindowSize();
-
-  const order = orders.find((item) => item.orderId === orderId);
 
   return (
     <>
@@ -59,8 +53,8 @@ export function Summary() {
                   </p>
                   <p className="flex-grow-1">Quantity: {item.qty}</p>
                   <p className="flex-grow-1">
-                    Total Price:{" "}
-                    {Number(item.productDiscountPrice) * Number(item.qty)}
+                    Total Price: ₹{" "}
+                    {Number(item.productDiscountPrice) * Number(item.qty)}/-
                   </p>
                 </section>
               </div>

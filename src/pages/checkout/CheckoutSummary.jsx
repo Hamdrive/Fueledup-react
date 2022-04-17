@@ -22,9 +22,9 @@ export function CheckoutSummary() {
     handlePayment(tally.totalPrice + tally.deliveryFee);
   };
 
-  const handleClearCart = async (orderId) => {
+  const handleClearCart = async (order) => {
     if (await clearCart(productsInCart)) {
-      navigate("/summary", { replace: true, state: { orderId } });
+      navigate("/summary", { replace: true, state: { order } });
       dispatch({ type: "CLEAR_CART" });
     }
   };
@@ -57,7 +57,7 @@ export function CheckoutSummary() {
           deliveryAddress: {},
         };
         dispatch({ type: "ORDERS", payload: order });
-        handleClearCart(order.orderId);
+        handleClearCart(order);
         // alert(response.razorpay_payment_id);
         // alert(response.razorpay_order_id);
         // alert(response.razorpay_signature);
