@@ -3,10 +3,10 @@ import { useProduct } from "../context/product-context";
 
 export const RedirectRefresh = () => {
   const {
-    state: { productsInCart },
+    state: { productsInCart, orders },
   } = useProduct();
 
-  return productsInCart?.length ? (
+  return orders?.length | productsInCart?.length ? (
     <Outlet />
   ) : (
     <Navigate to="/products" replace />

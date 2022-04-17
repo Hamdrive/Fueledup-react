@@ -1,9 +1,32 @@
-.summary__cad{
-    width: 100%;
-    height: 20rem;
+.summary__card {
+  max-width: 90%;
+  height: 25rem;
+  padding: 0.75rem;
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  gap: 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: var(--radius-extra-large);
+  word-break: break-word;
 }
 
-.products__order{
-    min-height: 100%;
-    overflow: scroll;
+.products__order {
+  min-height: 100%;
+  overflow: scroll;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 1rem;
+  border: 1px solid var(--primary-color);
+  padding: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .summary__card {
+    grid-template-columns: 1fr;
+    height: 30rem;
+    margin: var(--size-11) 0;
+  }
 }
