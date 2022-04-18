@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
         type: "error",
         message: "Something went wrong there. Try again. ",
       });
-      console.log(error);
+        throw new Error(error);
     } finally {
       setLoader(false);
     }
@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
         navigate(location?.state?.from?.pathname || "/", { replace: true });
       }
     } catch (error) {
-      console.log(error);
+        throw new Error(error);
       Toast({
         type: "error",
         message: "We had an issue logging you in. Try again.",
