@@ -123,6 +123,10 @@
   margin-bottom: var(--size-5);
 }
 
+.my-md {
+  margin: var(--size-7) 0;
+}
+
 /* Padding styles */
 .py-3 {
   padding: var(--size-17) 0;
@@ -190,6 +194,14 @@
 }
 
 /* Width styles */
+.w-10{
+  width: 10%;
+}
+
+.w-20{
+  width: 20%;
+}
+
 .w-60 {
   width: 60%;
 }
@@ -354,6 +366,21 @@
   height: var(--size-11);
 }
 
+.txt-upper {
+  text-transform: uppercase;
+}
+
+.large-radio{ 
+  width: var(--size-11);
+  height: var(--size-11);
+  border: 3px solid var(--primary-color);
+  cursor: pointer;
+}
+
+.large-radio:checked{
+  accent-color: var(--primary-color);
+
+}
 /* Media queries to handle filter responnsiveness on large screens */
 
 @media screen and (min-width: 1025px) {

@@ -66,7 +66,7 @@ const ProductProvider = ({ children }) => {
         type: "error",
         message: "Something went wrong from our end. Try again.",
       });
-        throw new Error(error);
+      throw new Error(error);
     } finally {
       return true;
     }
@@ -83,9 +83,9 @@ const ProductProvider = ({ children }) => {
         type: "error",
         message: "We had an issue fetching your cart. Please reload the page.",
       });
-        throw new Error(error);
+      throw new Error(error);
     } finally {
-      return true
+      return true;
     }
   };
 
@@ -105,7 +105,7 @@ const ProductProvider = ({ children }) => {
         message: "We were unable to do that. Please try again.",
       });
     } finally {
-      return true
+      return true;
     }
   };
 
@@ -128,9 +128,26 @@ const ProductProvider = ({ children }) => {
         message:
           "We were unable to remove the product from your cart. Please try again.",
       });
-        throw new Error(error);
+      throw new Error(error);
     } finally {
-      return true
+      return true;
+    }
+  };
+
+  const clearCart = async (products) => {
+    try {
+      await Promise.all(
+        products.map((item) => performRemoveFromCart(item._id, userToken))
+      );
+      Toast({ type: "success", message: "Your order has been placed 🚀" });
+    } catch (error) {
+      Toast({
+        type: "error",
+        message: "Could not place your order, please try again",
+      });
+      throw new Error(error);
+    } finally {
+      return true;
     }
   };
 
@@ -152,7 +169,7 @@ const ProductProvider = ({ children }) => {
         type: "error",
         message: "Something went wrong from our end. Try again.",
       });
-        throw new Error(error);
+      throw new Error(error);
     } finally {
       return true;
     }
@@ -170,9 +187,9 @@ const ProductProvider = ({ children }) => {
         message:
           "We had an issue fetching your wishlist. Please reload the page",
       });
-        throw new Error(error);
+      throw new Error(error);
     } finally {
-      return true
+      return true;
     }
   };
 
@@ -195,9 +212,9 @@ const ProductProvider = ({ children }) => {
         message:
           "We were unable to remove the product from your wishlist. Please try again.",
       });
-        throw new Error(error);
+      throw new Error(error);
     } finally {
-      return true
+      return true;
     }
   };
 
@@ -253,12 +270,13 @@ const ProductProvider = ({ children }) => {
         getCart,
         updateCartQuantity,
         removeFromCart,
-        loader, 
+        clearCart,
+        loader,
         setLoader,
         cartLoader,
         setCartLoader,
         wishlistLoader,
-        setWishlistLoader
+        setWishlistLoader,
       }}>
       {children}
     </ProductContext.Provider>

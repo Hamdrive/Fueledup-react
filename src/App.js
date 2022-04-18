@@ -9,6 +9,8 @@ import {
   Signup,
   PageNotFound,
   SingleProduct,
+  Checkout,
+  Summary,
 } from "./pages";
 import { RedirectAuth, RequireAuth } from "./router";
 
@@ -26,6 +28,8 @@ export default function App() {
       <Route element={<RequireAuth />}>
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/summary" element={<Summary />} />
       </Route>
       <Route path="/mockman" element={<MockAPI />} />
     </Routes>
