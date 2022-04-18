@@ -47,11 +47,8 @@ export function CheckoutSummary() {
       name: "FueledUp Store",
       description: "Payment for your order",
       image: { portalImage },
-      handler: function (response) {
+      handler: function () {
         handleClearCart();
-        // alert(response.razorpay_payment_id);
-        // alert(response.razorpay_order_id);
-        // alert(response.razorpay_signature);
       },
       prefill: {
         name: "Gaurav Kumar",
