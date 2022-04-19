@@ -52,25 +52,15 @@ export function Navbar() {
           </div>
           <ul className={` ${"nav-menu"} h-100`}>
             <li className="nav-item">
-              {userToken ? (
-                <button
-                  onClick={(e) => handleLogout(e)}
-                  className="btn btn-md btn-cta btn-login px-md">
-                  Logout
-                </button>
-              ) : (
-                <Link to="/login">
-                  <button className="btn btn-md btn-cta btn-login px-md">
-                    Login
-                  </button>
-                </Link>
-              )}
+              <Link to="/profile">
+                <div className="fas fa-user-circle txt-lg px-sm"></div>
+              </Link>
             </li>
             <li className="nav-item">
               <div className="badge">
                 <div className="ecom-heart-icon">
                   <Link to="/wishlist">
-                    <div className="fas fa-heart badge-icon txt-md px-sm"></div>
+                    <div className="fas fa-heart badge-icon txt-lg px-sm"></div>
                     {userToken && (
                       <div className="badge-count top-right-icon flex-center badge-yellow">
                         {productsInWishlist.length}
@@ -84,7 +74,7 @@ export function Navbar() {
               <div className="badge">
                 <div className="ecom-basket-icon">
                   <Link to="/cart">
-                    <div className="fas fa-shopping-cart badge-icon txt-md px-sm"></div>
+                    <div className="fas fa-shopping-cart badge-icon txt-lg px-sm"></div>
                     {userToken && (
                       <div className="badge-count top-right-icon flex-center badge-yellow">
                         {productsInCart.length}

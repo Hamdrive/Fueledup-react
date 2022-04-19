@@ -1,6 +1,6 @@
 export const initialUserState = {
   userToken: null,
-  userDetails: {
+  userDetails: JSON.parse(localStorage.getItem("userDetails")) || {
     email: "",
     password: "",
     firstName: "",

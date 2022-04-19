@@ -34,11 +34,8 @@
 }
 
 /* Navbar styles */
-.nav-item:nth-child(n) {
-  margin: 0 var(--size-9);
-}
 
-.nav-item:nth-child(n + 2) {
+.nav-item:nth-child(n) {
   margin: 0 var(--size-11);
   color: var(--color-white);
 }
