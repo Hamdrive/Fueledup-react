@@ -51,21 +51,6 @@ export function Navbar() {
             </div>
           </div>
           <ul className={` ${"nav-menu"} h-100`}>
-            {/* <li className="nav-item">
-              {userToken ? (
-                <button
-                  onClick={(e) => handleLogout(e)}
-                  className="btn btn-md btn-cta btn-login px-md">
-                  Logout
-                </button>
-              ) : (
-                <Link to="/login">
-                  <button className="btn btn-md btn-cta btn-login px-md">
-                    Login
-                  </button>
-                </Link>
-              )}
-            </li> */}
             <li className="nav-item">
               <Link to="/profile">
                 <div className="fas fa-user-circle txt-lg px-sm"></div>

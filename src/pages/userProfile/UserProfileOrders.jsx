@@ -7,8 +7,6 @@ export function UserProfileOrders({}) {
     state: { orders },
   } = useProduct();
 
-  console.log(orders);
-
   return (
     <>
       <div className="txt-wrap">
