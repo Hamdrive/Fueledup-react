@@ -40,12 +40,20 @@
   grid-template-columns: 20% 1fr;
 }
 
-.grid-20-80 {
-  grid-template-columns: 20% 1fr;
+.grid-30-70 {
+  grid-template-columns: 30% 1fr;
+}
+
+.grid-40-60{
+  grid-template-columns: 40% 1fr;
 }
 
 .span-auto {
   grid-column: 1 / -1;
+}
+
+.span-2 {
+  grid-column: span 2;
 }
 
 /* Flexbox styles */
@@ -119,6 +127,10 @@
   margin-bottom: var(--size-5);
 }
 
+.my-md {
+  margin: var(--size-7) 0;
+}
+
 /* Padding styles */
 .py-3 {
   padding: var(--size-17) 0;
@@ -129,6 +141,10 @@
 
 .pr-4 {
   padding-right: var(--size-21);
+}
+
+.p-1 {
+  padding: var(--size-9);
 }
 
 /* Overflow styles */
@@ -182,6 +198,14 @@
 }
 
 /* Width styles */
+.w-10{
+  width: 10%;
+}
+
+.w-20{
+  width: 20%;
+}
+
 .w-60 {
   width: 60%;
 }
@@ -262,16 +286,16 @@
 }
 
 /* Input visibility toggle */
-.input-toggle i {
+.input-toggle .toggle-vis {
   right: 0;
   top: 50%;
-  transform: translate(-25%, -50%);
+  transform: translate(-25%, -95%);
   color: var(--primary-dark-color);
   padding: var(--size-5);
   border-radius: 50%;
 }
 
-.input-toggle i:hover {
+.input-toggle .toggle-vis:hover {
   background-color: var(--primary-extra-light-color);
 }
 
@@ -341,6 +365,26 @@
   margin-bottom: 0;
 }
 
+.input-error {
+  color: hsl(0, 74%, 54%);
+  height: var(--size-11);
+}
+
+.txt-upper {
+  text-transform: uppercase;
+}
+
+.large-radio{ 
+  width: var(--size-11);
+  height: var(--size-11);
+  border: 3px solid var(--primary-color);
+  cursor: pointer;
+}
+
+.large-radio:checked{
+  accent-color: var(--primary-color);
+
+}
 /* Media queries to handle filter responnsiveness on large screens */
 
 @media screen and (min-width: 1025px) {

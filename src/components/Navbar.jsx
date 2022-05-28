@@ -1,10 +1,21 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAuthProducts } from "../context/auth-products-context";
+import { useAuth } from "../context/auth-context";
+import { useProduct } from "../context/product-context";
 import "../styles/navbar.css";
 
 export function Navbar() {
   const [isSideMenuOpen, setisSideMenuOpen] = useState(false);
+
+  const { userToken, logoutUser } = useAuth();
+  const {
+    state: { productsInWishlist, productsInCart },
+  } = useProduct();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logoutUser();
+  };
 
   const toggleSideMenu = () => {
     setisSideMenuOpen((prev) => !prev);
@@ -16,7 +27,6 @@ export function Navbar() {
       : (document.body.style.overflow = "auto");
   }, [isSideMenuOpen]);
 
-  const { state } = useAuthProducts();
   return (
     <div className="header pos-st top-left-pos py-md">
       <header className="max-width-1200 h-100 nav-main nav-layout px-md mx-auto">
@@ -42,25 +52,20 @@ export function Navbar() {
           </div>
           <ul className={` ${"nav-menu"} h-100`}>
             <li className="nav-item">
-              <Link to="/signup">
-                <button className="btn btn-md btn-wish px-md">Signup</button>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/login">
-                <button className="btn btn-md btn-cta btn-login px-md">
-                  Login
-                </button>
+              <Link to="/profile">
+                <div className="fas fa-user-circle txt-lg px-sm"></div>
               </Link>
             </li>
             <li className="nav-item">
               <div className="badge">
                 <div className="ecom-heart-icon">
                   <Link to="/wishlist">
-                    <div className="fas fa-heart badge-icon txt-md px-sm"></div>
-                    <div className="badge-count top-right-icon flex-center badge-yellow">
-                      {state["wishlist"].length}
-                    </div>
+                    <div className="fas fa-heart badge-icon txt-lg px-sm"></div>
+                    {userToken && (
+                      <div className="badge-count top-right-icon flex-center badge-yellow">
+                        {productsInWishlist.length}
+                      </div>
+                    )}
                   </Link>
                 </div>
               </div>
@@ -69,10 +74,12 @@ export function Navbar() {
               <div className="badge">
                 <div className="ecom-basket-icon">
                   <Link to="/cart">
-                    <div className="fas fa-shopping-cart badge-icon txt-md px-sm"></div>
-                    <div className="badge-count top-right-icon flex-center badge-yellow">
-                      {state["cart"].length}
-                    </div>
+                    <div className="fas fa-shopping-cart badge-icon txt-lg px-sm"></div>
+                    {userToken && (
+                      <div className="badge-count top-right-icon flex-center badge-yellow">
+                        {productsInCart.length}
+                      </div>
+                    )}
                   </Link>
                 </div>
               </div>
@@ -104,24 +111,20 @@ export function Navbar() {
               isSideMenuOpen ? "nav-menu-mob" : "nav-menu"
             } h-100`}>
             <li className="nav-item">
-              <Link to="/signup">
-                <button className="btn btn-lg btn-wish px-md w-100">Signup</button>
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link to="/login">
-                <button className="btn btn-lg btn-cta px-md w-100">Login</button>
+                <button className="btn btn-lg btn-cta px-md w-100">
+                  Login
+                </button>
               </Link>
             </li>
             <li className="nav-item">
               <div className="badge">
                 <div className="ecom-heart-icon">
                   <Link to="/wishlist">
-                    {/* <div className="fas fa-heart badge-icon txt-md px-sm"></div> */}
                     <button className="btn btn-lg btn-wish px-md w-100">
                       Wishlist
                       <div className="badge-count top-right-icon flex-center badge-yellow">
-                        {state["wishlist"].length}
+                        {productsInWishlist.length}
                       </div>
                     </button>
                   </Link>
@@ -134,9 +137,8 @@ export function Navbar() {
                   <Link to="/cart">
                     <button className="btn btn-lg btn-cta px-md w-100">
                       Cart
-                      {/* <div className="fas fa-shopping-cart badge-icon txt-md px-sm"></div> */}
                       <div className="badge-count top-right-icon flex-center badge-yellow">
-                        {state["cart"].length}
+                        {productsInCart.length}
                       </div>
                     </button>
                   </Link>

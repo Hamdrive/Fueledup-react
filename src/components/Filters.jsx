@@ -1,13 +1,16 @@
-import { useProducts } from "../context/product-context";
-import { useState, useEffect } from "react";
+import { useProduct } from "../context/product-context";
+import { useState } from "react";
 
-export function Filters({setisOverflow}) {
+export function Filters({ setisOverflow }) {
   const [isFilterOpen, setisFilterOpen] = useState(false);
-  const { state, dispatch } = useProducts();
+  const {
+    state: { filters },
+    dispatch,
+  } = useProduct();
 
   const toggleFilter = () => {
     setisFilterOpen((prev) => !prev);
-    setisOverflow((prev) => !prev)
+    setisOverflow((prev) => !prev);
   };
 
   return (
@@ -44,7 +47,7 @@ export function Filters({setisOverflow}) {
               min="0"
               max="10000"
               step="2500"
-              value={state.priceRange}
+              value={filters.priceRange}
               list="tickmarks"
               className="slider"
               onChange={(e) =>
@@ -74,7 +77,7 @@ export function Filters({setisOverflow}) {
                 name="category"
                 id="Masks"
                 value="Masks"
-                checked={state["categories"].includes("Masks")}
+                checked={filters.categories.includes("Masks")}
                 onChange={(e) =>
                   dispatch({
                     type: "CATEGORY",
@@ -96,7 +99,7 @@ export function Filters({setisOverflow}) {
                 name="category"
                 id="Clothes"
                 value="Clothes"
-                checked={state["categories"].includes("Clothes")}
+                checked={filters.categories.includes("Clothes")}
                 onChange={(e) =>
                   dispatch({
                     type: "CATEGORY",
@@ -118,7 +121,7 @@ export function Filters({setisOverflow}) {
                 name="category"
                 id="Bags"
                 value="Bags"
-                checked={state["categories"].includes("Bags")}
+                checked={filters.categories.includes("Bags")}
                 onChange={(e) =>
                   dispatch({
                     type: "CATEGORY",
@@ -141,7 +144,7 @@ export function Filters({setisOverflow}) {
                 name="category"
                 id="Headwear"
                 value="Headwear"
-                checked={state["categories"].includes("Headwear")}
+                checked={filters.categories.includes("Headwear")}
                 onChange={(e) =>
                   dispatch({
                     type: "CATEGORY",
@@ -163,7 +166,7 @@ export function Filters({setisOverflow}) {
                 name="category"
                 id="Models"
                 value="Models"
-                checked={state["categories"].includes("Models")}
+                checked={filters.categories.includes("Models")}
                 onChange={(e) =>
                   dispatch({
                     type: "CATEGORY",
@@ -188,7 +191,7 @@ export function Filters({setisOverflow}) {
                 name="brand"
                 id="Alpeene"
                 value="Alpeene"
-                checked={state["brands"].includes("Alpeene")}
+                checked={filters.brands.includes("Alpeene")}
                 onChange={(e) =>
                   dispatch({ type: "BRAND", payload: e.target.id })
                 }
@@ -204,7 +207,7 @@ export function Filters({setisOverflow}) {
                 name="brand"
                 id="Alpha-Ball"
                 value="Alpha-Ball"
-                checked={state["brands"].includes("Alpha-Ball")}
+                checked={filters.brands.includes("Alpha-Ball")}
                 onChange={(e) =>
                   dispatch({ type: "BRAND", payload: e.target.id })
                 }
@@ -220,7 +223,7 @@ export function Filters({setisOverflow}) {
                 name="brand"
                 id="Anton Marten"
                 value="Anton Marten"
-                checked={state["brands"].includes("Anton Marten")}
+                checked={filters.brands.includes("Anton Marten")}
                 onChange={(e) =>
                   dispatch({ type: "BRAND", payload: e.target.id })
                 }
@@ -236,7 +239,7 @@ export function Filters({setisOverflow}) {
                 name="brand"
                 id="BcLaren"
                 value="BcLaren"
-                checked={state["brands"].includes("BcLaren")}
+                checked={filters.brands.includes("BcLaren")}
                 onChange={(e) =>
                   dispatch({ type: "BRAND", payload: e.target.id })
                 }
@@ -253,7 +256,7 @@ export function Filters({setisOverflow}) {
                 name="brand"
                 id="Merdeces"
                 value="Merdeces"
-                checked={state["brands"].includes("Merdeces")}
+                checked={filters.brands.includes("Merdeces")}
                 onChange={(e) =>
                   dispatch({ type: "BRAND", payload: e.target.id })
                 }
@@ -269,7 +272,7 @@ export function Filters({setisOverflow}) {
                 name="brand"
                 id="Purrari"
                 value="Purrari"
-                checked={state["brands"].includes("Purrari")}
+                checked={filters.brands.includes("Purrari")}
                 onChange={(e) =>
                   dispatch({ type: "BRAND", payload: e.target.id })
                 }
@@ -285,7 +288,7 @@ export function Filters({setisOverflow}) {
                 name="brand"
                 id="Red-Ball"
                 value="Red-Ball"
-                checked={state["brands"].includes("Red-Ball")}
+                checked={filters.brands.includes("Red-Ball")}
                 onChange={(e) =>
                   dispatch({ type: "BRAND", payload: e.target.id })
                 }
@@ -301,7 +304,7 @@ export function Filters({setisOverflow}) {
                 name="brand"
                 id="Welleams"
                 value="Welleams"
-                checked={state["brands"].includes("Welleams")}
+                checked={filters.brands.includes("Welleams")}
                 onChange={(e) =>
                   dispatch({ type: "BRAND", payload: e.target.id })
                 }
@@ -319,7 +322,7 @@ export function Filters({setisOverflow}) {
                 className="radiobutton mr-1"
                 name="review"
                 id="4"
-                checked={state.ratings === "4"}
+                checked={filters.ratings === "4"}
                 onChange={(e) =>
                   dispatch({ type: "RATING", payload: e.target.id })
                 }
@@ -334,7 +337,7 @@ export function Filters({setisOverflow}) {
                 className="radiobutton mr-1"
                 name="review"
                 id="3"
-                checked={state.ratings === "3"}
+                checked={filters.ratings === "3"}
                 onChange={(e) =>
                   dispatch({ type: "RATING", payload: e.target.id })
                 }
@@ -349,7 +352,7 @@ export function Filters({setisOverflow}) {
                 className="radiobutton mr-1"
                 name="review"
                 id="2"
-                checked={state.ratings === "2"}
+                checked={filters.ratings === "2"}
                 onChange={(e) =>
                   dispatch({ type: "RATING", payload: e.target.id })
                 }
@@ -364,7 +367,7 @@ export function Filters({setisOverflow}) {
                 className="radiobutton mr-1"
                 name="review"
                 id="1"
-                checked={state.ratings === "1"}
+                checked={filters.ratings === "1"}
                 onChange={(e) =>
                   dispatch({ type: "RATING", payload: e.target.id })
                 }
@@ -382,7 +385,7 @@ export function Filters({setisOverflow}) {
                 className="radiobutton mr-1"
                 name="sort"
                 id="sort-high"
-                checked={state.priceSort === "HIGH"}
+                checked={filters.priceSort === "HIGH"}
                 onChange={() => dispatch({ type: "HIGH", payload: "HIGH" })}
               />
               High to Low
@@ -395,7 +398,7 @@ export function Filters({setisOverflow}) {
                 className="radiobutton mr-1"
                 name="sort"
                 id="sort-low"
-                checked={state.priceSort === "LOW"}
+                checked={filters.priceSort === "LOW"}
                 onChange={() => dispatch({ type: "LOW", payload: "LOW" })}
               />
               Low to High

@@ -3,12 +3,22 @@
 }
 
 .max__width__1200 {
-  max-width: 1200px;
+  max-width: 75rem;
 }
 
 .empty__cart {
   width: 20rem;
   height: 20rem;
+}
+
+.page__content {
+  padding: var(--size-13) var(--size-9);
+}
+
+.price__summary__pos {
+  height: fit-content;
+  position: sticky;
+  top: 30%;
 }
 
 @media screen and (max-width: 1024px) {
@@ -24,19 +34,11 @@
 
   /* Better layout for smaller screen */
   .max__width__1200 {
-    max-width: 600px;
+    max-width: 37.5rem;
   }
-}
 
-@media screen and (min-width: 481px) {
-  .page__content {
-    padding: 0 var(--size-9);
-  }
-}
-
-@media screen and (max-width: 480px) {
-  /* Ensure visibility on smallest screen */
-  .page__content {
-    padding: 0 var(--size-5);
+  .price__summary__pos {
+    position: relative;
+    top: 0;
   }
 }
