@@ -1,25 +1,53 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { AddressModal } from "../../components";
+import styles from "./UserProfile.module.css";
 
 export function UserProfileAddresses({}) {
+  const [addressModalOpen, setAddressModalOpen] = useState(false);
+
+    useEffect(() => {
+      const body = document.querySelector("body");
+      body.style.overflow = addressModalOpen ? "hidden" : "auto";
+    }, [addressModalOpen]);
   return (
-    <div className="px-md my-1">
-      <h3>Address Book</h3>
-      {/* <div className="txt-wrap">
-        <h3 className="py-sm">Profile Details</h3>
-        <div className="flex-between py-sm">
-          <p className="h4">Username</p>
-          <p className="h4 txt-wrap">{`${userDetails.firstName}${userDetails.lastName}`}</p>
+    <>
+      <div className="txt-wrap">
+        <div className="flex-between">
+          <h3>Address Book</h3>
+          <button
+            onClick={() => setAddressModalOpen(true)}
+            className="btn btn-md btn-cta txt-semibold h5 px-md">
+            add address
+          </button>
         </div>
-        <div className="flex-between py-sm">
-          <p className="h4">Email</p>
-          <p className="h4">{userDetails.email}</p>
-        </div>
+        <section className={styles.products__order}>
+          {false ? (
+            orders.map((item) => (
+              <div key={item._id} className={styles.product}>
+                <section>
+                  <img src={item.productImage} alt="product image" />
+                </section>
+                <section className="flex-column">
+                  <p className="flex-grow-1">{item.title}</p>
+                  <p className="flex-grow-1">
+                    {item.team} - {item.categoryName}
+                  </p>
+                  <p className="flex-grow-1">Quantity: {item.qty}</p>
+                  <p className="flex-grow-1">
+                    Total Price: ₹{" "}
+                    {Number(item.productDiscountPrice) * Number(item.qty)}/-
+                  </p>
+                </section>
+              </div>
+            ))
+          ) : (
+            <div className="flex-center">
+              <p className="h3">No address added yet...</p>
+            </div>
+          )}
+        </section>
       </div>
-      <button
-        onClick={(e) => handleLogout(e)}
-        className="btn btn-md btn-cta txt-semibold h4 px-md my-1">
-        Logout
-      </button> */}
-    </div>
+      <AddressModal addressModalOpen={addressModalOpen} closeModal={() => setAddressModalOpen(false)} />
+    </>
   );
 }
