@@ -10,14 +10,12 @@ export const Search = () => {
   } = useProduct();
   const handleSearchQuery = (e) => {
     setSearchQuery(e.target.value.toLowerCase());
-    console.log(searchQuery);
   };
 
   const getSearchResults = () => {
     const results = products.filter((product) =>
       product.title.toLowerCase().includes(searchQuery)
     );
-    console.log(results);
     setSearchResults(results);
   };
 
@@ -36,9 +34,15 @@ export const Search = () => {
           id="searchbar"
           placeholder="Search products..."
           onChange={handleSearchQuery}
+          value={searchQuery}
         />
       </div>
-      {searchQuery && <SearchSuggestions searchResults={searchResults} />}
+      {searchQuery && (
+        <SearchSuggestions
+          clearSearchQuery={() => setSearchQuery("")}
+          searchResults={searchResults}
+        />
+      )}
     </div>
   );
 };

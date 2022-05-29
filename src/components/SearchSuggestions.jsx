@@ -1,15 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const SearchSuggestions = ({ searchResults }) => {
-  console.log(searchResults);
-
+export const SearchSuggestions = ({ clearSearchQuery, searchResults }) => {
   return (
     <div className="search__results">
       {" "}
       {searchResults.length ? (
         searchResults.map((product) => (
-          <Link to={`/products/${product.id}`}>
+          <Link to={`/products/${product.id}`} onClick={clearSearchQuery}>
             <div key={product._id} className="search__list">
               <section className="search__image">
                 <img src={product.productImage} alt="product image" />
