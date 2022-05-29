@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/auth-context";
 import { useProduct } from "../context/product-context";
 import "../styles/navbar.css";
+import { SearchSuggestions } from "./SearchSuggestions";
 
 export function Navbar() {
   const [isSideMenuOpen, setisSideMenuOpen] = useState(false);
@@ -38,16 +39,19 @@ export function Navbar() {
             <div className="nav-logo">
               <Link to="/">FueledUp</Link>
             </div>
-            <div className="search-input">
-              <div className="fas fa-search search-icon"></div>
-              <label htmlFor="searchbar"></label>
-              <input
-                className="input-corner input-sm border-2"
-                type="search"
-                name="searchbar"
-                id="searchbar"
-                placeholder="Search products..."
-              />
+            <div className="search-input searchbar">
+              <div>
+                <div className="fas fa-search search-icon"></div>
+                <label htmlFor="searchbar"></label>
+                <input
+                  className="input-corner input-sm border-2"
+                  type="search"
+                  name="searchbar"
+                  id="searchbar"
+                  placeholder="Search products..."
+                />
+              </div>
+              <SearchSuggestions />
             </div>
           </div>
           <ul className={` ${"nav-menu"} h-100`}>
@@ -86,15 +90,19 @@ export function Navbar() {
             </li>
           </ul>
         </nav>
-        <div className="mob-search-input px-md">
-          <label htmlFor="searchbar"></label>
-          <input
-            className="input-corner input-sm border-2"
-            type="search"
-            name="searchbar"
-            id="searchbar"
-            placeholder="Search products..."
-          />
+        <div className="mob-search-input">
+          <div>
+            <div className="fas fa-search search-icon"></div>
+            <label htmlFor="searchbar"></label>
+            <input
+              className="input-corner input-sm border-2"
+              type="search"
+              name="searchbar"
+              id="searchbar"
+              placeholder="Search products..."
+            />
+          </div>
+          <SearchSuggestions />
         </div>
         <div
           className={`sidebar-menu ${isSideMenuOpen && "sidebar-menu-open"}`}>
