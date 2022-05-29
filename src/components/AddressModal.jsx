@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import reactDom from "react-dom";
 import { v4 as uuid } from "uuid";
+import { useValidation } from "../utils/validation/useValidation";
+import { Toast } from "./Toast";
 
 const initialAddressState = {
   _id: "",
@@ -21,26 +23,38 @@ export const AddressModal = ({
   newAddress,
 }) => {
   const [address, setAddress] = useState(initialAddressState);
-  console.log(fillAddress);
 
-  console.log(address);
+  const { validateAddress } = useValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const addId = { ...address, _id: uuid() };
-    setAddress(addId);
-    newAddress(addId);
-    setAddress(initialAddressState);
-    closeModal();
+    if (validateAddress(address)) {
+      const addId = { ...address, _id: uuid() };
+      setAddress(addId);
+      newAddress(addId);
+      setAddress(initialAddressState);
+      closeModal();
+    } else {
+      Toast({
+        type: "error",
+        message: "Please ensure you have filled the correct address",
+      });
+    }
   };
 
   const handleUpdateSubmit = (e) => {
     e.preventDefault();
-    console.log(address)
-    updateAddress(address);
-    setAddress(initialAddressState);
-    setFillAddress(null)
-    closeModal();
+    if (validateAddress(address)) {
+      updateAddress(address);
+      setAddress(initialAddressState);
+      setFillAddress(null);
+      closeModal();
+    } else {
+      Toast({
+        type: "error",
+        message: "Please ensure you have filled the correct address",
+      });
+    }
   };
 
   const handleSampleAddress = (e) => {

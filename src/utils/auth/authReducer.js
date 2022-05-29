@@ -10,7 +10,6 @@ export const initialUserState = {
 };
 
 export const authReducer = (userDetails, { type, payload }) => {
-  console.log(payload)
   switch (type) {
     case "LOGIN": {
       const updatedState = {
@@ -59,7 +58,7 @@ export const authReducer = (userDetails, { type, payload }) => {
       const updatedState = {
         ...userDetails,
         addressBook: userDetails.addressBook.map((address) =>
-          address._id === payload._id ? ({ ...payload }) : address
+          address._id === payload._id ? { ...payload } : address
         ),
       };
 

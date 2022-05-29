@@ -77,7 +77,6 @@ const AuthProvider = ({ children }) => {
   };
 
   const setAddress = (data) => {
-    console.log(data)
     dispatchUserDetails({ type: "NEW_ADDRESS", payload: data });
     Toast({
       type: "success",
@@ -85,7 +84,6 @@ const AuthProvider = ({ children }) => {
     });
   };
   const updateAddress = (data) => {
-    console.log(data)
     dispatchUserDetails({ type: "UPDATE_ADDRESS", payload: data });
     Toast({
       type: "success",

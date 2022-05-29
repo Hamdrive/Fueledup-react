@@ -15,10 +15,7 @@ export function UserProfileAddresses({}) {
     deleteAddress,
   } = useAuth();
 
-  console.log(userDetails)
-
   const handleEditAddress = (address) => {
-    console.log("update")
     setFillAddress(address);
     setAddressModalOpen(true);
   };
@@ -28,7 +25,6 @@ export function UserProfileAddresses({}) {
     body.style.overflow = addressModalOpen ? "hidden" : "auto";
   }, [addressModalOpen]);
 
-  console.log(addressBook)
   return (
     <>
       <div className="txt-wrap">
