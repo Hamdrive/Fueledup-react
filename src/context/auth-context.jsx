@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
         type: "error",
         message: "Something went wrong there. Try again. ",
       });
-        throw new Error(error);
+      throw new Error(error);
     } finally {
       setLoader(false);
     }
@@ -57,11 +57,11 @@ const AuthProvider = ({ children }) => {
         navigate(location?.state?.from?.pathname || "/", { replace: true });
       }
     } catch (error) {
-        throw new Error(error);
       Toast({
         type: "error",
         message: "We had an issue logging you in. Try again.",
       });
+      throw new Error(error);
     } finally {
       setLoader(false);
     }
@@ -76,6 +76,30 @@ const AuthProvider = ({ children }) => {
     navigate("/", { replace: true });
   };
 
+  const setAddress = (data) => {
+    console.log(data)
+    dispatchUserDetails({ type: "NEW_ADDRESS", payload: data });
+    Toast({
+      type: "success",
+      message: "Address added 😎",
+    });
+  };
+  const updateAddress = (data) => {
+    console.log(data)
+    dispatchUserDetails({ type: "UPDATE_ADDRESS", payload: data });
+    Toast({
+      type: "success",
+      message: "Address updated ✍",
+    });
+  };
+  const deleteAddress = (data) => {
+    dispatchUserDetails({ type: "DELETE_ADDRESS", payload: data });
+    Toast({
+      type: "success",
+      message: "Address deleted 🧹",
+    });
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -85,6 +109,9 @@ const AuthProvider = ({ children }) => {
         loginUser,
         logoutUser,
         signupUser,
+        setAddress,
+        updateAddress,
+        deleteAddress,
       }}>
       {children}
     </AuthContext.Provider>

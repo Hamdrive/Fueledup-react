@@ -1,17 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import reactDom from "react-dom";
+import { v4 as uuid } from "uuid";
 
-export const AddressModal = ({ addressModalOpen, closeModal }) => {
-  const [address, setAddress] = useState({
-    fullName: "",
-    deliveryAddress: "",
-    city: "",
-    state: "",
-    pincode: "",
-    mobile: "",
-  });
+const initialAddressState = {
+  _id: "",
+  fullName: "",
+  deliveryAddress: "",
+  city: "",
+  state: "default",
+  pincode: "",
+  mobile: "",
+};
+
+export const AddressModal = ({
+  addressModalOpen,
+  closeModal,
+  fillAddress,
+  setFillAddress,
+  updateAddress,
+  newAddress,
+}) => {
+  const [address, setAddress] = useState(initialAddressState);
+  console.log(fillAddress);
+
+  console.log(address);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const addId = { ...address, _id: uuid() };
+    setAddress(addId);
+    newAddress(addId);
+    setAddress(initialAddressState);
+    closeModal();
+  };
+
+  const handleUpdateSubmit = (e) => {
+    e.preventDefault();
+    console.log(address)
+    updateAddress(address);
+    setAddress(initialAddressState);
+    setFillAddress(null)
+    closeModal();
+  };
+
+  const handleSampleAddress = (e) => {
+    e.preventDefault();
+    setAddress({
+      fullName: "Abhishek Tripathi",
+      deliveryAddress:
+        "Panchayat Office, GramPost Phulera, Vikas Khand Fakauli",
+      city: "Ballia",
+      state: "Uttar Pradesh",
+      pincode: "277001",
+      mobile: "8796123990",
+    });
   };
 
   const handleAddressChange = (e) => {
@@ -19,14 +61,16 @@ export const AddressModal = ({ addressModalOpen, closeModal }) => {
     setAddress((prev) => ({ ...prev, [name]: value }));
   };
 
-  if (!addressModalOpen) return null;
+  useEffect(() => {
+    fillAddress && setAddress(fillAddress);
+  }, [fillAddress]);
 
-  console.log(address);
+  if (!addressModalOpen) return null;
 
   return reactDom.createPortal(
     <div className="address__main">
       <form className="address__form" onSubmit={handleSubmit}>
-        <h3>New Address Form</h3>
+        <h3>Address Form</h3>
         <div className="input-section">
           <label htmlFor="fullName" className="form-input input-required">
             Full name
@@ -82,7 +126,7 @@ export const AddressModal = ({ addressModalOpen, closeModal }) => {
             id="state"
             className="dropdown w-100"
             onChange={handleAddressChange}
-            defaultValue="default"
+            value={address.state}
             required>
             <option value="default">Select a state</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -140,6 +184,7 @@ export const AddressModal = ({ addressModalOpen, closeModal }) => {
             value={address.pincode}
             placeholder="400003"
             pattern="^[1-9][0-9]{5}$"
+            maxLength={6}
             required
           />
         </div>
@@ -156,29 +201,48 @@ export const AddressModal = ({ addressModalOpen, closeModal }) => {
             value={address.mobile}
             placeholder="6234567890"
             pattern="^[6-9][0-9]{9}$"
+            maxLength={10}
             required
           />
         </div>
-        <div className="mt-1">
-          <div className="flex-between gap-3">
+        {fillAddress ? (
+          <div className="mt-1">
+            <div className="flex-between gap-3">
+              <button
+                type="submit"
+                onClick={handleUpdateSubmit}
+                className="btn btn-cta btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
+                Update
+              </button>
+              <button
+                onClick={closeModal}
+                className="btn btn-wish btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
+                Cancel
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="mt-1">
+            <div className="flex-between gap-3">
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                className="btn btn-cta btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
+                Save
+              </button>
+              <button
+                onClick={closeModal}
+                className="btn btn-wish btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
+                Cancel
+              </button>
+            </div>
             <button
-              type="submit"
-              onClick={handleSubmit}
-              className="btn btn-cta btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
-              Save
-            </button>
-            <button
-              onClick={closeModal}
+              onClick={handleSampleAddress}
               className="btn btn-wish btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
-              Cancel
+              Fill Sample Address
             </button>
           </div>
-          <button
-            onClick={() => handleMoveToWishlist(product)}
-            className="btn btn-wish btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
-            Fill Sample Address
-          </button>
-        </div>
+        )}
       </form>
     </div>,
     document.getElementById("addressModal")
