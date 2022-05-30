@@ -32,7 +32,7 @@ export function SingleProduct() {
         setLoader(false);
       }
     })();
-  }, []);
+  }, [productId]);
 
   return (
     <div>
