@@ -1,5 +1,11 @@
 import { useReducer } from "react";
-import { nameRegex, emailRegex, passwordRegex } from "./regexConstants";
+import {
+  nameRegex,
+  emailRegex,
+  passwordRegex,
+  pincodeRegex,
+  mobileRegex,
+} from "./regexConstants";
 import {
   inputReducer,
   errorReducer,
@@ -75,6 +81,17 @@ export const useValidation = () => {
     return inputValid;
   };
 
+  const validateAddress = (address) => {
+    let addressValid = true;
+    if (
+      !pincodeRegex.test(address.pincode) ||
+      !mobileRegex.test(address.mobile)
+    ) {
+      addressValid = false;
+    }
+    return addressValid;
+  };
+
   const resetErrors = () => errorDispatch({ type: "CLEAR_ERRORS" });
 
   return {
@@ -84,5 +101,6 @@ export const useValidation = () => {
     resetErrors,
     validateInputs,
     validateLogin,
+    validateAddress,
   };
 };

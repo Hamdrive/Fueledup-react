@@ -1,43 +1,54 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Checkout.module.css";
 
-export function Addresses() {
+export function Addresses({ addressBook, deliveryAdd, setDeliveryAdd }) {
+  const handleChange = (address) => {
+    setDeliveryAdd(address);
+  };
+
   return (
     <div>
       <h3 className="txt-capitalize txt-left">Address Book</h3>
       <div className="my-2">
-        <ul>
-          <li className={styles.address__block}>
-            <label>
-              <input
-                className="mx-2 large-radio"
-                type="radio"
-                name="address"
-                id="address"
-                checked
-              />
-            </label>
-            <div className="w-100">
-              <p className="h3">Carlos Sainz Jr.</p>
-              <p>Viale di Vedano, 5, 20900 Monza MB, Italy</p>
-              <p>123-456-789</p>
+        <ul className="checkout__addresses">
+          {addressBook.length ? (
+            addressBook.map((address) => (
+              <li key={address._id} className={styles.address__block}>
+                <label>
+                  <input
+                    className="mx-2 large-radio"
+                    type="radio"
+                    name="address"
+                    id="address"
+                    checked={deliveryAdd._id === address._id}
+                    onChange={() => handleChange(address)}
+                  />
+                </label>
+                <div className="flex-column my-1">
+                  <p className="flex-grow-1 txt-bold h4">{address.fullName}</p>
+                  <p className="flex-grow-1">
+                    {address.deliveryAddress}, {address.city}, {address.state},{" "}
+                    {address.pincode}
+                  </p>
+                  <p className="flex-grow-1">Mobile Number: {address.mobile}</p>
+                </div>
+              </li>
+            ))
+          ) : (
+            <div className="flex-center flex-column">
+              <p className="h3">
+                Please add a delivery address in order to place your delivery
+              </p>
+              <Link to="/profile">
+                <button
+                  type="submit"
+                  className="btn btn-cta btn-lg txt-bold txt-reg w-100 flex-1 my-sm">
+                  Go to profile
+                </button>
+              </Link>
             </div>
-          </li>
-          <li className={styles.address__block}>
-            <label>
-              <input
-                className="mx-2 large-radio"
-                type="radio"
-                name="address"
-                id="address"
-              />
-            </label>
-            <div className="w-100">
-              <p className="h3">Lewis Hamilton</p>
-              <p>Towcester NN12 8TN, United Kingdom</p>
-              <p>123-456-789</p>
-            </div>
-          </li>
+          )}
         </ul>
       </div>
     </div>

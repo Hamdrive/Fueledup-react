@@ -41,7 +41,7 @@
   min-height: 20rem;
 }
 
-.products__order {
+.products__order, .address__order {
   height: 15rem;
   overflow: scroll;
 }
