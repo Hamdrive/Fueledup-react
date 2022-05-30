@@ -8,3 +8,4 @@ export { MockAPI } from "./MockAPI";
 export { Loader } from "./Loader";
 export { InputError } from "./InputError";
 export { Toast } from "./Toast";
+export { AddressModal } from "./AddressModal";

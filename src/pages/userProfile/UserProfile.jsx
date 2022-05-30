@@ -8,7 +8,7 @@ import { UserProfileOrders } from "./UserProfileOrders";
 import { UserProfileSettings } from "./UserProfileSettings";
 
 export function UserProfile() {
-  const [profileSection, setProfileSection] = useState("profile");
+  const [profileSection, setProfileSection] = useState("settings");
   const {
     userDetails: { userDetails },
     logoutUser,
@@ -29,7 +29,7 @@ export function UserProfile() {
             setProfileSection={setProfileSection}
           />
           <div className={styles.profile__content}>
-            {profileSection === "profile" && (
+            {profileSection === "settings" && (
               <UserProfileSettings
                 handleLogout={handleLogout}
                 userDetails={userDetails}

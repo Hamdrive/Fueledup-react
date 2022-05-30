@@ -2,13 +2,12 @@ import React from "react";
 import Confetti from "react-confetti";
 import { useLocation } from "react-router-dom";
 import { Footer, Navbar } from "../../components";
-import { useProduct } from "../../context/product-context";
 import styles from "./Summary.module.css";
 import useWindowSize from "react-use/lib/useWindowSize";
 
 export function Summary() {
   const {
-    state: { order },
+    state: { order, deliveryAdd },
   } = useLocation();
 
   const { width, height } = useWindowSize();
@@ -27,18 +26,27 @@ export function Summary() {
         <h2 className="txt-center my-2">Order Summary</h2>
         <div className={styles.summary__card}>
           <section className="flex-column">
-            <div className="h3 txt-semibold txt-center flex-grow-1">
+            <div className="h3 txt-semibold flex-grow-1">
               Order successfully placed!
             </div>
-            <div className="h4 txt-center flex-grow-1">
+            <p className="h4 flex-grow-1">
               Thank you for shopping! 🚀
-            </div>
-            <p className="h4 txt-center flex-grow-1">
+            </p>
+            <p className="h5 txt-semibold flex-grow-1">
               Payment ID : {order.paymentId}
             </p>
-            <p className="h4 txt-center  flex-grow-1">
+            <p className="h5 txt-semibold  flex-grow-1">
               Amount Paid : ₹ {order.amountPaid}/-
             </p>
+            <div className="flex-column my-1">
+              <p className="flex-grow-1 txt-semibold h3">Order will be delivered to: </p>
+              <p className="flex-grow-1 h4">{deliveryAdd.fullName}</p>
+              <p className="flex-grow-1 h5">
+                {deliveryAdd.deliveryAddress}, {deliveryAdd.city},{" "}
+                {deliveryAdd.state}, {deliveryAdd.pincode}
+              </p>
+              <p className="flex-grow-1 h5">Mobile Number: {deliveryAdd.mobile}</p>
+            </div>
           </section>
           <section className={styles.products__order}>
             {order.orderedProducts.map((item) => (

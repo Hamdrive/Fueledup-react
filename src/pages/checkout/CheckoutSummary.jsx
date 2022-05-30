@@ -7,7 +7,7 @@ import styles from "./Checkout.module.css";
 import portalImage from "../../assets/portalImage.png";
 import { v4 as uuid } from "uuid";
 
-export function CheckoutSummary() {
+export function CheckoutSummary({deliveryAdd}) {
   const {
     state: { productsInCart },
     clearCart,
@@ -24,7 +24,7 @@ export function CheckoutSummary() {
 
   const handleClearCart = async (order) => {
     if (await clearCart(productsInCart)) {
-      navigate("/summary", { replace: true, state: { order } });
+      navigate("/summary", { replace: true, state: { order, deliveryAdd } });
       dispatch({ type: "CLEAR_CART" });
     }
   };
@@ -134,16 +134,21 @@ export function CheckoutSummary() {
       </div>
       <hr />
       <h4 className="txt-upper txt-center my-sm">deliver to</h4>
-      <hr />
-      <div className="my-2">
-        <p className="h3">Carlos Sainz Jr.</p>
-        <p>Viale di Vedano, 5, 20900 Monza MB, Italy</p>
-        <p>123-456-789</p>
-      </div>
+      <hr className="mb-1" />
+      {deliveryAdd && 
+      <div className="flex-column my-1">
+        <p className="flex-grow-1 txt-bold h4">{deliveryAdd.fullName}</p>
+        <p className="flex-grow-1">
+          {deliveryAdd.deliveryAddress}, {deliveryAdd.city}, {deliveryAdd.state},{" "}
+          {deliveryAdd.pincode}
+        </p>
+        <p className="flex-grow-1">Mobile Number: {deliveryAdd.mobile}</p>
+      </div>}
 
       <Link to="#">
         <button
           onClick={(e) => handlePlaceOrder(e)}
+          disabled={!deliveryAdd}
           className="btn btn-order btn-cta btn-lg txt-bold txt-reg txt-center w-100 py-sm">
           <i className="fas fa-truck"></i>
           place order

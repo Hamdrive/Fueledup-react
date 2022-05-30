@@ -6,6 +6,7 @@ export const initialUserState = {
     firstName: "",
     lastName: "",
   },
+  addressBook: [],
 };
 
 export const authReducer = (userDetails, { type, payload }) => {
@@ -42,6 +43,37 @@ export const authReducer = (userDetails, { type, payload }) => {
       localStorage.removeItem("userToken");
       localStorage.removeItem("userDetails");
       return { ...initialUserState };
+    }
+
+    case "NEW_ADDRESS": {
+      const updatedState = {
+        ...userDetails,
+        addressBook: [...userDetails.addressBook, payload],
+      };
+
+      return updatedState;
+    }
+
+    case "UPDATE_ADDRESS": {
+      const updatedState = {
+        ...userDetails,
+        addressBook: userDetails.addressBook.map((address) =>
+          address._id === payload._id ? { ...payload } : address
+        ),
+      };
+
+      return updatedState;
+    }
+
+    case "DELETE_ADDRESS": {
+      const updatedState = {
+        ...userDetails,
+        addressBook: userDetails.addressBook.filter(
+          (address) => address._id !== payload._id
+        ),
+      };
+
+      return updatedState;
     }
   }
 };

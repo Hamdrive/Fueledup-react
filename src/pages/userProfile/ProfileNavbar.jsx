@@ -6,9 +6,9 @@ export function ProfileNavbar({ profileSection, setProfileSection }) {
     <nav className={styles.profile__nav}>
       <ul className="w-100 flex-row">
         <li
-          onClick={() => setProfileSection("profile")}
+          onClick={() => setProfileSection("settings")}
           className={`list-style-none flex-1 ${styles.profile__section} ${
-            profileSection === "profile" && styles.active
+            profileSection === "settings" && styles.active
           }`}>
           <div className="fas fa-user-cog pointer"></div>
         </li>
